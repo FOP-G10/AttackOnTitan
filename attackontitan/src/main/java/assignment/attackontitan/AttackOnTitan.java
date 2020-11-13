@@ -6,30 +6,52 @@
 package assignment.attackontitan;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
  * @author Autumn
  */
 public class AttackOnTitan {
-    ArrayList<String[]> board;
+    ArrayList<Titan[]> ground;
     Wall[] walls;
     int hour;
     int coin;
+    ArrayList<Integer[]> colossusIndex;
+    ArrayList<Integer[]> armouredIndex;
+    static Random r = new Random();
     
     public AttackOnTitan() {
-        this.board = new ArrayList<>();
+        this.ground = new ArrayList<>();
         this.walls = this.createWalls();
         this.hour = 0;
         this.coin = 50;
+        this.colossusIndex = new ArrayList<>();
+        this.armouredIndex = new ArrayList<>();
     }
     
     public static void main(String[] args) {
         AttackOnTitan aot = new AttackOnTitan();
-        aot.upgradeWeapon("2345");
-        System.out.println("The weapon level: " + aot.walls[5].weaponLevel);
+        aot.upgradeWeapon("345");
+        System.out.println("The weapon level: " + aot.walls[5].weapon.level);
         aot.addGroundRow();
+        
+        aot.addColossus();
+        aot.addArmoured();
+        
+        aot.addColossus();
+        aot.addArmoured();
+        
         aot.printBoard();
+        aot.moveColossus();
+        aot.printBoard();
+        aot.moveArmoured();
+        aot.printBoard();
+    }
+    
+    public void printBoard() {
+        this.printGround();
+        this.printWallsAndWeapons();
     }
     
     public final Wall[] createWalls() {
@@ -40,24 +62,38 @@ public class AttackOnTitan {
         return tmp;
     }
     
-    public void printBoard() {
+    public void printGround() {
         System.out.println("On The Ground");
         System.out.println("Row");
-        for (String[] row: this.board) {
-            System.out.println(String.join(" ", row));
+        for (int i=0; i<this.ground.size(); i++) {
+            System.out.print(i + " ");
+            for (Titan titan: this.ground.get(i)) {
+                if (titan == null) {
+                    System.out.print("  ");
+                } else {
+                    System.out.print(titan);
+                }
+                System.out.print(" ");
+            }
+            if (i == 0) {
+                System.out.println("HOUR: " + this.hour);
+            } else if (i == 1) {
+                System.out.println("Coin: " + this.coin);
+            } else {
+                System.out.println();
+            }
         }
-        this.printWallsAndWeapons();
     }
     
     public void printWallsAndWeapons() {
         int maxWeaponRow = 0;
         for (Wall wall: this.walls) {
-            maxWeaponRow = wall.weaponLevel > maxWeaponRow ? wall.weaponLevel : maxWeaponRow;
+            maxWeaponRow = wall.weapon.level > maxWeaponRow ? wall.weapon.level : maxWeaponRow;
         }
         for (int row=maxWeaponRow; row>0; row--) {
             System.out.print("  ");
             for (Wall wall: this.walls) {
-                if (wall.weaponLevel >= row) {
+                if (wall.weapon.level >= row) {
                     System.out.print("** ");
                 } else {
                     System.out.print("   ");
@@ -86,31 +122,10 @@ public class AttackOnTitan {
         }
     }
     
-    public String[][] setBoard() {
-        return new String[3][8];
-    }
-    
     public void addGroundRow() {
         for (int i=0; i<10; i++) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(String.valueOf(i));
-            sb.append("|");
-            sb.append(new String(new char[10]).replace("\0", "  |"));
-            
-            if (i == 0) {
-                sb.append("HOUR: ");
-                sb.append(String.valueOf(this.hour));
-            } else if (i == 1) {
-                sb.append("Coin: ");
-                sb.append(String.valueOf(this.coin));
-            }
-            this.board.add(sb.toString().split("[|]"));
+            this.ground.add(new Titan[10]);
         }
-    }
-    
-    public void addHeader() {
-        this.board.add(new String[]{"On the ground"});
-        this.board.add(new String[]{"Row"});
     }
     
     public void checkAddCoin() {
@@ -142,12 +157,60 @@ public class AttackOnTitan {
             System.out.println(index);
             Wall focusWall = this.walls[Integer.parseInt(index)];
             try {
-                if (this.checkEnough(focusWall.attackDamage.get(focusWall.weaponLevel + 1)) && focusWall.upgradeWeapon()) {
-                    this.coin -= focusWall.attackDamage.get(focusWall.weaponLevel);
+                if (this.checkEnough(focusWall.weapon.attackDamage.get(focusWall.weapon.level + 1)) && focusWall.weapon.upgrade()) {
+                    this.coin -= focusWall.weapon.attackDamage.get(focusWall.weapon.level);
                 }
             }catch (NullPointerException e) {
                 System.out.println(e);
             }
+        }
+    }
+    
+    public void addColossus() {
+        if (this.hour % 5 == 0) {
+            int randomInt = r.nextInt(10);
+            System.out.println(randomInt);
+            this.ground.get(9)[randomInt] = new ColossusTitan();
+            Integer[] coor = {9, randomInt};
+            this.colossusIndex.add(coor);
+        }
+    }
+    
+    public void addArmoured() {
+        if (this.hour % 5 == 0) {
+            int randomInt = r.nextInt(10);
+            System.out.println(randomInt);
+            this.ground.get(0)[randomInt] = new ArmouredTitan();
+            Integer[] coor = {0, randomInt};
+            this.armouredIndex.add(coor);
+        }
+    }
+    
+    public void moveColossus() {
+        for (int i=0; i<this.colossusIndex.size(); i++) {
+            int row = this.colossusIndex.get(i)[0];
+            int col = this.colossusIndex.get(i)[1];
+            
+            ColossusTitan colTitan = (ColossusTitan)this.ground.get(row)[col];
+            int step = colTitan.move();
+            
+            System.out.println(step);
+            this.ground.get(row)[col] = null;
+            this.ground.get(row)[col + step] = colTitan;
+            this.colossusIndex.get(i)[1] = col + step;
+        }
+    }
+    
+    public void moveArmoured() {
+        for (int i=0; i<this.armouredIndex.size(); i++) {
+            int row = this.armouredIndex.get(i)[0];
+            int col = this.armouredIndex.get(i)[1];
+            ArmouredTitan arTitan = (ArmouredTitan)this.ground.get(row)[col];
+            int step = arTitan.move();
+            System.out.println(step);
+            this.ground.get(row)[col] = null;
+            this.ground.get(row + step)[col] = arTitan;
+            this.armouredIndex.get(i)[0] = row + step;
         }
     }
 }
