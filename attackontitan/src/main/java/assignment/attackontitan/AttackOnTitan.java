@@ -166,7 +166,7 @@ public class AttackOnTitan {
     public void upgradeWeapon(String wallIndices) {
         String[] indices = wallIndices.trim().split("");
         for (String index: indices) {
-            System.out.println(index);
+
             Wall focusWall = this.walls[Integer.parseInt(index)];
             try {
                 if (this.checkEnough(focusWall.weapon.attackDamage.get(focusWall.weapon.level + 1)) && focusWall.weapon.upgrade()) {
@@ -181,7 +181,7 @@ public class AttackOnTitan {
     public void addColossus() {
         if (this.hour > 0 && this.hour % 5 == 0) {
             int randomInt = r.nextInt(10);
-            System.out.println(randomInt);
+
             this.ground.get(9)[randomInt] = new ColossusTitan();
             Integer[] coor = {9, randomInt};
             this.colossusIndex.add(coor);
@@ -191,7 +191,7 @@ public class AttackOnTitan {
     public void addArmoured() {
         if (this.hour > 0 && this.hour % 5 == 0) {
             int randomInt = r.nextInt(10);
-            System.out.println(randomInt);
+
             this.ground.get(0)[randomInt] = new ArmouredTitan();
             Integer[] coor = {0, randomInt};
             this.armouredIndex.add(coor);
@@ -210,7 +210,6 @@ public class AttackOnTitan {
             } while (col + step < 0 || col + step >= this.ground.get(row).length);
             
             
-            System.out.println(step);
             this.ground.get(row)[col] = null;
             this.ground.get(row)[col + step] = colTitan;
             this.colossusIndex.get(i)[1] = col + step;
