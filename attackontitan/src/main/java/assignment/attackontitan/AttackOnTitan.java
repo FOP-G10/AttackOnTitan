@@ -30,25 +30,33 @@ public class AttackOnTitan {
         this.coin = 50;
         this.colossusIndex = new ArrayList<>();
         this.armouredIndex = new ArrayList<>();
+        this.addGroundRow();
     }
     
     public static void main(String[] args) {
         AttackOnTitan aot = new AttackOnTitan();
-        aot.upgradeWeapon("345");
-        System.out.println("The weapon level: " + aot.walls[5].weapon.level);
-        aot.addGroundRow();
+//        aot.upgradeWeapon("345");
+//        System.out.println("The weapon level: " + aot.walls[5].weapon.level);
+//        aot.addGroundRow();
+//        
+//        aot.addColossus();
+//        aot.addArmoured();
+//        
+//        aot.addColossus();
+//        aot.addArmoured();
+//        
+//        aot.printBoard();
+//        aot.moveColossusSideways();
+//        aot.printBoard();
+//        aot.moveArmouredForward();
+//        aot.printBoard();
+        do {
+            aot.playerTurn();
+            aot.titanTurn();
+            aot.hour += 1;
+        } while (aot.checkResult());
         
-        aot.addColossus();
-        aot.addArmoured();
-        
-        aot.addColossus();
-        aot.addArmoured();
-        
-        aot.printBoard();
-        aot.moveColossusSideways();
-        aot.printBoard();
-        aot.moveArmouredForward();
-        aot.printBoard();
+        System.out.println("Game over");
     }
     
     public void printBoard() {
@@ -126,14 +134,14 @@ public class AttackOnTitan {
         }
     }
     
-    public void addGroundRow() {
+    public final void addGroundRow() {
         for (int i=0; i<10; i++) {
             this.ground.add(new Titan[10]);
         }
     }
     
     public void checkAddCoin() {
-        if (this.hour % 5 == 0) {
+        if (this.hour > 0 && this.hour % 5 == 0) {
             this.coin += 5;
         }
     }
@@ -171,7 +179,7 @@ public class AttackOnTitan {
     }
     
     public void addColossus() {
-        if (this.hour % 5 == 0) {
+        if (this.hour > 0 && this.hour % 5 == 0) {
             int randomInt = r.nextInt(10);
             System.out.println(randomInt);
             this.ground.get(9)[randomInt] = new ColossusTitan();
@@ -181,7 +189,7 @@ public class AttackOnTitan {
     }
     
     public void addArmoured() {
-        if (this.hour % 5 == 0) {
+        if (this.hour > 0 && this.hour % 5 == 0) {
             int randomInt = r.nextInt(10);
             System.out.println(randomInt);
             this.ground.get(0)[randomInt] = new ArmouredTitan();
@@ -196,7 +204,11 @@ public class AttackOnTitan {
             int col = this.colossusIndex.get(i)[1];
             
             ColossusTitan colTitan = (ColossusTitan)this.ground.get(row)[col];
-            int step = colTitan.moveSideways();
+            int step;
+            do {
+                step = colTitan.moveSideways();
+            } while (col + step < 0 || col + step >= this.ground.get(row).length);
+            
             
             System.out.println(step);
             this.ground.get(row)[col] = null;
@@ -211,7 +223,6 @@ public class AttackOnTitan {
             int col = this.armouredIndex.get(i)[1];
             ArmouredTitan arTitan = (ArmouredTitan)this.ground.get(row)[col];
             int step = arTitan.moveForward();
-            System.out.println(step);
             this.ground.get(row)[col] = null;
             this.ground.get(row + step)[col] = arTitan;
             this.armouredIndex.get(i)[0] = row + step;
@@ -223,9 +234,11 @@ public class AttackOnTitan {
         int col = index[1];
 
         ArmouredTitan arTitan = (ArmouredTitan)this.ground.get(row)[col];
-        int step = arTitan.moveSideways();
+        int step;
+        do {
+            step = arTitan.moveSideways();
+        } while (col + step < 0 || col + step >= this.ground.get(row).length);
 
-        System.out.println(step);
         this.ground.get(row)[col] = null;
         this.ground.get(row)[col + step] = arTitan;
         index[1] = col + step;
@@ -259,7 +272,7 @@ public class AttackOnTitan {
         for (int i=0; i<this.walls.length; i++) {
             if (this.walls[i].weapon.level > 0) {
                 for (Titan[] row: this.ground) {
-                    row[i].damage(this.walls[i].weapon.attackDamage.get(this.walls[i].weapon.level));
+                    if (row[i] != null) row[i].damage(this.walls[i].weapon.attackDamage.get(this.walls[i].weapon.level));
                 }
             }
         }
@@ -271,20 +284,30 @@ public class AttackOnTitan {
         for (int i=0; i<index.length; i++) {
             int indexInt = Integer.parseInt(index[i]);
             int hpUpInt = Integer.parseInt(hpUp[i]);
+            System.out.println(indexInt);
             if (this.checkEnough(hpUpInt)) {
                 this.walls[indexInt].upgradeWall(hpUpInt);
             }
         }
     }
     
+    public boolean checkResult() {
+        for (Wall wall: this.walls) {
+            if (!wall.checkCondition()) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     public void titanTurn() {
         System.out.println("Titan's turn...");
-        this.addColossus();
-        this.addArmoured();
         this.moveArmouredForward();
         this.moveColossusSideways();
         this.attackArmoured();
         this.attackColossus();
+        this.addColossus();
+        this.addArmoured();
     }
     
     public void playerTurn() {
@@ -306,7 +329,6 @@ public class AttackOnTitan {
         }
         System.out.println("How many HP do you want to add up to the wall(s)? Current coin number: " + this.coin);
         String upgradeHp = sc.nextLine();
-        sc.nextLine();
         if (!upgradeWalls.isEmpty()) this.upgradeWall(upgradeWalls, upgradeHp);
         this.printBoard();
         
