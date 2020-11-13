@@ -42,8 +42,7 @@ public class ColossusTitan implements Titan {
         }
     }
 
-    @Override
-    public int move() {
+    public int moveSideways() {
         Random r = new Random();
         int[] result = {-1, 1};
         return result[r.nextInt(2)];

@@ -12,5 +12,4 @@ package assignment.attackontitan;
 public interface Titan {
     public void attack();
     public Titan damage(int points);
-    public int move();
 }

@@ -38,4 +38,8 @@ public class Weapon {
         attackDamage.put(2, 5);
         attackDamage.put(3, 10);
     }
+    
+    public void damage() {
+        this.level -= 1;
+    }
 }

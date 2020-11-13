@@ -31,4 +31,8 @@ public class Wall {
             return false;
         }
     }
+    
+    public void damage(int damagePoint) {
+        this.hp -= damagePoint;
+    }
 }

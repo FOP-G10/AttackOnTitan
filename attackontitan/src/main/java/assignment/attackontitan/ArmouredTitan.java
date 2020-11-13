@@ -5,6 +5,8 @@
  */
 package assignment.attackontitan;
 
+import java.util.Random;
+
 /**
  *
  * @author Autumn
@@ -13,10 +15,12 @@ public class ArmouredTitan implements Titan {
     
     int hp;
     int attackPoint;
+    int extraChance;
     
     public ArmouredTitan() {
         this.hp = 100;
         this.attackPoint = 5;
+        this.extraChance = 0;
     }
     
     @Override
@@ -39,8 +43,14 @@ public class ArmouredTitan implements Titan {
         }
     }
 
-    @Override
-    public int move() {
+    public int moveForward() {
         return 1;
+    }
+    
+    public int moveSideways() {
+        Random r = new Random();
+        int[] result = {-1, 1};
+        this.extraChance = 1;
+        return result[r.nextInt(2)];
     }
 }
