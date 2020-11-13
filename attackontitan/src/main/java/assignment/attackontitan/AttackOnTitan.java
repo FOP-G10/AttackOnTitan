@@ -328,7 +328,7 @@ public class AttackOnTitan {
         }
         System.out.println("How many HP do you want to add up to the wall(s)? Current coin number: " + this.coin);
         String upgradeHp = sc.nextLine();
-        if (!upgradeWalls.isEmpty()) this.upgradeWall(upgradeWalls, upgradeHp);
+        if (!upgradeWalls.isEmpty() && upgradeWalls.length() == upgradeHp.length()) this.upgradeWall(upgradeWalls, upgradeHp);
         this.printBoard();
         
         this.weaponAttack();
