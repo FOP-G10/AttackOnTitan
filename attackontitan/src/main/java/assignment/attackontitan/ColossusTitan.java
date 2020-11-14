@@ -35,7 +35,11 @@ public class ColossusTitan implements Titan {
     @Override
     public ColossusTitan damage(int damagePoints) {
         this.hp -= damagePoints;
+        System.out.println("The colossus titan take damage: " + damagePoints + " points");
+        System.out.println("Current HP for colossus titan: " + this.hp + " points");
+        System.out.println();
         if (this.hp <= 0) {
+            System.out.println("Colossus titan died. ");
             return null;
         } else {
             return this;

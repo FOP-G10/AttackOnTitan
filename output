@@ -1,0 +1,2287 @@
+cd C:\Users\Autumn\Documents\Java\AttackOnTitan\attackontitan; "JAVA_HOME=C:\\Program Files\\Java\\jdk-14.0.1" cmd /c "\"C:\\Program Files\\NetBeans-11.3\\netbeans\\java\\maven\\bin\\mvn.cmd\" -Dexec.args=\"-classpath %classpath assignment.attackontitan.AttackOnTitan\" -Dexec.executable=\"C:\\Program Files\\Java\\jdk-14.0.1\\bin\\java.exe\" -Dexec.classpathScope=runtime -Dmaven.ext.class.path=\"C:\\Program Files\\NetBeans-11.3\\netbeans\\java\\maven-nblib\\netbeans-eventspy.jar\" -Dfile.encoding=UTF-8 org.codehaus.mojo:exec-maven-plugin:1.5.0:exec"
+Running NetBeans Compile On Save execution. Phase execution is skipped and output directories of dependency projects (with Compile on Save turned on) will be used instead of their jar artifacts.
+Scanning for projects...
+                                                                        
+------------------------------------------------------------------------
+Building attackontitan 1.0-SNAPSHOT
+------------------------------------------------------------------------
+
+--- exec-maven-plugin:1.5.0:exec (default-cli) @ attackontitan ---
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 0
+1                               Coin: 50
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 0
+1                               Coin: 50
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 50
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 50
+
+
+On The Ground
+Row
+0                               HOUR: 0
+1                               Coin: 50
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 0
+1                               Coin: 50
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 0
+1                               Coin: 50
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 1
+1                               Coin: 50
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+45453464557
+upgrading weapon on wall 4	Weapon upgraded to level 1
+upgrading weapon on wall 5	Weapon upgraded to level 1
+upgrading weapon on wall 4	Weapon upgraded to level 2
+upgrading weapon on wall 5	Weapon upgraded to level 2
+upgrading weapon on wall 3	Weapon upgraded to level 1
+upgrading weapon on wall 4	Weapon upgraded to level 3
+upgrading weapon on wall 6	Weapon upgraded to level 1
+upgrading weapon on wall 4	Your weapon has reached level 3! 
+upgrading weapon on wall 5	Weapon upgraded to level 3
+upgrading weapon on wall 5	Your weapon has reached level 3! 
+upgrading weapon on wall 7	Weapon upgraded to level 1
+
+On The Ground
+Row
+0                               HOUR: 1
+1                               Coin: 10
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 10
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 10
+
+
+On The Ground
+Row
+0                               HOUR: 1
+1                               Coin: 10
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 1
+1                               Coin: 10
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 1
+1                               Coin: 10
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 2
+1                               Coin: 10
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+8788987
+upgrading weapon on wall 8	Weapon upgraded to level 1
+upgrading weapon on wall 7	Weapon upgraded to level 2
+upgrading weapon on wall 8	Not enough coin for the transaction. 
+upgrading weapon on wall 8	Not enough coin for the transaction. 
+upgrading weapon on wall 9	Weapon upgraded to level 1
+upgrading weapon on wall 8	Not enough coin for the transaction. 
+upgrading weapon on wall 7	Not enough coin for the transaction. 
+
+On The Ground
+Row
+0                               HOUR: 2
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 1
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 1
+
+
+On The Ground
+Row
+0                               HOUR: 2
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 2
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 2
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 3
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 3
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 1
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 1
+
+
+On The Ground
+Row
+0                               HOUR: 3
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 3
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 3
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 4
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 4
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 1
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 1
+
+
+On The Ground
+Row
+0                               HOUR: 4
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 4
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 4
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 5
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 5
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 1
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 1
+
+
+On The Ground
+Row
+0                               HOUR: 5
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 5
+1                               Coin: 1
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                               
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Coin +5
+
+Titan's turn...
+
+On The Ground
+Row
+0                         AA    HOUR: 5
+1                               Coin: 6
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                         AA    HOUR: 6
+1                               Coin: 6
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                         AA    HOUR: 6
+1                               Coin: 6
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 6
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 6
+
+
+On The Ground
+Row
+0                         AA    HOUR: 6
+1                               Coin: 6
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+The armoured titan take damage: 2 points
+Current HP for armoured titan: 98 points
+
+The weapon on wall 8 attack AA
+The colossus titan take damage: 2 points
+Current HP for colossus titan: 48 points
+
+The weapon on wall 8 attack CC
+
+On The Ground
+Row
+0                         AA    HOUR: 6
+1                               Coin: 6
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **    **       
+           ** ** ** ** ** ** ** 
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 6
+1                         AA    Coin: 6
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                            CC 
+              ** **             
+              ** **    **       
+           ** ** ** ** ** **    
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 7
+1                         AA    Coin: 6
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                            CC 
+              ** **             
+              ** **    **       
+           ** ** ** ** ** **    
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 7
+1                         AA    Coin: 6
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                            CC 
+              ** **             
+              ** **    **       
+           ** ** ** ** ** **    
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 6
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 6
+
+
+On The Ground
+Row
+0                               HOUR: 7
+1                         AA    Coin: 6
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                            CC 
+              ** **             
+              ** **    **       
+           ** ** ** ** ** **    
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+The armoured titan take damage: 2 points
+Current HP for armoured titan: 96 points
+
+The weapon on wall 8 attack AA
+
+On The Ground
+Row
+0                               HOUR: 7
+1                         AA    Coin: 6
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                            CC 
+              ** **             
+              ** **    **       
+           ** ** ** ** ** **    
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 7
+1                               Coin: 6
+2                         AA    
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **    **       
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 8
+1                               Coin: 6
+2                         AA    
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **    **       
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 8
+1                               Coin: 6
+
+2                         AA    
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **    **       
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 6
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 6
+
+
+On The Ground
+Row
+0                               HOUR: 8
+1                               Coin: 6
+2                         AA    
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **    **       
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 8
+1                               Coin: 6
+2                         AA    
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **    **       
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 8
+1                               Coin: 6
+2                               
+3                         AA    
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 9
+1                               Coin: 6
+2                               
+3                         AA    
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 9
+1                               Coin: 6
+2                               
+3                         AA    
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 6
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 6
+
+
+On The Ground
+Row
+0                               HOUR: 9
+1                               Coin: 6
+2                               
+3                         AA    
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+The colossus titan take damage: 2 points
+Current HP for colossus titan: 46 points
+
+The weapon on wall 7 attack CC
+
+On The Ground
+Row
+0                               HOUR: 9
+1                               Coin: 6
+2                               
+3                         AA    
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 50 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 9
+1                               Coin: 6
+2                               
+3                               
+4                         AA    
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 40 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 10
+1                               Coin: 6
+2                               
+3                               
+4                         AA    
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 40 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 10
+1                               Coin: 6
+2                               
+3                               
+4                         AA    
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 40 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 6
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 6
+
+
+On The Ground
+Row
+0                               HOUR: 10
+1                               Coin: 6
+2                               
+3                               
+4                         AA    
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 40 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 10
+1                               Coin: 6
+2                               
+3                               
+4                         AA    
+5                               
+6                               
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **             
+           ** ** ** ** **       
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 40 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Coin +5
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 10
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                         AA    
+6                               
+7                               
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 40 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 11
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                         AA    
+6                               
+7                               
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 40 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 11
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                         AA    
+6                               
+7                               
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 40 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 11
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 11
+
+
+On The Ground
+Row
+0                               HOUR: 11
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                         AA    
+6                               
+7                               
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 40 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 11
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                         AA    
+6                               
+7                               
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 40 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 11
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                         AA    
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 12
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                         AA    
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 12
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                         AA    
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 11
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 11
+
+
+On The Ground
+Row
+0                               HOUR: 12
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                         AA    
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 12
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                         AA    
+7                               
+8                               
+9                         CC    
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 50 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 12
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                         AA    
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 40 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 13
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                         AA    
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 40 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 13
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                         AA    
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 40 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 11
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 11
+
+
+On The Ground
+Row
+0                               HOUR: 13
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                         AA    
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 40 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 13
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                         AA    
+8                               
+9                      CC       
+              ** **             
+              ** **             
+           ** ** ** **          
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 40 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 13
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                         AA    
+9                   CC          
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 40 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 14
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                         AA    
+9                   CC          
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 40 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 14
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                         AA    
+9                   CC          
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 40 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 11
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 11
+
+
+On The Ground
+Row
+0                               HOUR: 14
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                         AA    
+9                   CC          
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 40 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 14
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                         AA    
+9                   CC          
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 40 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 14
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC AA    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 30 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 15
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC AA    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 30 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 15
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC AA    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 30 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 11
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 11
+
+
+On The Ground
+Row
+0                               HOUR: 15
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC AA    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 30 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 15
+1                               Coin: 11
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC AA    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 30 30 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Coin +5
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 15
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AC
+    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 30 20 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 16
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AC
+    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 30 20 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 16
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AC
+    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 30 20 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 16
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 16
+
+
+On The Ground
+Row
+0                               HOUR: 16
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AC
+    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 30 20 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 16
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AC
+    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 30 20 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 16
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC AA    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 20 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 17
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC AA    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 20 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 17
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC AA    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 20 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 16
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 16
+
+
+On The Ground
+Row
+0                               HOUR: 17
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC AA    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 20 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 17
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                      CC AA    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 20 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 17
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AC
+    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 10 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 18
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AC
+    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 10 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 18
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AC
+    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 10 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 16
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 16
+
+
+On The Ground
+Row
+0                               HOUR: 18
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AC
+    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 10 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 18
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AC
+    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 10 50 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 18
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AA CC 
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 10 40 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Player's turn...
+
+On The Ground
+Row
+0                               HOUR: 19
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AA CC 
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 10 40 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)
+
+
+On The Ground
+Row
+0                               HOUR: 19
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AA CC 
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 10 40 HP
+  -- -- -- -- -- -- -- -- -- -- 
+Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: 16
+
+Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)
+
+How many HP do you want to add up to the wall(s)? Current coin number: 16
+
+
+On The Ground
+Row
+0                               HOUR: 19
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AA CC 
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 10 40 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+On The Ground
+Row
+0                               HOUR: 19
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AA CC 
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20 10 40 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Titan's turn...
+
+On The Ground
+Row
+0                               HOUR: 19
+1                               Coin: 16
+2                               
+3                               
+4                               
+5                               
+6                               
+7                               
+8                               
+9                         AC
+    
+              ** **             
+              ** **             
+           ** ** **             
+  -- -- -- -- -- -- -- -- -- -- The Wall
+   0  1  2  3  4  5  6  7  8  9 index
+  50 50 50 50 50 50 50 20  0 40 HP
+  -- -- -- -- -- -- -- -- -- -- 
+
+Game over
+------------------------------------------------------------------------
+BUILD SUCCESS
+------------------------------------------------------------------------
+Total time: 03:05 min
+Finished at: 2020-11-14T19:03:13+08:00
+Final Memory: 7M/30M
+------------------------------------------------------------------------

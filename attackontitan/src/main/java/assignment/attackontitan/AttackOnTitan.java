@@ -153,7 +153,7 @@ public class AttackOnTitan {
         if (this.coin >= coinNeeded) {
             return true;
         } else {
-            System.out.println("Not enough coin to upgrade weapon. ");
+            System.out.println("Not enough coin for the transaction. ");
             return false;
         }
     }
@@ -169,10 +169,10 @@ public class AttackOnTitan {
     public void upgradeWeapon(String wallIndices) {
         String[] indices = wallIndices.trim().split("");
         for (String index: indices) {
-
+            System.out.print("upgrading weapon on wall " + index + "\t");
             Wall focusWall = this.walls[Integer.parseInt(index)];
             try {
-                if (this.checkEnough(focusWall.weapon.attackDamage.get(focusWall.weapon.level + 1)) && focusWall.weapon.upgrade()) {
+                if (focusWall.weapon.validUpgrade() && this.checkEnough(focusWall.weapon.attackDamage.get(focusWall.weapon.level + 1)) && focusWall.weapon.upgrade()) {
                     this.coin -= focusWall.weapon.attackDamage.get(focusWall.weapon.level);
                 }
             }catch (NullPointerException e) {
@@ -304,6 +304,7 @@ public class AttackOnTitan {
                         for (Object titan: row[i]) {
                             Titan focus = (Titan) titan;
                             focus.damage(this.walls[i].weapon.attackDamage.get(this.walls[i].weapon.level));
+                            System.out.println("The weapon on wall " + i + " attack " + focus);
                         }
                     }
                 }
@@ -321,7 +322,8 @@ public class AttackOnTitan {
             if (this.checkEnough(hpUpInt)) {
                 this.walls[indexInt].upgradeWall(hpUpInt);
                 this.coin -= hpUpInt;
-            }
+                System.out.println("Wall " + indexInt + " upgrade successfully. ");
+            } 
         }
     }
     
