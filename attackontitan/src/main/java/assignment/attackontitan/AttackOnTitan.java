@@ -284,7 +284,7 @@ public class AttackOnTitan {
     
     public void attackArmoured() {
         for (Integer[] index: this.armouredIndex) {
-            if (index[0] == 0) {
+            if (index[0] == 9) {
                 if (this.walls[index[1]].weapon.level > 0){
                     this.walls[index[1]].weapon.damage();
                 }else {
