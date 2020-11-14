@@ -40,7 +40,7 @@ public class ArmouredTitan implements Titan {
         System.out.println("Current HP for armoured titan: " + this.hp + " points");
         System.out.println();
         if (this.hp <= 0) {
-            System.out.println("Armoured titan died. ");
+            System.out.println("Colossus titan died. ");
             return null;
         } else {
             return this;

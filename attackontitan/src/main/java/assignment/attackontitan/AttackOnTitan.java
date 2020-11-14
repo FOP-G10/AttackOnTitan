@@ -302,12 +302,22 @@ public class AttackOnTitan {
                 for (ArrayList[] row: this.ground) {
                     if (row[i] != null && row[i].size() > 0){
                         for (Object titan: row[i]) {
-                            Titan focus = (Titan) titan;
-                            focus.damage(this.walls[i].weapon.attackDamage.get(this.walls[i].weapon.level));
-                            System.out.println("The weapon on wall " + i + " attack " + focus);
+                            try {
+                                ColossusTitan focus = (ColossusTitan) titan;
+                                focus.damage(this.walls[i].weapon.attackDamage.get(this.walls[i].weapon.level));
+                            } catch (ClassCastException ex) {
+                                ArmouredTitan focus = (ArmouredTitan) titan;
+                                focus.damage(this.walls[i].weapon.attackDamage.get(this.walls[i].weapon.level));
+                            }
+                            System.out.println("The weapon on wall " + i + " attacks");
                         }
                     }
                 }
+//                for (Integer[] index: this.armouredIndex) {
+//                    if (index[1] == i) {
+//                        this.ground.get(index[0])[index[1]].get(index[2]).damage(this.walls[i].weapon.attackDamage.get(this.walls[i].weapon.level));
+//                    }
+//                }
             }
         }
     }
