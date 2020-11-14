@@ -179,7 +179,7 @@ public class AttackOnTitan {
     }
     
     public void addColossus() {
-        if (this.hour > 0 && this.hour % 5 == 0) {
+        if (this.hour > 0 && this.hour == 5) {
             int randomInt = r.nextInt(10);
 
             this.ground.get(9)[randomInt] = new ColossusTitan();
@@ -189,7 +189,7 @@ public class AttackOnTitan {
     }
     
     public void addArmoured() {
-        if (this.hour > 0 && this.hour % 5 == 0) {
+        if (this.hour > 0 && this.hour == 5) {
             int randomInt = r.nextInt(10);
 
             this.ground.get(0)[randomInt] = new ArmouredTitan();
