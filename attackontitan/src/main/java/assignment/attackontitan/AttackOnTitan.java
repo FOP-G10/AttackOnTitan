@@ -163,6 +163,7 @@ public class AttackOnTitan {
     }
     
     public void upgradeWeapon(String wallIndices) {
+        int count = 0;
         String[] indices = wallIndices.trim().split("");
         for (String index: indices) {
             System.out.print("upgrading weapon on wall " + index + "\t");
@@ -170,10 +171,15 @@ public class AttackOnTitan {
             try {
                 if (focusWall.weapon.validUpgrade() && this.checkEnough(focusWall.weapon.attackDamage.get(focusWall.weapon.level + 1)) && focusWall.weapon.upgrade()) {
                     this.coin -= focusWall.weapon.attackDamage.get(focusWall.weapon.level);
+                    count ++;
                 }
             }catch (NullPointerException e) {
                 System.out.println(e);
             }
+        }
+        
+        if (count == 0) {
+            System.out.println("No weapon upgraded. ");
         }
     }
     
@@ -187,6 +193,9 @@ public class AttackOnTitan {
             this.ground.get(9)[randomInt].add(newCol);
             Integer[] coor = {9, randomInt, this.ground.get(9)[randomInt].indexOf(newCol)};
             this.colossusIndex.add(coor);
+            System.out.println("A colossus titan is added to the ground. ");
+        } else {
+            System.out.println("No colossus titan added. ");
         }
     }
     
@@ -200,6 +209,9 @@ public class AttackOnTitan {
             this.ground.get(0)[randomInt].add(arTitan);
             Integer[] coor = {0, randomInt, this.ground.get(0)[randomInt].indexOf(arTitan)};
             this.armouredIndex.add(coor);
+            System.out.println("A armoured titan is added to the ground. ");
+        }else {
+            System.out.println("No armoured titan added. ");
         }
     }
     
@@ -224,6 +236,7 @@ public class AttackOnTitan {
             this.ground.get(row)[col + step].add(colTitan);
             this.colossusIndex.get(i)[1] = col + step;
             this.colossusIndex.get(i)[2] = this.ground.get(row)[col + step].indexOf(colTitan);
+            System.out.println("The colossus titan moved sideways. ");
         }
     }
     
@@ -244,6 +257,9 @@ public class AttackOnTitan {
                 this.ground.get(row + step)[col].add(arTitan);
                 this.armouredIndex.get(i)[0] = row + step;
                 this.armouredIndex.get(i)[2] = this.ground.get(row + step)[col].indexOf(arTitan);
+                System.out.println("The armoured titan moved forward.");
+            } else {
+                System.out.println("The armoured titan did not move forward.");
             }
         }
     }
@@ -266,55 +282,78 @@ public class AttackOnTitan {
         this.ground.get(row)[col + step].add(arTitan);
         index[1] = col + step;
         index[2] = this.ground.get(row)[col + step].indexOf(arTitan);
+        System.out.println("The armoured titan moved sideways.");
     }
     
     public void attackColossus() {
+        int count = 0;
         for (Integer[] index: this.colossusIndex) {
             if (this.walls[index[1]].weapon.level > 0) {
                 this.walls[index[1]].weapon.damage();
+                System.out.println("The colossus titan attacked the weapon on wall " + index[1]);
+                count ++;
             } else {
                 this.walls[index[1]].damage(((ColossusTitan)this.ground.get(index[0])[index[1]].get(index[2])).attackPoint);
+                System.out.println("The colossus titan attacked the wall " + index[1]);
+                count ++;
             }
+        }
+        if (count == 0) {
+            System.out.println("The colossus titan did not launch an attack.");
         }
     }
     
     public void attackArmoured() {
+        int count = 0;
         for (Integer[] index: this.armouredIndex) {
             if (index[0] == 9) {
                 if (this.walls[index[1]].weapon.level > 0){
                     this.walls[index[1]].weapon.damage();
+                    System.out.println("The armoured titan attacked the weapon on wall " + index[1]);
                 }else {
                     ArmouredTitan focus = (ArmouredTitan)this.ground.get(index[0])[index[1]].get(index[2]);
-                    if (focus.extraChance == 0) this.moveArmouredSideways(index);
-                    else this.walls[index[1]].damage(focus.attackPoint);
+                    if (focus.extraChance == 0){
+                        this.moveArmouredSideways(index);
+                        System.out.println("The armoured titan reached line 9 but did not attack. ");
+                    }
+                    else {
+                        this.walls[index[1]].damage(focus.attackPoint);
+                        System.out.println("The armoured titan attacked the wall " + index[1]);
+                        count ++;
+                    }
                 }
             }
+        }
+        
+        if (count == 0) {
+            System.out.println("The armoured titan did not launch an attack.");
         }
     }
     
     public void weaponAttack() {
+        int count = 0;
         for (int i=0; i<this.walls.length; i++) {
             if (this.walls[i].weapon.level > 0) {
                 for (ArrayList[] row: this.ground) {
                     if (row[i] != null && row[i].size() > 0){
                         for (Object titan: row[i]) {
+                            System.out.println("The weapon on wall " + i + " attacks");
                             try {
                                 ColossusTitan focus = (ColossusTitan) titan;
                                 focus.damage(this.walls[i].weapon.attackDamage.get(this.walls[i].weapon.level));
+                                count ++;
                             } catch (ClassCastException ex) {
                                 ArmouredTitan focus = (ArmouredTitan) titan;
                                 focus.damage(this.walls[i].weapon.attackDamage.get(this.walls[i].weapon.level));
+                                count ++;
                             }
-                            System.out.println("The weapon on wall " + i + " attacks");
                         }
                     }
                 }
-//                for (Integer[] index: this.armouredIndex) {
-//                    if (index[1] == i) {
-//                        this.ground.get(index[0])[index[1]].get(index[2]).damage(this.walls[i].weapon.attackDamage.get(this.walls[i].weapon.level));
-//                    }
-//                }
             }
+        }
+        if (count == 0) {
+                System.out.println("The weapons on all walls did not launch an attack... ");
         }
     }
     
@@ -324,7 +363,6 @@ public class AttackOnTitan {
         for (int i=0; i<index.length; i++) {
             int indexInt = Integer.parseInt(index[i]);
             int hpUpInt = Integer.parseInt(hpUp[i]);
-            System.out.println(indexInt);
             if (this.checkEnough(hpUpInt)) {
                 this.walls[indexInt].upgradeWall(hpUpInt);
                 this.coin -= hpUpInt;
@@ -372,18 +410,6 @@ public class AttackOnTitan {
         return false;
     }
     
-    public void titanTurn() {
-        System.out.println("Titan's turn...");
-        this.moveArmouredForward();
-        this.moveColossusSideways();
-        this.attackArmoured();
-        this.attackColossus();
-        this.addColossus();
-        this.addArmoured();
-        this.printBoard();
-        System.out.println();
-    }
-    
     public void clearConsole(){
         try {
             Robot pressbot = new Robot();
@@ -397,14 +423,70 @@ public class AttackOnTitan {
         }
     }
     
+    public void titanTurn() {
+        if (this.armouredIndex.size() + this.colossusIndex.size() > 0){
+            System.out.println("Titan's turn...");
+            System.out.println();
+            System.out.println("Titan start to move");
+            this.moveArmouredForward();
+            this.moveColossusSideways();
+            System.out.print("Press enter to continue... ");
+            sc.nextLine();
+            this.clearConsole();
+
+            System.out.println("Titan's turn...");
+            System.out.println("The board after the titans move...");
+            this.printBoard();
+            System.out.print("Press enter to continue... ");
+            sc.nextLine();
+            this.clearConsole();
+
+            System.out.println("Titan's turn...");
+            this.attackArmoured();
+            this.attackColossus();
+            System.out.print("Press enter to continue... ");
+            sc.nextLine();
+            this.clearConsole();
+
+            System.out.println("The board after the titan's turn... ");
+            this.printBoard();
+
+            System.out.println();
+            System.out.print("Press enter to continue... ");
+            sc.nextLine();
+            this.clearConsole();
+        } else {
+            System.out.println("No titan on the ground.");
+            System.out.println("Titan's turn skipped.");
+            System.out.println();
+            System.out.print("Press enter to continue... ");
+            sc.nextLine();
+            this.clearConsole();
+        }
+        this.addColossus();
+        this.addArmoured();
+    }
+    
     public void playerTurn() {
         System.out.println("Player's turn...");
         this.printBoard();
         System.out.println("Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)");
         String weaponString = sc.nextLine();
+        this.clearConsole();
         if (!weaponString.isEmpty()) {
             this.upgradeWeapon(weaponString);
+        } else {
+            System.out.println("No weapon upgraded. ");
         }
+        System.out.print("Press enter to continue... ");
+        sc.nextLine();
+        this.clearConsole();
+        System.out.println("Player's turn");
+        System.out.println();
+        System.out.println("Your board after upgrading weapon: ");
+        this.printBoard();
+        System.out.print("Press Enter to continue... ");
+        sc.nextLine();
         this.clearConsole();
         this.printBoard();
         System.out.println("Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: " + this.coin);
@@ -418,14 +500,29 @@ public class AttackOnTitan {
         System.out.println("How many HP do you want to add up to the wall(s)? Current coin number: " + this.coin);
         String upgradeHp = sc.nextLine();
         this.clearConsole();
-        if (!upgradeWalls.isEmpty() && upgradeWalls.length() == upgradeHp.length()) this.upgradeWall(upgradeWalls, upgradeHp);
+        if (!upgradeWalls.isEmpty() && upgradeWalls.length() == upgradeHp.length()) {
+            this.upgradeWall(upgradeWalls, upgradeHp);
+        } else {
+            System.out.println("No wall upgraded. ");
+        }
 //        this.printBoard();
+        System.out.print("Press enter to continue... ");
+        sc.nextLine();
+        
+        this.clearConsole();
+        System.out.println("Your board after upgrading walls: ");
+        this.printBoard();
+        System.out.println();
+        System.out.print("Press Enter to continue... ");
+        sc.nextLine();
+        this.clearConsole();
         
         this.weaponAttack();
         
         this.updataColossusIndex();
         this.updateArmouredIndex();
         
+        System.out.println("Your board after attacking... ");
         this.printBoard();
         this.checkAddCoin();
         System.out.println();
