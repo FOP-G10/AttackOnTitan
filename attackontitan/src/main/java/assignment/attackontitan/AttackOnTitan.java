@@ -5,9 +5,14 @@
  */
 package assignment.attackontitan;
 
+import java.awt.AWTException;
+import java.awt.Robot;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,25 +40,16 @@ public class AttackOnTitan {
     
     public static void main(String[] args) {
         AttackOnTitan aot = new AttackOnTitan();
-//        aot.upgradeWeapon("345");
-//        System.out.println("The weapon level: " + aot.walls[5].weapon.level);
-//        aot.addGroundRow();
-//        
-//        aot.addColossus();
-//        aot.addArmoured();
-//        
-//        aot.addColossus();
-//        aot.addArmoured();
-//        
-//        aot.printBoard();
-//        aot.moveColossusSideways();
-//        aot.printBoard();
-//        aot.moveArmouredForward();
-//        aot.printBoard();
         do {
             aot.playerTurn();
+            System.out.print("Press enter to continue...");
+            sc.nextLine();
+            aot.clearConsole();
             aot.titanTurn();
             aot.hour += 1;
+            System.out.print("Press enter to continue...");
+            sc.nextLine();
+            aot.clearConsole();
         } while (aot.checkResult());
         
         System.out.println("Game over");
@@ -388,6 +384,19 @@ public class AttackOnTitan {
         System.out.println();
     }
     
+    public void clearConsole(){
+        try {
+            Robot pressbot = new Robot();
+            pressbot.keyPress(17); // Holds CTRL key.
+            pressbot.keyPress(76); // Holds L key.
+            pressbot.keyRelease(17); // Releases CTRL key.
+            pressbot.keyRelease(76); // Releases L key.
+            TimeUnit.MILLISECONDS.sleep(5);
+        } catch (AWTException | InterruptedException ex) {
+            Logger.getLogger(AttackOnTitan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void playerTurn() {
         System.out.println("Player's turn...");
         this.printBoard();
@@ -396,6 +405,7 @@ public class AttackOnTitan {
         if (!weaponString.isEmpty()) {
             this.upgradeWeapon(weaponString);
         }
+        this.clearConsole();
         this.printBoard();
         System.out.println("Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: " + this.coin);
         String upgradeWalls = sc.nextLine();
@@ -407,8 +417,9 @@ public class AttackOnTitan {
         }
         System.out.println("How many HP do you want to add up to the wall(s)? Current coin number: " + this.coin);
         String upgradeHp = sc.nextLine();
+        this.clearConsole();
         if (!upgradeWalls.isEmpty() && upgradeWalls.length() == upgradeHp.length()) this.upgradeWall(upgradeWalls, upgradeHp);
-        this.printBoard();
+//        this.printBoard();
         
         this.weaponAttack();
         
