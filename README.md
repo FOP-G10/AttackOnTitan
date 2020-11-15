@@ -1,2 +1,2 @@
 # AttackOnTitan
-My assignment in CS degree Year 1 Semester 1
+This repo contains the souce code for assignment Question 5
