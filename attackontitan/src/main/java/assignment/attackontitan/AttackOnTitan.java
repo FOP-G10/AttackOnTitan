@@ -372,10 +372,23 @@ public class AttackOnTitan {
     }
     
     public boolean checkResult() {
+        return this.checkWalls() || this.checkTitans();
+    }
+    
+    public boolean checkWalls() {
         for (Wall wall: this.walls) {
             if (!wall.checkCondition()) {
+                System.out.println("Game over. You lose. ");
                 return false;
             }
+        }
+        return true;
+    }
+    
+    public boolean checkTitans() {
+        if (this.colossusIndex.isEmpty() && this.armouredIndex.isEmpty()) {
+            System.out.println("You win. All titans are dead. ");
+            return false;
         }
         return true;
     }
