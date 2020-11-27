@@ -10,6 +10,11 @@ package assignment.attackontitan;
  * @author Autumn
  */
 public interface Titan {
+    @Override
+    public String toString();
+    
     public void attack();
+    
     public Titan damage(int points);
+    
 }

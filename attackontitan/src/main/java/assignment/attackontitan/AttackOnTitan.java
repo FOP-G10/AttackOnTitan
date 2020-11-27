@@ -76,7 +76,7 @@ public class AttackOnTitan {
         for (int i=0; i<this.ground.size(); i++) {
             System.out.print(i + " ");
             for (ArrayList titans: this.ground.get(i)) {
-                if (titans == null || titans.size() == 0) {
+                if (titans == null || titans.isEmpty()) {
                     System.out.print("  ");
                 } else if (titans.size() == 1) {
                     System.out.print(titans.get(0));
