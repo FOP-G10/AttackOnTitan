@@ -18,21 +18,20 @@ import java.util.logging.Logger;
  *
  * @author Autumn
  */
-public class AttackOnTitan {
+public class AttackOnTitan extends PlayerAccount{
     ArrayList<ArrayList<Titan>[]> ground;
     Wall[] walls;
     int hour;
-    int coin;
     ArrayList<Integer[]> colossusIndex;
     ArrayList<Integer[]> armouredIndex;
     static Random r = new Random();
     static Scanner sc = new Scanner(System.in);
     
     public AttackOnTitan() {
+        super();
         this.ground = new ArrayList<>();
         this.walls = this.createWalls();
         this.hour = 0;
-        this.coin = 50;
         this.colossusIndex = new ArrayList<>();
         this.armouredIndex = new ArrayList<>();
         this.addGroundRow();
@@ -245,22 +244,9 @@ public class AttackOnTitan {
     
     public void checkAddCoin() {
         if (this.hour > 0 && this.hour % 5 == 0) {
-            this.coin += 5;
+            this.addCoin(5);
             System.out.println("Coin +5");
         }
-    }
-    
-    public boolean checkEnough(int coinNeeded) {
-        if (this.coin >= coinNeeded) {
-            return true;
-        } else {
-            System.out.println("Not enough coin for the transaction. ");
-            return false;
-        }
-    }
-    
-    public void payCoin(int amount) {
-        this.coin -= amount;
     }
     
     public void incrementHour() {
