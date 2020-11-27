@@ -169,8 +169,8 @@ public class AttackOnTitan {
             System.out.print("upgrading weapon on wall " + index + "\t");
             Wall focusWall = this.walls[Integer.parseInt(index)];
             try {
-                if (focusWall.weapon.validUpgrade() && this.checkEnough(focusWall.weapon.attackDamage.get(focusWall.weapon.level + 1)) && focusWall.weapon.upgrade()) {
-                    this.coin -= focusWall.weapon.attackDamage.get(focusWall.weapon.level);
+                if (focusWall.weapon.upgrade() && this.checkEnough(focusWall.weapon.attack())) {
+                    this.payCoin(focusWall.weapon.attack());
                     count ++;
                 }
             }catch (NullPointerException e) {
@@ -285,7 +285,7 @@ public class AttackOnTitan {
         System.out.println("The armoured titan moved sideways.");
     }
     
-    public void attackColossus() {
+    public void colossusAttack() {
         int count = 0;
         for (Integer[] index: this.colossusIndex) {
             if (this.walls[index[1]].weapon.level > 0) {
@@ -293,7 +293,7 @@ public class AttackOnTitan {
                 System.out.println("The colossus titan attacked the weapon on wall " + index[1]);
                 count ++;
             } else {
-                this.walls[index[1]].damage(((ColossusTitan)this.ground.get(index[0])[index[1]].get(index[2])).attackPoint);
+                this.walls[index[1]].damage(((ColossusTitan)this.ground.get(index[0])[index[1]].get(index[2])).attack());
                 System.out.println("The colossus titan attacked the wall " + index[1]);
                 count ++;
             }
@@ -303,7 +303,7 @@ public class AttackOnTitan {
         }
     }
     
-    public void attackArmoured() {
+    public void armouredAttack() {
         int count = 0;
         for (Integer[] index: this.armouredIndex) {
             if (index[0] == 9) {
@@ -317,7 +317,7 @@ public class AttackOnTitan {
                         System.out.println("The armoured titan reached line 9 but did not attack. ");
                     }
                     else {
-                        this.walls[index[1]].damage(focus.attackPoint);
+                        this.walls[index[1]].damage(focus.attack());
                         System.out.println("The armoured titan attacked the wall " + index[1]);
                         count ++;
                     }
@@ -340,11 +340,11 @@ public class AttackOnTitan {
                             System.out.println("The weapon on wall " + i + " attacks");
                             try {
                                 ColossusTitan focus = (ColossusTitan) titan;
-                                focus.damage(this.walls[i].weapon.attackDamage.get(this.walls[i].weapon.level));
+                                focus.damage(this.walls[i].weapon.attack());
                                 count ++;
                             } catch (ClassCastException ex) {
                                 ArmouredTitan focus = (ArmouredTitan) titan;
-                                focus.damage(this.walls[i].weapon.attackDamage.get(this.walls[i].weapon.level));
+                                focus.damage(this.walls[i].weapon.attack());
                                 count ++;
                             }
                         }
@@ -365,7 +365,7 @@ public class AttackOnTitan {
             int hpUpInt = Integer.parseInt(hpUp[i]);
             if (this.checkEnough(hpUpInt)) {
                 this.walls[indexInt].upgradeWall(hpUpInt);
-                this.coin -= hpUpInt;
+                this.payCoin(hpUpInt);
                 System.out.println("Wall " + indexInt + " upgrade successfully. ");
             } 
         }
@@ -380,7 +380,7 @@ public class AttackOnTitan {
         return true;
     }
     
-    public void updataColossusIndex() {
+    public void updateColossusIndex() {
         
         for (int i=0; i<this.colossusIndex.size(); i++) {
             Integer[] index = this.colossusIndex.get(i);
@@ -442,8 +442,8 @@ public class AttackOnTitan {
             this.clearConsole();
 
             System.out.println("Titan's turn...");
-            this.attackArmoured();
-            this.attackColossus();
+            this.armouredAttack();
+            this.colossusAttack();
             System.out.print("Press enter to continue... ");
             sc.nextLine();
             this.clearConsole();
@@ -519,7 +519,7 @@ public class AttackOnTitan {
         
         this.weaponAttack();
         
-        this.updataColossusIndex();
+        this.updateColossusIndex();
         this.updateArmouredIndex();
         
         System.out.println("Your board after attacking... ");

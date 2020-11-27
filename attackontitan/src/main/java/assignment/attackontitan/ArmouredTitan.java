@@ -29,8 +29,8 @@ public class ArmouredTitan implements Titan {
     }
 
     @Override
-    public void attack() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int attack() {
+        return this.attackPoint;
     }
 
     @Override
