@@ -40,6 +40,10 @@ public class Weapon {
         attackDamage.put(3, 10);
     }
     
+    public int getAttackDamage() {
+        return this.attackDamage.get(this.level);
+    }
+    
     public boolean validUpgrade() {
         if (this.level < 3) {
             return true;
@@ -47,6 +51,10 @@ public class Weapon {
             System.out.println("Your weapon has reached level 3! ");
             return false;
         }
+    }
+    
+    public int attack() {
+        return this.attackDamage.get(this.level);
     }
     
     public void damage() {

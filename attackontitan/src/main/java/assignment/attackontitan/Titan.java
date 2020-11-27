@@ -13,7 +13,7 @@ public interface Titan {
     @Override
     public String toString();
     
-    public void attack();
+    public int attack();
     
     public Titan damage(int points);
     
