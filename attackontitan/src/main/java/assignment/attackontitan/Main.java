@@ -5,13 +5,16 @@
  */
 package assignment.attackontitan;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Autumn
  */
-public class Main extends AttackOnTitan{
+public class Main{
     public static void main(String[] args) {
         AttackOnTitan aot = new AttackOnTitan();
+        Scanner sc = new Scanner(System.in);
         do {
             aot.playerTurn();
             System.out.print("Press enter to continue...");

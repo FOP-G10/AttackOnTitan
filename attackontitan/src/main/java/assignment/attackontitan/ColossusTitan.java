@@ -13,8 +13,8 @@ import java.util.Random;
  */
 public class ColossusTitan implements Titan {
     
-    int hp;
-    int attackPoint;
+    private int hp;
+    private final int attackPoint;
     
     public ColossusTitan() {
         this.hp = 50;

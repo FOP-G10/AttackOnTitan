@@ -13,8 +13,8 @@ import java.util.HashMap;
  */
 public class Weapon {
     int level;
-    int maxWeaponLevel;
-    HashMap<Integer, Integer> attackDamage = new HashMap<>();
+    private final int maxWeaponLevel;
+    private final HashMap<Integer, Integer> attackDamage = new HashMap<>();
     
     public Weapon() {
         this.level = 0;

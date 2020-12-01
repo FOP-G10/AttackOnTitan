@@ -13,9 +13,9 @@ import java.util.Random;
  */
 public class ArmouredTitan implements Titan {
     
-    int hp;
-    int attackPoint;
-    int extraChance;
+    private int hp;
+    private final int attackPoint;
+    private int extraChance;
     
     public ArmouredTitan() {
         this.hp = 100;
@@ -49,6 +49,10 @@ public class ArmouredTitan implements Titan {
 
     public int moveForward() {
         return 1;
+    }
+    
+    public int getExtraChance() {
+        return this.extraChance;
     }
     
     public int moveSideways() {
