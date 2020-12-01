@@ -37,23 +37,6 @@ public class AttackOnTitan extends PlayerAccount{
         this.addGroundRow();
     }
     
-    public static void main(String[] args) {
-        AttackOnTitan aot = new AttackOnTitan();
-        do {
-            aot.playerTurn();
-            System.out.print("Press enter to continue...");
-            sc.nextLine();
-            aot.clearConsole();
-            aot.titanTurn();
-            aot.hour += 1;
-            System.out.print("Press enter to continue...");
-            sc.nextLine();
-            aot.clearConsole();
-        } while (aot.checkResult());
-        
-        System.out.println("Game over");
-    }
-    
     public void titanTurn() {
         if (this.armouredIndex.size() + this.colossusIndex.size() > 0){
             System.out.println("Titan's turn...");
