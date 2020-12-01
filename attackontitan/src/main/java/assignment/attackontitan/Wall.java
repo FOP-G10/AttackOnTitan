@@ -10,12 +10,10 @@ package assignment.attackontitan;
  * @author Autumn
  */
 public class Wall {
-    int index;
     int hp;
-    Weapon weapon;
+    private final Weapon weapon;
     
-    public Wall(int index){
-        this.index = index;
+    public Wall(){
         this.hp = 50;
         this.weapon = new Weapon();
     }
@@ -25,14 +23,15 @@ public class Wall {
     }
     
     public boolean checkCondition(){
-        if (this.hp > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.hp > 0;
     }
     
     public void damage(int damagePoint) {
         this.hp -= damagePoint;
     }
+    
+    public Weapon showWeapon() {
+        return this.weapon;
+    }
+    
 }

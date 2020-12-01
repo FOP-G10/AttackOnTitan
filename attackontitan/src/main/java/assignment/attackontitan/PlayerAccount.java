@@ -10,7 +10,7 @@ package assignment.attackontitan;
  * @author Autumn
  */
 public class PlayerAccount {
-    int coin;
+    protected int coin;
     String username;
     
     public PlayerAccount() {
