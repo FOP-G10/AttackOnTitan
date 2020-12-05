@@ -49,7 +49,7 @@ public class Main extends Process{
     }
     
     private boolean checkTitans() {
-        if (this.colossusIndex.isEmpty() && this.armouredIndex.isEmpty()) {
+        if (this.colossusIndex.isEmpty() && this.addedTitans && this.armouredIndex.isEmpty()) {
             System.out.println("You win. All titans are dead. ");
             return false;
         }
