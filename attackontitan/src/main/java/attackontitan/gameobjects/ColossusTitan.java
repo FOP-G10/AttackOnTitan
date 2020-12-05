@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignment.attackontitan;
+package attackontitan.gameobjects;
 
 import java.util.Random;
 
@@ -21,9 +21,11 @@ public class ColossusTitan implements Titan {
         this.attackPoint = 10;
     }
     
-    
     @Override
     public String toString() {
+        if (this == null) {
+            return "  ";
+        }
         return "CC";
     }
     

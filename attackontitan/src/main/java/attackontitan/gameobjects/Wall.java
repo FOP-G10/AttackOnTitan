@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignment.attackontitan;
+package attackontitan.gameobjects;
 
 /**
  *
  * @author Autumn
  */
 public class Wall {
-    int hp;
+    private int hp;
     private final Weapon weapon;
     
     public Wall(){
@@ -32,6 +32,10 @@ public class Wall {
     
     public Weapon showWeapon() {
         return this.weapon;
+    }
+    
+    public int getHp() {
+        return this.hp;
     }
     
 }
