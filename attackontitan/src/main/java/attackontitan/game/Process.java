@@ -491,7 +491,7 @@ public class Process extends PlayerAccount{
         for (int i=0; i<this.armouredIndex.size(); i++) {
             Integer[] index = this.armouredIndex.get(i);
             try {
-                if (this.ground.get(index[0])[index[1]] == null) {
+                if (this.ground.get(index[0])[index[1]].get(index[2]) == null) {
                     this.armouredIndex.remove(index);
                     i --;
                 }
