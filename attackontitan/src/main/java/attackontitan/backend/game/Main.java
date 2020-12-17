@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package attackontitan.game;
+package attackontitan.backend.game;
 
-import attackontitan.gameobjects.Wall;
+import attackontitan.backend.gameobjects.Wall;
 
 /**
  *

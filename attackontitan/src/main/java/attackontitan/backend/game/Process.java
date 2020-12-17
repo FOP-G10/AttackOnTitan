@@ -3,25 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package attackontitan.game;
+package attackontitan.backend.game;
 
-import attackontitan.gameobjects.*;
-import attackontitan.player.*;
-import java.awt.AWTException;
-import java.awt.Robot;
+import attackontitan.backend.gameobjects.ArmouredTitan;
+import attackontitan.backend.gameobjects.ColossusTitan;
+import attackontitan.backend.gameobjects.Titan;
+import attackontitan.backend.gameobjects.Wall;
+import attackontitan.backend.player.PlayerAccount;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
  * @author Autumn
  */
-public class Process extends PlayerAccount{
+public class Process extends PlayerAccount {
     ArrayList<ArrayList<Titan>[]> ground;
     Wall[] walls;
     int hour;
