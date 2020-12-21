@@ -1,6 +1,4 @@
-package attackontitan.frontend;
-
-import attackontitan.frontend.game.Game;
+package attackontitan.frontend.game;
 
 public class Launcher {
 
