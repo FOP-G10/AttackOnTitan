@@ -5,9 +5,9 @@
  */
 package attackontitan.backend.game;
 
-import attackontitan.backend.gameobjects.ArmouredTitan;
-import attackontitan.backend.gameobjects.ColossusTitan;
-import attackontitan.backend.gameobjects.Titan;
+import attackontitan.backend.gameobjects.titans.ArmouredTitan;
+import attackontitan.backend.gameobjects.titans.ColossusTitan;
+import attackontitan.backend.gameobjects.titans.Titan;
 import attackontitan.backend.gameobjects.Wall;
 import attackontitan.backend.player.PlayerAccount;
 import java.util.ArrayList;
@@ -309,17 +309,19 @@ public class Process extends PlayerAccount {
             do {
                 step = colTitan.moveSideways();
             } while (col + step < 0 || col + step >= this.ground[row].length);
-
-
-            this.colossusIndex.get(i)[1] = col + step;
             
-            this.ground[row][col][position] = null;
             if (this.ground[row][col+step][0] == null){
+                this.ground[row][col][position] = null;
                 this.ground[row][col+step][0] = colTitan;
                 this.colossusIndex.get(i)[2] = 0;
-            }else {
+                this.colossusIndex.get(i)[1] = col + step;
+            }else if (this.ground[row][col+step][1] == null){
+                this.ground[row][col][position] = null;
                 this.ground[row][col+step][1] = colTitan;
                 this.colossusIndex.get(i)[2] = 1;
+                this.colossusIndex.get(i)[1] = col + step;
+            }else {
+                System.out.println("The colossus titan does not move sideways. ");
             }
             
             System.out.println("The colossus titan moved sideways. ");
@@ -336,16 +338,21 @@ public class Process extends PlayerAccount {
             int step;
             step = arTitan.moveForward();
             
-            this.armouredIndex.get(i)[0] = row + step;
             System.out.println(step + row);
             if (step + row < this.ground.length) {
-                this.ground[row][col][position] = null;
+                
                 if (this.ground[row+step][col][0] == null) {
+                    this.ground[row][col][position] = null;
                     this.ground[row+step][col][0] = arTitan;
                     this.armouredIndex.get(i)[2] = 0;
-                }else {
+                    this.armouredIndex.get(i)[0] = row + step;
+                }else if (this.ground[row+step][col][1] == null){
+                    this.ground[row][col][position] = null;
                     this.ground[row+step][col][1] = arTitan;
                     this.armouredIndex.get(i)[2] = 1;
+                    this.armouredIndex.get(i)[0] = row + step;
+                }else {
+                    System.out.println("The armoured titan did not move forward.");
                 }
                 
                 System.out.println("The armoured titan moved forward.");
@@ -366,15 +373,18 @@ public class Process extends PlayerAccount {
             step = arTitan.moveSideways();
         } while (col + step < 0 || col + step >= this.ground[row].length);
         
-        index[1] = col + step;
-
-        this.ground[row][col][position] = null;
         if (this.ground[row][col + step][0] == null) {
+            this.ground[row][col][position] = null;
             this.ground[row][col + step][0] = arTitan;
+            index[1] = col + step;
             index[2] = 0;
-        }else {
+        }else if (this.ground[row][col + step][1] == null){
+            this.ground[row][col][position] = null;
             this.ground[row][col + step][1] = arTitan;
+            index[1] = col + step;
             index[2] = 1;
+        } else {
+            System.out.println("The armoured titan does not move sideways.");
         }
         
         System.out.println("The armoured titan moved sideways.");
