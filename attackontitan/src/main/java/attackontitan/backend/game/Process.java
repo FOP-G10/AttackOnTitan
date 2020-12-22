@@ -20,7 +20,7 @@ import java.util.Scanner;
  * @author Autumn
  */
 public class Process extends PlayerAccount {
-    ArrayList<ArrayList<Titan>[]> ground;
+    Titan[][][] ground;
     Wall[] walls;
     int hour;
     ArrayList<Integer[]> colossusIndex;
@@ -32,13 +32,12 @@ public class Process extends PlayerAccount {
     
     public Process(boolean hardMode) {
         super();
-        this.ground = new ArrayList<>();
+        this.ground = new Titan[10][10][2];
         this.walls = this.createWalls();
         this.hour = 0;
         this.colossusIndex = new ArrayList<>();
         this.armouredIndex = new ArrayList<>();
         this.hardMode = hardMode;
-        this.addGroundRow();
     }
     
     public void titanTurn() {
@@ -156,15 +155,17 @@ public class Process extends PlayerAccount {
     private void printGround() {
         System.out.println("On The Ground");
         System.out.println("Row");
-        for (int i=0; i<this.ground.size(); i++) {
+        for (int i=0; i<this.ground.length; i++) {
             System.out.print(i + " ");
-            for (ArrayList titans: this.ground.get(i)) {
-                if (titans == null || titans.isEmpty()) {
+            for (Titan[] titans: this.ground[i]) {
+                if (titans[0] == null && titans[1] == null) {
                     System.out.print("  ");
-                } else if (titans.size() == 1) {
-                    System.out.print(titans.get(0));
-                } else {
-                    System.out.println("AC");
+                } else if (titans[1] == null) {
+                    System.out.print(titans[0]);
+                } else if (titans[0] == null){
+                    System.out.print(titans[1]);
+                }else {
+                    System.out.print("AC");
                 }
                 System.out.print(" ");
             }
@@ -219,12 +220,6 @@ public class Process extends PlayerAccount {
         }
     }
     
-    private void addGroundRow() {
-        for (int i=0; i<10; i++) {
-            this.ground.add(new ArrayList[10]);
-        }
-    }
-    
     private void checkAddCoin() {
         if (this.hour > 0 && this.hour % 5 == 0) {
             this.addCoin(5);
@@ -255,13 +250,20 @@ public class Process extends PlayerAccount {
     
     private void addColossus() {
         if (this.hour > 0 && ((!this.hardMode && this.hour == 5) || (this.hardMode && this.hour % 5 == 0))) {
-            int randomInt = r.nextInt(10);
+            int randomInt;
+            do {
+                randomInt = r.nextInt(10);
+            }while(this.ground[9][randomInt][0] != null && this.ground[9][randomInt][1] != null);
             ColossusTitan newCol = new ColossusTitan();
-            if (this.ground.get(9)[randomInt] == null) {
-                this.ground.get(9)[randomInt] = new ArrayList();
+            int position;
+            if (this.ground[9][randomInt][0] == null){
+                this.ground[9][randomInt][0] = newCol;
+                position = 0;
+            }else {
+                this.ground[9][randomInt][1] = newCol;
+                position = 1;
             }
-            this.ground.get(9)[randomInt].add(newCol);
-            Integer[] coor = {9, randomInt, this.ground.get(9)[randomInt].indexOf(newCol)};
+            Integer[] coor = {9, randomInt, position};
             this.colossusIndex.add(coor);
             System.out.println("A colossus titan is added to the ground. ");
             this.addedTitans = true;
@@ -272,14 +274,22 @@ public class Process extends PlayerAccount {
     
     private void addArmoured() {
         if (this.hour > 0 && ((!this.hardMode && this.hour == 5) || (this.hardMode && this.hour % 5 == 0))) {
-            int randomInt = r.nextInt(10);
+            int randomInt;
+            do {
+                randomInt = r.nextInt(10);
+            }while(this.ground[0][randomInt][0] != null && this.ground[0][randomInt][1] != null);
             ArmouredTitan arTitan = new ArmouredTitan();
-            if (this.ground.get(0)[randomInt] == null) {
-                this.ground.get(0)[randomInt] = new ArrayList();
+            int position;
+            if (this.ground[0][randomInt][0] == null){
+                this.ground[0][randomInt][0] = arTitan;
+                position = 0;
+            }else {
+                this.ground[0][randomInt][1] = arTitan;
+                position = 1;
             }
-            this.ground.get(0)[randomInt].add(arTitan);
-            Integer[] coor = {0, randomInt, this.ground.get(0)[randomInt].indexOf(arTitan)};
+            Integer[] coor = {0, randomInt, position};
             this.armouredIndex.add(coor);
+            System.out.println(this.armouredIndex.size());
             System.out.println("A armoured titan is added to the ground. ");
             this.addedTitans = true;
         }else {
@@ -293,42 +303,51 @@ public class Process extends PlayerAccount {
             int col = this.colossusIndex.get(i)[1];
             int position = this.colossusIndex.get(i)[2];
             ColossusTitan colTitan;
-            colTitan = (ColossusTitan)this.ground.get(row)[col].get(position);
+            colTitan = (ColossusTitan)this.ground[row][col][position];
             
             int step;
             do {
                 step = colTitan.moveSideways();
-            } while (col + step < 0 || col + step >= this.ground.get(row).length);
-            
-            
-            this.ground.get(row)[col].remove(colTitan);
-            if (this.ground.get(row)[col + step] == null) {
-                this.ground.get(row)[col + step] = new ArrayList();
-            }
-            this.ground.get(row)[col + step].add(colTitan);
+            } while (col + step < 0 || col + step >= this.ground[row].length);
+
+
             this.colossusIndex.get(i)[1] = col + step;
-            this.colossusIndex.get(i)[2] = this.ground.get(row)[col + step].indexOf(colTitan);
+            
+            this.ground[row][col][position] = null;
+            if (this.ground[row][col+step][0] == null){
+                this.ground[row][col+step][0] = colTitan;
+                this.colossusIndex.get(i)[2] = 0;
+            }else {
+                this.ground[row][col+step][1] = colTitan;
+                this.colossusIndex.get(i)[2] = 1;
+            }
+            
             System.out.println("The colossus titan moved sideways. ");
         }
     }
     
     private void moveArmouredForward() {
+        System.out.println(this.armouredIndex.size());
         for (int i=0; i<this.armouredIndex.size(); i++) {
             int row = this.armouredIndex.get(i)[0];
             int col = this.armouredIndex.get(i)[1];
             int position = this.armouredIndex.get(i)[2];
-            ArmouredTitan arTitan = (ArmouredTitan)this.ground.get(row)[col].get(position);
+            ArmouredTitan arTitan = (ArmouredTitan)this.ground[row][col][position];
             int step;
             step = arTitan.moveForward();
             
-            if (step + row < this.ground.size()) {
-                this.ground.get(row)[col].remove(arTitan);
-                if (this.ground.get(row + step)[col] == null) {
-                    this.ground.get(row + step)[col] = new ArrayList();
+            this.armouredIndex.get(i)[0] = row + step;
+            System.out.println(step + row);
+            if (step + row < this.ground.length) {
+                this.ground[row][col][position] = null;
+                if (this.ground[row+step][col][0] == null) {
+                    this.ground[row+step][col][0] = arTitan;
+                    this.armouredIndex.get(i)[2] = 0;
+                }else {
+                    this.ground[row+step][col][1] = arTitan;
+                    this.armouredIndex.get(i)[2] = 1;
                 }
-                this.ground.get(row + step)[col].add(arTitan);
-                this.armouredIndex.get(i)[0] = row + step;
-                this.armouredIndex.get(i)[2] = this.ground.get(row + step)[col].indexOf(arTitan);
+                
                 System.out.println("The armoured titan moved forward.");
             } else {
                 System.out.println("The armoured titan did not move forward.");
@@ -341,19 +360,23 @@ public class Process extends PlayerAccount {
         int col = index[1];
         int position = index[2];
 
-        ArmouredTitan arTitan = (ArmouredTitan)this.ground.get(row)[col].get(position);
+        ArmouredTitan arTitan = (ArmouredTitan)this.ground[row][col][position];
         int step;
         do {
             step = arTitan.moveSideways();
-        } while (col + step < 0 || col + step >= this.ground.get(row).length);
-
-        this.ground.get(row)[col].remove(arTitan);
-        if (this.ground.get(row)[col + step] == null) {
-            this.ground.get(row)[col + step] = new ArrayList();
-        }
-        this.ground.get(row)[col + step].add(arTitan);
+        } while (col + step < 0 || col + step >= this.ground[row].length);
+        
         index[1] = col + step;
-        index[2] = this.ground.get(row)[col + step].indexOf(arTitan);
+
+        this.ground[row][col][position] = null;
+        if (this.ground[row][col + step][0] == null) {
+            this.ground[row][col + step][0] = arTitan;
+            index[2] = 0;
+        }else {
+            this.ground[row][col + step][1] = arTitan;
+            index[2] = 1;
+        }
+        
         System.out.println("The armoured titan moved sideways.");
     }
     
@@ -366,9 +389,9 @@ public class Process extends PlayerAccount {
                 count ++;
             } else {
                 try {
-                    this.walls[index[1]].damage(((ColossusTitan)this.ground.get(index[0])[index[1]].get(index[2])).attack());
+                    this.walls[index[1]].damage(((ColossusTitan)this.ground[index[0]][index[1]][index[2]]).attack());
                 } catch(IndexOutOfBoundsException e) {
-                    this.walls[index[1]].damage(((ColossusTitan)this.ground.get(index[0])[index[1]].get(index[2])).attack());
+                    this.walls[index[1]].damage(((ColossusTitan)this.ground[index[0]][index[1]][index[2]]).attack());
                 }
                 
                 System.out.println("The colossus titan attacked the wall " + index[1]);
@@ -390,9 +413,9 @@ public class Process extends PlayerAccount {
                 }else {
                     ArmouredTitan focus;
                     try {
-                        focus = (ArmouredTitan)this.ground.get(index[0])[index[1]].get(index[2]);
+                        focus = (ArmouredTitan)this.ground[index[0]][index[1]][index[2]];
                     }catch (IndexOutOfBoundsException e) {
-                        focus = (ArmouredTitan)this.ground.get(index[0])[index[1]].get(0);
+                        focus = (ArmouredTitan)this.ground[index[0]][index[1]][0];
                     }
                     
                     if (focus.getExtraChance() == 0){
@@ -417,21 +440,21 @@ public class Process extends PlayerAccount {
         int count = 0;
         for (int i=0; i<this.walls.length; i++) {
             if (this.walls[i].showWeapon().getLevel() > 0) {
-                for (ArrayList[] row: this.ground) {
-                    if (row[i] != null && row[i].size() > 0){
-                        for (int j=0; j<row[i].size(); j++) {
+                for (Titan[][] row: this.ground) {
+                    if (row[i] != null && row[i].length > 0){
+                        for (int j=0; j<row[i].length; j++) {
                             System.out.println("The weapon on wall " + i + " attacks");
-                            Object titan = row[i].get(j);
+                            Object titan = row[i].length;
                             try {
                                 ColossusTitan focus = (ColossusTitan) titan;
                                 focus = focus.damage(this.walls[i].showWeapon().attack());
                                 count ++;
-                                row[i].set(j, focus);
+                                row[i][j] = focus;
                             } catch (ClassCastException ex) {
                                 ArmouredTitan focus = (ArmouredTitan) titan;
                                 focus = focus.damage(this.walls[i].showWeapon().attack());
                                 count ++;
-                                row[i].set(j, focus);
+                                row[i][j] = focus;
                             }
                         }
                     }
@@ -462,7 +485,7 @@ public class Process extends PlayerAccount {
         for (int i=0; i<this.colossusIndex.size(); i++) {
             Integer[] index = this.colossusIndex.get(i);
             try {
-                if (this.ground.get(index[0])[index[1]].get(index[2]) == null) {
+                if (this.ground[index[0]][index[1]][index[2]] == null) {
                     this.colossusIndex.remove(index);
                     i --;
                 }
@@ -478,8 +501,9 @@ public class Process extends PlayerAccount {
         for (int i=0; i<this.armouredIndex.size(); i++) {
             Integer[] index = this.armouredIndex.get(i);
             try {
-                if (this.ground.get(index[0])[index[1]].get(index[2]) == null) {
+                if (this.ground[index[0]][index[1]][index[2]] == null) {
                     this.armouredIndex.remove(index);
+                    System.out.println("remove");
                     i --;
                 }
             }catch (IndexOutOfBoundsException e) {
