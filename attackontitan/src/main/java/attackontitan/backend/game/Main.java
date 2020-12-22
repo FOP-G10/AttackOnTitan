@@ -13,12 +13,13 @@ import attackontitan.backend.gameobjects.Wall;
  */
 public class Main extends Process{
     
-    public Main() {
-        super();
+    public Main(boolean hardMode) {
+        super(hardMode);
     }
     
     public static void main(String[] args) {
-        Main aot = new Main();
+        System.out.println("Choose game mode: \nA) Easy\nB) Hard");
+        Main aot = new Main(sc.next().charAt(0) == 'B');
         do {
             aot.playerTurn();
             System.out.print("Press enter to continue...");

@@ -25,9 +25,6 @@ public class ArmouredTitan implements Titan {
     
     @Override
     public String toString() {
-        if (this == null) {
-            return "  ";
-        }
         return "AA";
     }
 

@@ -11,7 +11,6 @@ import attackontitan.backend.gameobjects.Titan;
 import attackontitan.backend.gameobjects.Wall;
 import attackontitan.backend.player.PlayerAccount;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -29,14 +28,16 @@ public class Process extends PlayerAccount {
     static Random r = new Random();
     static Scanner sc = new Scanner(System.in);
     boolean addedTitans = false;
+    boolean hardMode;
     
-    public Process() {
+    public Process(boolean hardMode) {
         super();
         this.ground = new ArrayList<>();
         this.walls = this.createWalls();
         this.hour = 0;
         this.colossusIndex = new ArrayList<>();
         this.armouredIndex = new ArrayList<>();
+        this.hardMode = hardMode;
         this.addGroundRow();
     }
     
@@ -264,7 +265,7 @@ public class Process extends PlayerAccount {
     }
     
     private void addColossus() {
-        if (this.hour > 0 && this.hour == 5) {
+        if (this.hour > 0 && ((!this.hardMode && this.hour == 5) || (this.hardMode && this.hour % 5 == 0))) {
             int randomInt = r.nextInt(10);
             ColossusTitan newCol = new ColossusTitan();
             if (this.ground.get(9)[randomInt] == null) {
@@ -281,7 +282,7 @@ public class Process extends PlayerAccount {
     }
     
     private void addArmoured() {
-        if (this.hour > 0 && this.hour == 5) {
+        if (this.hour > 0 && ((!this.hardMode && this.hour == 5) || (this.hardMode && this.hour % 5 == 0))) {
             int randomInt = r.nextInt(10);
             ArmouredTitan arTitan = new ArmouredTitan();
             if (this.ground.get(0)[randomInt] == null) {
@@ -375,7 +376,6 @@ public class Process extends PlayerAccount {
                 System.out.println("The colossus titan attacked the weapon on wall " + index[1]);
                 count ++;
             } else {
-                System.out.println(Arrays.toString(index));
                 try {
                     this.walls[index[1]].damage(((ColossusTitan)this.ground.get(index[0])[index[1]].get(index[2])).attack());
                 } catch(IndexOutOfBoundsException e) {
@@ -399,7 +399,6 @@ public class Process extends PlayerAccount {
                     this.walls[index[1]].showWeapon().damage();
                     System.out.println("The armoured titan attacked the weapon on wall " + index[1]);
                 }else {
-                    System.out.println(Arrays.toString(index));
                     ArmouredTitan focus;
                     try {
                         focus = (ArmouredTitan)this.ground.get(index[0])[index[1]].get(index[2]);

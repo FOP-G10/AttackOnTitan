@@ -23,9 +23,6 @@ public class ColossusTitan implements Titan {
     
     @Override
     public String toString() {
-        if (this == null) {
-            return "  ";
-        }
         return "CC";
     }
     
