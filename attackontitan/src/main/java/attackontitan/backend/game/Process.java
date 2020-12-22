@@ -50,7 +50,6 @@ public class Process extends PlayerAccount {
             this.moveColossusSideways();
             System.out.print("Press enter to continue... ");
             sc.nextLine();
-            this.clearConsole();
             
             this.updateArmouredIndex();
             this.updateColossusIndex();
@@ -60,14 +59,12 @@ public class Process extends PlayerAccount {
             this.printBoard();
             System.out.print("Press enter to continue... ");
             sc.nextLine();
-            this.clearConsole();
 
             System.out.println("Titan's turn...");
             this.armouredAttack();
             this.colossusAttack();
             System.out.print("Press enter to continue... ");
             sc.nextLine();
-            this.clearConsole();
 
             System.out.println("The board after the titan's turn... ");
             this.printBoard();
@@ -75,14 +72,12 @@ public class Process extends PlayerAccount {
             System.out.println();
             System.out.print("Press enter to continue... ");
             sc.nextLine();
-            this.clearConsole();
         } else {
             System.out.println("No titan on the ground.");
             System.out.println("Titan's turn skipped.");
             System.out.println();
             System.out.print("Press enter to continue... ");
             sc.nextLine();
-            this.clearConsole();
         }
         this.addColossus();
         this.addArmoured();
@@ -93,7 +88,6 @@ public class Process extends PlayerAccount {
         this.printBoard();
         System.out.println("Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)");
         String weaponString = sc.nextLine();
-        this.clearConsole();
         if (!weaponString.isEmpty()) {
             this.upgradeWeapon(weaponString);
         } else {
@@ -101,14 +95,12 @@ public class Process extends PlayerAccount {
         }
         System.out.print("Press enter to continue... ");
         sc.nextLine();
-        this.clearConsole();
         System.out.println("Player's turn");
         System.out.println();
         System.out.println("Your board after upgrading weapon: ");
         this.printBoard();
         System.out.print("Press Enter to continue... ");
         sc.nextLine();
-        this.clearConsole();
         this.printBoard();
         System.out.println("Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: " + this.coin);
         String upgradeWalls = sc.nextLine();
@@ -120,23 +112,20 @@ public class Process extends PlayerAccount {
         }
         System.out.println("How many HP do you want to add up to the wall(s)? Current coin number: " + this.coin);
         String upgradeHp = sc.nextLine();
-        this.clearConsole();
         if (!upgradeWalls.isEmpty() && upgradeWalls.length() == upgradeHp.length()) {
             this.upgradeWall(upgradeWalls, upgradeHp);
         } else {
             System.out.println("No wall upgraded. ");
         }
-//        this.printBoard();
+
         System.out.print("Press enter to continue... ");
         sc.nextLine();
         
-        this.clearConsole();
         System.out.println("Your board after upgrading walls: ");
         this.printBoard();
         System.out.println();
         System.out.print("Press Enter to continue... ");
         sc.nextLine();
-        this.clearConsole();
         
         this.weaponAttack();
         
@@ -497,18 +486,5 @@ public class Process extends PlayerAccount {
                 index[2] = 0;
             }
         }
-    }
-    
-    protected void clearConsole(){
-//        try {
-//            Robot pressbot = new Robot();
-//            pressbot.keyPress(17); // Holds CTRL key.
-//            pressbot.keyPress(76); // Holds L key.
-//            pressbot.keyRelease(17); // Releases CTRL key.
-//            pressbot.keyRelease(76); // Releases L key.
-//            TimeUnit.MILLISECONDS.sleep(5);
-//        } catch (AWTException | InterruptedException ex) {
-//            Logger.getLogger(Process.class.getName()).log(Level.SEVERE, null, ex);
-//        }
     }
 }

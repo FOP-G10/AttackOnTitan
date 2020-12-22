@@ -24,12 +24,10 @@ public class Main extends Process{
             aot.playerTurn();
             System.out.print("Press enter to continue...");
             sc.nextLine();
-            aot.clearConsole();
             aot.titanTurn();
             aot.hour += 1;
             System.out.print("Press enter to continue...");
             sc.nextLine();
-            aot.clearConsole();
         } while (aot.checkResult());
         
         System.out.println("Game over");
