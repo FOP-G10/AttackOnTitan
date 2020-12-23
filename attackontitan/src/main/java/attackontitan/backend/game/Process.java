@@ -253,16 +253,10 @@ public class Process extends PlayerAccount {
             int randomInt;
             do {
                 randomInt = r.nextInt(10);
-            }while(this.ground[9][randomInt][0] != null && this.ground[9][randomInt][1] != null);
+            }while(this.ground[9][randomInt][1] != null);
             ColossusTitan newCol = new ColossusTitan();
-            int position;
-            if (this.ground[9][randomInt][0] == null){
-                this.ground[9][randomInt][0] = newCol;
-                position = 0;
-            }else {
-                this.ground[9][randomInt][1] = newCol;
-                position = 1;
-            }
+            int position = 1;
+            this.ground[9][randomInt][1] = newCol;
             Integer[] coor = {9, randomInt, position};
             this.colossusIndex.add(coor);
             System.out.println("A colossus titan is added to the ground. ");
@@ -277,16 +271,10 @@ public class Process extends PlayerAccount {
             int randomInt;
             do {
                 randomInt = r.nextInt(10);
-            }while(this.ground[0][randomInt][0] != null && this.ground[0][randomInt][1] != null);
+            }while(this.ground[0][randomInt][0] != null);
             ArmouredTitan arTitan = new ArmouredTitan();
-            int position;
-            if (this.ground[0][randomInt][0] == null){
-                this.ground[0][randomInt][0] = arTitan;
-                position = 0;
-            }else {
-                this.ground[0][randomInt][1] = arTitan;
-                position = 1;
-            }
+            int position = 0;
+            this.ground[0][randomInt][0] = arTitan;
             Integer[] coor = {0, randomInt, position};
             this.armouredIndex.add(coor);
             System.out.println(this.armouredIndex.size());
@@ -310,21 +298,15 @@ public class Process extends PlayerAccount {
                 step = colTitan.moveSideways();
             } while (col + step < 0 || col + step >= this.ground[row].length);
             
-            if (this.ground[row][col+step][0] == null){
-                this.ground[row][col][position] = null;
-                this.ground[row][col+step][0] = colTitan;
-                this.colossusIndex.get(i)[2] = 0;
-                this.colossusIndex.get(i)[1] = col + step;
-            }else if (this.ground[row][col+step][1] == null){
+            if (this.ground[row][col+step][1] == null){
                 this.ground[row][col][position] = null;
                 this.ground[row][col+step][1] = colTitan;
                 this.colossusIndex.get(i)[2] = 1;
                 this.colossusIndex.get(i)[1] = col + step;
+                System.out.println("The colossus titan moved sideways. ");
             }else {
                 System.out.println("The colossus titan does not move sideways. ");
-            }
-            
-            System.out.println("The colossus titan moved sideways. ");
+            } 
         }
     }
     
@@ -346,16 +328,10 @@ public class Process extends PlayerAccount {
                     this.ground[row+step][col][0] = arTitan;
                     this.armouredIndex.get(i)[2] = 0;
                     this.armouredIndex.get(i)[0] = row + step;
-                }else if (this.ground[row+step][col][1] == null){
-                    this.ground[row][col][position] = null;
-                    this.ground[row+step][col][1] = arTitan;
-                    this.armouredIndex.get(i)[2] = 1;
-                    this.armouredIndex.get(i)[0] = row + step;
+                    System.out.println("The armoured titan moved forward.");
                 }else {
                     System.out.println("The armoured titan did not move forward.");
                 }
-                
-                System.out.println("The armoured titan moved forward.");
             } else {
                 System.out.println("The armoured titan did not move forward.");
             }
@@ -378,16 +354,10 @@ public class Process extends PlayerAccount {
             this.ground[row][col + step][0] = arTitan;
             index[1] = col + step;
             index[2] = 0;
-        }else if (this.ground[row][col + step][1] == null){
-            this.ground[row][col][position] = null;
-            this.ground[row][col + step][1] = arTitan;
-            index[1] = col + step;
-            index[2] = 1;
-        } else {
+            System.out.println("The armoured titan moved sideways.");
+        }else {
             System.out.println("The armoured titan does not move sideways.");
         }
-        
-        System.out.println("The armoured titan moved sideways.");
     }
     
     private void colossusAttack() {
