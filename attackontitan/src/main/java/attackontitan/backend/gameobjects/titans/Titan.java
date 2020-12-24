@@ -28,7 +28,7 @@ public class Titan<T extends Titan<T>> {
     
     public T damage(int damagePoints) {
         this.hp -= damagePoints;
-        System.out.println("The armoured titan take damage: " + damagePoints + " points");
+        System.out.println("The titan take damage: " + damagePoints + " points");
         System.out.println("Current HP for armoured titan: " + this.hp + " points");
         System.out.println();
         if (this.hp <= 0) {

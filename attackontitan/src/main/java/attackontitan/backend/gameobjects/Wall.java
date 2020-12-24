@@ -14,7 +14,7 @@ public class Wall {
     private final Weapon weapon;
     
     public Wall(){
-        this.hp = 100;
+        this.hp = 50;
         this.weapon = new Weapon();
     }
     

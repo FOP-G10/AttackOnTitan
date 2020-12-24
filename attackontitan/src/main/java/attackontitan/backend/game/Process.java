@@ -28,10 +28,12 @@ public class Process extends PlayerAccount {
     protected int hour;
     protected ArrayList<Integer[]> colossusIndex;
     protected ArrayList<Integer[]> armouredIndex;
-    private static final Random r = new Random();
-    protected static Scanner sc = new Scanner(System.in);
+
     public boolean addedTitans = false;
     private final boolean hardMode;
+
+    private static final Random r = new Random();
+    protected static Scanner sc = new Scanner(System.in);
     
     public Process(boolean hardMode) {
         super();
@@ -43,104 +45,7 @@ public class Process extends PlayerAccount {
         this.hardMode = hardMode;
     }
     
-    public void titanTurn() {
-        if (this.armouredIndex.size() + this.colossusIndex.size() > 0){
-            System.out.println("Titan's turn...");
-            System.out.println();
-            System.out.println("Titan start to move");
-            this.moveArmouredForward();
-            this.moveColossusSideways();
-            System.out.print("Press enter to continue... ");
-            sc.nextLine();
-            
-            this.updateArmouredIndex();
-            this.updateColossusIndex();
-
-            System.out.println("Titan's turn...");
-            System.out.println("The board after the titans move...");
-            this.printBoard();
-            System.out.print("Press enter to continue... ");
-            sc.nextLine();
-
-            System.out.println("Titan's turn...");
-            this.armouredAttack();
-            this.colossusAttack();
-            System.out.print("Press enter to continue... ");
-            sc.nextLine();
-
-            System.out.println("The board after the titan's turn... ");
-            this.printBoard();
-
-            System.out.println();
-            System.out.print("Press enter to continue... ");
-            sc.nextLine();
-        } else {
-            System.out.println("No titan on the ground.");
-            System.out.println("Titan's turn skipped.");
-            System.out.println();
-            System.out.print("Press enter to continue... ");
-            sc.nextLine();
-        }
-        this.addColossus();
-        this.addArmoured();
-    }
-    
-    public void playerTurn() {
-        System.out.println("Player's turn...");
-        this.printBoard();
-        System.out.println("Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)");
-        String weaponString = sc.nextLine();
-        if (!weaponString.isEmpty()) {
-            this.upgradeWeapon(weaponString);
-        } else {
-            System.out.println("No weapon upgraded. ");
-        }
-        System.out.print("Press enter to continue... ");
-        sc.nextLine();
-        System.out.println("Player's turn");
-        System.out.println();
-        System.out.println("Your board after upgrading weapon: ");
-        this.printBoard();
-        System.out.print("Press Enter to continue... ");
-        sc.nextLine();
-        this.printBoard();
-        System.out.println("Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: " + this.coin);
-        String upgradeWalls = sc.nextLine();
-        if (upgradeWalls.isEmpty()) {
-            System.out.println("Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)");
-            upgradeWalls = sc.nextLine();
-        }else {
-            upgradeWalls = "0123456789";
-        }
-        System.out.println("How many HP do you want to add up to the wall(s)? Current coin number: " + this.coin);
-        String upgradeHp = sc.nextLine();
-        if (!upgradeWalls.isEmpty() && upgradeWalls.length() == upgradeHp.length()) {
-            this.upgradeWall(upgradeWalls, upgradeHp);
-        } else {
-            System.out.println("No wall upgraded. ");
-        }
-
-        System.out.print("Press enter to continue... ");
-        sc.nextLine();
-        
-        System.out.println("Your board after upgrading walls: ");
-        this.printBoard();
-        System.out.println();
-        System.out.print("Press Enter to continue... ");
-        sc.nextLine();
-        
-        this.weaponAttack();
-        
-        this.updateColossusIndex();
-        this.updateArmouredIndex();
-        
-        System.out.println("Your board after attacking... ");
-        this.printBoard();
-        this.checkAddCoin();
-        System.out.println();
-    }
-    
-    private void printBoard() {
+    protected void printBoard() {
         System.out.println();
         System.out.println(this.ground);
         this.printWallsAndWeapons();
@@ -192,14 +97,14 @@ public class Process extends PlayerAccount {
         }
     }
     
-    private void checkAddCoin() {
+    protected void checkAddCoin() {
         if (this.hour > 0 && this.hour % 5 == 0) {
             this.addCoin(5);
             System.out.println("Coin +5");
         }
     }
     
-    private void upgradeWeapon(String wallIndices) {
+    protected void upgradeWeapon(String wallIndices) {
         int count = 0;
         String[] indices = wallIndices.trim().split("");
         for (String index: indices) {
@@ -220,8 +125,8 @@ public class Process extends PlayerAccount {
         }
     }
     
-    private void addColossus() {
-        if (this.hour > 0 && ((!this.hardMode && this.hour == 5) || (this.hardMode && this.hour % 5 == 0))) {
+    protected void addColossus() {
+        if (this.hour == 5) {
             int randomInt;
             do {
                 randomInt = r.nextInt(10);
@@ -238,7 +143,7 @@ public class Process extends PlayerAccount {
         }
     }
     
-    private void addArmoured() {
+    protected void addArmoured() {
         if (this.hour > 0 && ((!this.hardMode && this.hour == 5) || (this.hardMode && this.hour % 5 == 0))) {
             int randomInt;
             do {
@@ -246,11 +151,9 @@ public class Process extends PlayerAccount {
             }while(this.ground.getElementOnGround(0, randomInt, 0) != null);
             ArmouredTitan arTitan = new ArmouredTitan();
             int position = 0;
-//            this.ground[0][randomInt][0] = arTitan;
             this.ground.setElementOnGround(0, randomInt, 0, arTitan);
             Integer[] coor = {0, randomInt, position};
             this.armouredIndex.add(coor);
-            System.out.println(this.armouredIndex.size());
             System.out.println("A armoured titan is added to the ground. ");
             this.addedTitans = true;
         }else {
@@ -258,13 +161,12 @@ public class Process extends PlayerAccount {
         }
     }
     
-    private void moveColossusSideways() {
+    protected void moveColossusSideways() {
         for (int i=0; i<this.colossusIndex.size(); i++) {
             int row = this.colossusIndex.get(i)[0];
             int col = this.colossusIndex.get(i)[1];
             int position = this.colossusIndex.get(i)[2];
             ColossusTitan colTitan;
-//            colTitan = (ColossusTitan)this.ground[row][col][position];
             colTitan = (ColossusTitan)this.ground.getElementOnGround(row, col, position);
             
             int step;
@@ -284,7 +186,7 @@ public class Process extends PlayerAccount {
         }
     }
     
-    private void moveArmouredForward() {
+    protected void moveArmouredForward() {
         System.out.println(this.armouredIndex.size());
         for (int i=0; i<this.armouredIndex.size(); i++) {
             int row = this.armouredIndex.get(i)[0];
@@ -293,8 +195,7 @@ public class Process extends PlayerAccount {
             ArmouredTitan arTitan = (ArmouredTitan)this.ground.getElementOnGround(row, col, position);
             int step;
             step = arTitan.moveForward();
-            
-            System.out.println(step + row);
+
             if (step + row < this.ground.getNumberOfRows()) {
                 
                 if (this.ground.getElementOnGround(row+step, col, 0) == null) {
@@ -334,7 +235,7 @@ public class Process extends PlayerAccount {
         }
     }
     
-    private void colossusAttack() {
+    protected void colossusAttack() {
         int count = 0;
         for (Integer[] index: this.colossusIndex) {
             if (this.walls[index[1]].showWeapon().getLevel() > 0) {
@@ -357,7 +258,7 @@ public class Process extends PlayerAccount {
         }
     }
     
-    private void armouredAttack() {
+    protected void armouredAttack() {
         int count = 0;
         for (Integer[] index: this.armouredIndex) {
             if (index[0] == 9) {
@@ -390,26 +291,22 @@ public class Process extends PlayerAccount {
         }
     }
     
-    private void weaponAttack() {
+    protected void weaponAttack() {
         int count = 0;
         for (int i=0; i<this.walls.length; i++) {
             if (this.walls[i].showWeapon().getLevel() > 0) {
                 for (Titan[][] row: this.ground.getGround()) {
                     if (row[i] != null && row[i].length > 0){
+
                         for (int j=0; j<row[i].length; j++) {
-                            System.out.println("The weapon on wall " + i + " attacks");
-                            Object titan = row[i].length;
                             try {
-                                ColossusTitan focus = (ColossusTitan) titan;
+                                Titan titan = row[i][j];
+                                Titan focus = titan;
                                 focus = focus.damage(this.walls[i].showWeapon().attack());
-                                count ++;
+                                count++;
                                 row[i][j] = focus;
-                            } catch (ClassCastException ex) {
-                                ArmouredTitan focus = (ArmouredTitan) titan;
-                                focus = focus.damage(this.walls[i].showWeapon().attack());
-                                count ++;
-                                row[i][j] = focus;
-                            }
+                                System.out.println("The weapon on wall " + i + " attacks");
+                            }catch(NullPointerException e){}
                         }
                     }
                 }
@@ -420,7 +317,7 @@ public class Process extends PlayerAccount {
         }
     }
     
-    private void upgradeWall(String wallIndex, String hpUpgrade) {
+    protected void upgradeWall(String wallIndex, String hpUpgrade) {
         String[] index = wallIndex.trim().replace(" ", "").split("");
         String[] hpUp = hpUpgrade.trim().replace(" ", "").split("");
         for (int i=0; i<index.length; i++) {
@@ -434,12 +331,13 @@ public class Process extends PlayerAccount {
         }
     }
     
-    private void updateColossusIndex() {
+    protected void updateColossusIndex() {
         
         for (int i=0; i<this.colossusIndex.size(); i++) {
             Integer[] index = this.colossusIndex.get(i);
             try {
                 if (this.ground.getElementOnGround(index[0], index[1], index[2]) == null) {
+                    System.out.println("update");
                     this.colossusIndex.remove(index);
                     i --;
                 }
@@ -450,14 +348,14 @@ public class Process extends PlayerAccount {
 
     }
     
-    private void updateArmouredIndex() {
+    protected void updateArmouredIndex() {
         
         for (int i=0; i<this.armouredIndex.size(); i++) {
             Integer[] index = this.armouredIndex.get(i);
             try {
                 if (this.ground.getElementOnGround(index[0], index[1], index[2]) == null) {
+                    System.out.println("update");
                     this.armouredIndex.remove(index);
-                    System.out.println("remove");
                     i --;
                 }
             }catch (IndexOutOfBoundsException e) {

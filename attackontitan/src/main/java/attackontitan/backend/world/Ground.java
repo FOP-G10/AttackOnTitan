@@ -40,10 +40,10 @@ public class Ground {
             }
             switch (i) {
                 case 0:
-                    sb.append("HOUR: " + this.process.getHour());
+                    sb.append("HOUR: ").append(this.process.getHour()).append("\n");
                     break;
                 case 1:
-                    sb.append("Coin: " + this.process.getCoin());
+                    sb.append("Coin: ").append(this.process.getCoin()).append("\n");
                     break;
                 default:
                     sb.append("\n");
