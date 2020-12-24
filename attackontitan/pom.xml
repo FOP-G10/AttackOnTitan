@@ -22,7 +22,7 @@
                       <manifest>
                         <addClasspath>true</addClasspath>
                         <classpathPrefix>lib/</classpathPrefix>
-                        <mainClass>attackontitan.game.Main</mainClass>
+                        <mainClass>attackontitan.backend.game.Main</mainClass>
                       </manifest>
                   </archive>
               </configuration>

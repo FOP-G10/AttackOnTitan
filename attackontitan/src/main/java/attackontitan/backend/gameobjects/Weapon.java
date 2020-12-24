@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package attackontitan.gameobjects;
+package attackontitan.backend.gameobjects;
 
 import java.util.HashMap;
 
@@ -14,7 +14,7 @@ import java.util.HashMap;
 public class Weapon {
     private int level;
     private final int maxWeaponLevel;
-    private final HashMap<Integer, Integer> attackDamage = new HashMap<>();
+    private static final HashMap<Integer, Integer> attackDamage = new HashMap<>();
     
     public Weapon() {
         this.level = 0;
@@ -41,7 +41,7 @@ public class Weapon {
     }
     
     public int getAttackDamage() {
-        return this.attackDamage.get(this.level);
+        return attackDamage.get(this.level);
     }
     
     public boolean validUpgrade() {
@@ -54,7 +54,7 @@ public class Weapon {
     }
     
     public int attack() {
-        return this.attackDamage.get(this.level);
+        return attackDamage.get(this.level);
     }
     
     public void damage() {
