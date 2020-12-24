@@ -25,7 +25,7 @@ public class Main extends Process{
             System.out.print("Press enter to continue...");
             sc.nextLine();
             aot.titanTurn();
-            aot.hour += 1;
+            aot.incrementHour(1);
             System.out.print("Press enter to continue...");
             sc.nextLine();
         } while (aot.checkResult());

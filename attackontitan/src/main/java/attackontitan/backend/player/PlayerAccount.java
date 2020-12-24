@@ -33,4 +33,12 @@ public class PlayerAccount {
     public void payCoin(int amount) {
         this.coin -= amount;
     }
+
+    public int getCoin() {
+        return coin;
+    }
+
+    public void setCoin(int coin) {
+        this.coin = coin;
+    }
 }
