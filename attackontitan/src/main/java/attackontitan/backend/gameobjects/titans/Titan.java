@@ -5,12 +5,14 @@
  */
 package attackontitan.backend.gameobjects.titans;
 
+import java.util.Random;
+
 /**
  *
  * @author Autumn
  * @param <T>
  */
-public class Titan<T extends Titan> {
+public class Titan<T extends Titan<T>> {
     
     protected int hp;
     protected final int attackPoint;
@@ -35,6 +37,16 @@ public class Titan<T extends Titan> {
         } else {
             return (T)this;
         }
+    }
+
+    public int moveSideways() {
+        Random r = new Random();
+        int[] result = {-1, 1};
+        return result[r.nextInt(2)];
+    }
+
+    public int moveForward() {
+        return 1;
     }
     
 }

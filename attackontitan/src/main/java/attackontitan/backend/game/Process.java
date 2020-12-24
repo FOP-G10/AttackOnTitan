@@ -186,7 +186,7 @@ public class Process extends PlayerAccount {
     private void printWallsAndWeapons() {
         int maxWeaponRow = 0;
         for (Wall wall: this.walls) {
-            maxWeaponRow = wall.showWeapon().getLevel() > maxWeaponRow ? wall.showWeapon().getLevel() : maxWeaponRow;
+            maxWeaponRow = Math.max(wall.showWeapon().getLevel(), maxWeaponRow);
         }
         for (int row=maxWeaponRow; row>0; row--) {
             System.out.print("  ");

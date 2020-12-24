@@ -22,10 +22,9 @@ public class ColossusTitan extends Titan<ColossusTitan> {
         return "CC";
     }
 
-    public int moveSideways() {
-        Random r = new Random();
-        int[] result = {-1, 1};
-        return result[r.nextInt(2)];
+    @Override
+    public int moveForward() {
+        return 0;
     }
     
 }

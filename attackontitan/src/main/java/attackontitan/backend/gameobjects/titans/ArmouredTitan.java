@@ -24,19 +24,13 @@ public class ArmouredTitan extends Titan<ArmouredTitan> {
     public String toString() {
         return "AA";
     }
-
-    public int moveForward() {
-        return 1;
-    }
     
     public int getExtraChance() {
         return this.extraChance;
     }
     
     public int moveSideways() {
-        Random r = new Random();
-        int[] result = {-1, 1};
         this.extraChance = 1;
-        return result[r.nextInt(2)];
+        return super.moveSideways();
     }
 }
