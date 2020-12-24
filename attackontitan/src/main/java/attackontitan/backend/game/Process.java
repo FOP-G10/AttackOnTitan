@@ -36,7 +36,7 @@ public class Process extends PlayerAccount {
     protected static Scanner sc = new Scanner(System.in);
     
     public Process(boolean hardMode) {
-        super();
+        super(hardMode);
         this.ground = new Ground(this);
         this.walls = this.createWalls();
         this.hour = 0;
@@ -99,8 +99,7 @@ public class Process extends PlayerAccount {
     
     protected void checkAddCoin() {
         if (this.hour > 0 && this.hour % 5 == 0) {
-            this.addCoin(5);
-            System.out.println("Coin +5");
+            this.addCoin();
         }
     }
     

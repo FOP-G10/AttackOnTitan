@@ -1,5 +1,7 @@
 package attackontitan.backend.game;
 
+import attackontitan.backend.gameobjects.Wall;
+
 public class Game extends Process{
 
     public Game(boolean hardMode) {
@@ -20,7 +22,6 @@ public class Game extends Process{
             System.out.println("The board after the titans move...");
             this.printBoard();
             System.out.print("Press enter to continue... ");
-
             sc.nextLine();
 
             System.out.println("Titan's turn...");
@@ -102,5 +103,27 @@ public class Game extends Process{
         this.checkAddCoin();
 
         System.out.println();
+    }
+
+    protected boolean checkResult() {
+        return this.checkWalls() && this.checkTitans();
+    }
+
+    private boolean checkWalls() {
+        for (Wall wall: this.walls) {
+            if (!wall.checkCondition()) {
+                System.out.println("Game over. You lose. ");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkTitans() {
+        if (this.colossusIndex.isEmpty() && this.addedTitans && this.armouredIndex.isEmpty()) {
+            System.out.println("You win. All titans are dead. ");
+            return false;
+        }
+        return true;
     }
 }

@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e8241755-b567-4033-a8b5-af54959a7a85" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/game/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/game/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/game/Process.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/titans/Titan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/titans/Titan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/world/Ground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/world/Ground.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/player/PlayerAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/player/PlayerAccount.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -7,19 +7,18 @@ package attackontitan.backend.game;
 
 import attackontitan.backend.gameobjects.Wall;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Autumn
  */
-public class Main extends Game{
-    
-    public Main(boolean hardMode) {
-        super(hardMode);
-    }
+public class Main{
     
     public static void main(String[] args) {
         System.out.println("Choose game mode: \nA) Easy\nB) Hard");
-        Main aot = new Main(sc.nextLine().charAt(0) == 'B');
+        Scanner sc = new Scanner(System.in);
+        Game aot = new Game(sc.nextLine().charAt(0) == 'B');
         do {
             aot.playerTurn();
             System.out.print("Press enter to continue...");
@@ -31,27 +30,5 @@ public class Main extends Game{
         } while (aot.checkResult());
         
         System.out.println("Game over");
-    }
-    
-    private boolean checkResult() {
-        return this.checkWalls() && this.checkTitans();
-    }
-    
-    private boolean checkWalls() {
-        for (Wall wall: this.walls) {
-            if (!wall.checkCondition()) {
-                System.out.println("Game over. You lose. ");
-                return false;
-            }
-        }
-        return true;
-    }
-    
-    private boolean checkTitans() {
-        if (this.colossusIndex.isEmpty() && this.addedTitans && this.armouredIndex.isEmpty()) {
-            System.out.println("You win. All titans are dead. ");
-            return false;
-        }
-        return true;
     }
 }
