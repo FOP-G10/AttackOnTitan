@@ -15,6 +15,7 @@ import attackontitan.backend.game.Process;
 public class Ground {
     private Titan[][][] ground;
     private Process process;
+    private static int[][] obstacle = {{0, 5}, {7, 4}};
 
     public Ground(Process process) {
         this.ground = new Titan[10][10][2];
@@ -26,8 +27,9 @@ public class Ground {
         StringBuilder sb =  new StringBuilder("On The Ground\nRow\n");
         for (int i=0; i<this.ground.length; i++) {
             sb.append(i).append(" ");
-            for (Titan[] titans: this.ground[i]) {
-                if (titans[0] == null && titans[1] == null) {
+            for (int j=0; j<this.ground[i].length; j++) {
+                Titan[] titans = this.ground[i][j];
+                if ((titans[0] == null && titans[1] == null) || verifyObstacle(i, j)) {
                     sb.append("  ");
                 } else if (titans[1] == null) {
                     sb.append(titans[0].toString());
@@ -75,5 +77,14 @@ public class Ground {
 
     public Titan[][][] getGround() {
         return this.ground;
+    }
+
+    private static boolean verifyObstacle(int row, int col) {
+        for (int[] coordinate: obstacle) {
+            if (coordinate[0] == row && coordinate[1] == col) {
+                return true;
+            }
+        }
+        return false;
     }
 }

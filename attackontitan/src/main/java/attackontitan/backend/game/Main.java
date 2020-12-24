@@ -7,6 +7,7 @@ package attackontitan.backend.game;
 
 import attackontitan.backend.gameobjects.Wall;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -18,7 +19,7 @@ public class Main{
     public static void main(String[] args) {
         System.out.println("Choose game mode: \nA) Easy\nB) Hard");
         Scanner sc = new Scanner(System.in);
-        Game aot = new Game(sc.nextLine().charAt(0) == 'B');
+        Game aot = new Game(sc.nextLine().toUpperCase().charAt(0) == 'B');
         do {
             aot.playerTurn();
             System.out.print("Press enter to continue...");
