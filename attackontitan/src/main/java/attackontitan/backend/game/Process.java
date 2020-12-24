@@ -297,7 +297,6 @@ public class Process extends PlayerAccount {
             if (this.walls[i].showWeapon().getLevel() > 0) {
                 for (Titan[][] row: this.ground.getGround()) {
                     if (row[i] != null && row[i].length > 0){
-
                         for (int j=0; j<row[i].length; j++) {
                             try {
                                 Titan titan = row[i][j];
@@ -312,6 +311,8 @@ public class Process extends PlayerAccount {
                 }
             }
         }
+        this.updateArmouredIndex();
+        this.updateColossusIndex();
         if (count == 0) {
                 System.out.println("The weapons on all walls did not launch an attack... ");
         }
@@ -327,12 +328,12 @@ public class Process extends PlayerAccount {
                 this.walls[indexInt].upgradeWall(hpUpInt);
                 this.payCoin(hpUpInt);
                 System.out.println("Wall " + indexInt + " upgrade successfully. ");
-            } 
+            }
         }
     }
-    
-    protected void updateColossusIndex() {
-        
+
+    private void updateColossusIndex() {
+
         for (int i=0; i<this.colossusIndex.size(); i++) {
             Integer[] index = this.colossusIndex.get(i);
             try {
@@ -347,9 +348,9 @@ public class Process extends PlayerAccount {
         }
 
     }
-    
-    protected void updateArmouredIndex() {
-        
+
+    private void updateArmouredIndex() {
+
         for (int i=0; i<this.armouredIndex.size(); i++) {
             Integer[] index = this.armouredIndex.get(i);
             try {

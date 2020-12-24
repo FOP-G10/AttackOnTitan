@@ -16,9 +16,6 @@ public class Game extends Process{
             System.out.print("Press enter to continue... ");
             sc.nextLine();
 
-            this.updateArmouredIndex();
-            this.updateColossusIndex();
-
             System.out.println("Titan's turn...");
             System.out.println("The board after the titans move...");
             this.printBoard();
@@ -34,7 +31,6 @@ public class Game extends Process{
 
             System.out.println("The board after the titan's turn... ");
             this.printBoard();
-
             System.out.println();
             System.out.print("Press enter to continue... ");
             sc.nextLine();
@@ -51,6 +47,7 @@ public class Game extends Process{
 
     public void playerTurn() {
         System.out.println("Player's turn...");
+
         this.printBoard();
         System.out.println("Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)");
         String weaponString = sc.nextLine();
@@ -61,12 +58,14 @@ public class Game extends Process{
         }
         System.out.print("Press enter to continue... ");
         sc.nextLine();
+
         System.out.println("Player's turn");
         System.out.println();
         System.out.println("Your board after upgrading weapon: ");
         this.printBoard();
         System.out.print("Press Enter to continue... ");
         sc.nextLine();
+
         this.printBoard();
         System.out.println("Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: " + this.coin);
         String upgradeWalls = sc.nextLine();
@@ -76,14 +75,17 @@ public class Game extends Process{
         }else {
             upgradeWalls = "0123456789";
         }
-        System.out.println("How many HP do you want to add up to the wall(s)? Current coin number: " + this.coin);
-        String upgradeHp = sc.nextLine();
-        if (!upgradeWalls.isEmpty() && upgradeWalls.length() == upgradeHp.length()) {
-            this.upgradeWall(upgradeWalls, upgradeHp);
+        if (!upgradeWalls.isEmpty()) {
+            System.out.println("How many HP do you want to add up to the wall(s)? Current coin number: " + this.coin);
+            String upgradeHp = sc.nextLine();
+            if (upgradeWalls.length() == upgradeHp.length()) {
+                this.upgradeWall(upgradeWalls, upgradeHp);
+            } else {
+                System.out.println("No wall upgraded. ");
+            }
         } else {
             System.out.println("No wall upgraded. ");
         }
-
         System.out.print("Press enter to continue... ");
         sc.nextLine();
 
@@ -94,13 +96,11 @@ public class Game extends Process{
         sc.nextLine();
 
         this.weaponAttack();
-
-        this.updateColossusIndex();
-        this.updateArmouredIndex();
-
         System.out.println("Your board after attacking... ");
         this.printBoard();
+
         this.checkAddCoin();
+
         System.out.println();
     }
 }
