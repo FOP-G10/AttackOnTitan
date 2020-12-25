@@ -29,9 +29,16 @@ public class Display {
         this.canvas.setMaximumSize(new Dimension(this.width, this.height));
         this.canvas.setMinimumSize(new Dimension(this.width, this.height));
         this.canvas.setFocusable(false);
-        this.canvas.setBackground(Color.red);
 
         this.frame.add(this.canvas);
         this.frame.pack();
+    }
+
+    public Canvas getCanvas() {
+        return this.canvas;
+    }
+
+    public JFrame getFrame() {
+        return this.frame;
     }
 }

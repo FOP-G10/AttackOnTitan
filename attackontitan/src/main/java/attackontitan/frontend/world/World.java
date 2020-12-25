@@ -1,0 +1,53 @@
+package attackontitan.frontend.world;
+
+import attackontitan.backend.world.Ground;
+import attackontitan.backend.game.Process;
+import attackontitan.frontend.tiles.Tile;
+
+import javax.swing.border.TitledBorder;
+import java.awt.*;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+public class World {
+
+    private int width, height;
+    private int[][] tileDisplay;
+
+    public World(String path) {
+        loadWorld(path);
+    }
+
+    public void tick() {
+
+    }
+
+    public void render(Graphics g) {
+        for (int y=0; y<height; y++) {
+            for(int x=0; x<width; x++) {
+                getTile(x, y).render(g, x * Tile.TILE_WIDTH, y * Tile.TILE_HEIGHT);
+            }
+        }
+    }
+
+    public Tile getTile(int x, int y) {
+        return Tile.tiles[tileDisplay[y][x]];
+    }
+
+    private void loadWorld(String path) {
+        width = 10;
+        height = 11;
+        Process process = new Process(false);
+        Ground ground = new Ground(process);
+        tileDisplay = new int[height][width];
+
+        for(int y=0; y<height-1; y++) {
+            for(int x=0; x<width; x++) {
+                tileDisplay[y][x] = 0;
+            }
+        }
+        for (int x=0; x<width; x++) {
+            tileDisplay[height-1][x] = 1;
+        }
+    }
+}
