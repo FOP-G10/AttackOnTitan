@@ -3,6 +3,8 @@ package attackontitan.frontend.game;
 import attackontitan.frontend.display.Display;
 import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.gfx.ImageLoader;
+import attackontitan.frontend.state.GameState;
+import attackontitan.frontend.state.State;
 import attackontitan.frontend.world.World;
 
 import java.awt.*;
@@ -21,6 +23,8 @@ public class Game implements Runnable {
 
     private World world;
 
+    private State gameState;
+
     public Game(String title, int width, int height) {
         this.width = width;
         this.height = height;
@@ -29,36 +33,38 @@ public class Game implements Runnable {
 
     public void init() {
         this.display = new Display(this.title, this.width, this.height);
-        this.world = new World("");
         // initialize the assets
         // what this will do is
         // load the spritesheet
         // crop the spritesheet to subimage
         // assign them to static variables in the asset class
         Asset.init();
+
+        gameState = new GameState(this); // initialise the game state
+        State.setCurrentState(gameState); //  set the current state of the game to game state
     }
 
-    int y = 0;
-
     public void tick() {
-        y += 1;
+        if(State.getCurrentState() != null) {
+            State.getCurrentState().tick(); // run the tick method in the current state, here is game state
+        }
     }
 
     public void render() {
         bs = display.getCanvas().getBufferStrategy();
         if (bs == null) {
-            display.getCanvas().createBufferStrategy(3);
-            return;
+            display.getCanvas().createBufferStrategy(3); // create the buffer strategy if there is none
+            return; // return to prevent error
         }
-        g = bs.getDrawGraphics();
+        g = bs.getDrawGraphics(); // magical paint brush
 
         // clear canvas
-        g.clearRect(0, 0, this.width, this.height);
+        g.clearRect(0, 0, this.width, this.height); // clear the window before every rendering
 
         // Start drawing here
-//        g.drawImage(Asset.ground, 10, 10, null);
-//        g.drawImage(Asset.wall, 30, 30, null);
-        world.render(g);
+        if(State.getCurrentState() != null) { // check if the current state is set
+            State.getCurrentState().render(g); // run the render method in the game state
+        }
 
         // End drawing
         bs.show();
@@ -79,7 +85,7 @@ public class Game implements Runnable {
 
         while (running) {
             now = System.nanoTime();
-            delta += (now - lastTime) / timePerTick; // divide the tick to check how much per timePerTick is use
+            delta += (now - lastTime) / timePerTick; // divide the tick to check how much time per timePerTick is use
             timer += now - lastTime;
             lastTime = now;
 

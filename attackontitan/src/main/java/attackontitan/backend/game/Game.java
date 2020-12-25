@@ -9,22 +9,22 @@ public class Game extends Process{
     }
     public void titanTurn() {
         if (this.armouredIndex.size() + this.colossusIndex.size() > 0){
-            System.out.println("Titan's turn...");
+            System.out.println("ArmouredTitan's turn...");
             System.out.println();
 
-            System.out.println("Titan start to move");
+            System.out.println("ArmouredTitan start to move");
             this.moveArmouredForward();
             this.moveColossusSideways();
             System.out.print("Press enter to continue... ");
             sc.nextLine();
 
-            System.out.println("Titan's turn...");
+            System.out.println("ArmouredTitan's turn...");
             System.out.println("The board after the titans move...");
             this.printBoard();
             System.out.print("Press enter to continue... ");
             sc.nextLine();
 
-            System.out.println("Titan's turn...");
+            System.out.println("ArmouredTitan's turn...");
             this.armouredAttack();
             this.colossusAttack();
             System.out.print("Press enter to continue... ");
@@ -37,7 +37,7 @@ public class Game extends Process{
             sc.nextLine();
         } else {
             System.out.println("No titan on the ground.");
-            System.out.println("Titan's turn skipped.");
+            System.out.println("ArmouredTitan's turn skipped.");
             System.out.println();
             System.out.print("Press enter to continue... ");
             sc.nextLine();

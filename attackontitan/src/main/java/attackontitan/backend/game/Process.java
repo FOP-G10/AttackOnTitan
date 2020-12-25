@@ -26,8 +26,8 @@ public class Process extends PlayerAccount {
     protected Wall[] walls;
 
     protected int hour;
-    protected ArrayList<Integer[]> colossusIndex;
-    protected ArrayList<Integer[]> armouredIndex;
+    public ArrayList<Integer[]> colossusIndex;
+    public ArrayList<Integer[]> armouredIndex;
 
     public boolean addedTitans = false;
     private final boolean hardMode;
@@ -124,8 +124,8 @@ public class Process extends PlayerAccount {
         }
     }
     
-    protected void addColossus() {
-        if (this.hour == 5) {
+    public void addColossus() {
+//        if (this.hour == 5) {
             int randomInt;
             do {
                 randomInt = r.nextInt(10);
@@ -137,13 +137,13 @@ public class Process extends PlayerAccount {
             this.colossusIndex.add(coor);
             System.out.println("A colossus titan is added to the ground. ");
             this.addedTitans = true;
-        } else {
-            System.out.println("No colossus titan added. ");
-        }
+//        } else {
+//            System.out.println("No colossus titan added. ");
+//        }
     }
     
-    protected void addArmoured() {
-        if (this.hour > 0 && ((!this.hardMode && this.hour == 5) || (this.hardMode && this.hour % 5 == 0))) {
+    public void addArmoured() {
+//        if (this.hour > 0 && ((!this.hardMode && this.hour == 5) || (this.hardMode && this.hour % 5 == 0))) {
             int randomInt;
             do {
                 randomInt = r.nextInt(10);
@@ -155,12 +155,12 @@ public class Process extends PlayerAccount {
             this.armouredIndex.add(coor);
             System.out.println("A armoured titan is added to the ground. ");
             this.addedTitans = true;
-        }else {
-            System.out.println("No armoured titan added. ");
-        }
+//        }else {
+//            System.out.println("No armoured titan added. ");
+//        }
     }
     
-    protected void moveColossusSideways() {
+    public void moveColossusSideways() {
         for (int i=0; i<this.colossusIndex.size(); i++) {
             int row = this.colossusIndex.get(i)[0];
             int col = this.colossusIndex.get(i)[1];
@@ -185,7 +185,7 @@ public class Process extends PlayerAccount {
         }
     }
     
-    protected void moveArmouredForward() {
+    public void moveArmouredForward() {
         System.out.println(this.armouredIndex.size());
         for (int i=0; i<this.armouredIndex.size(); i++) {
             int row = this.armouredIndex.get(i)[0];
