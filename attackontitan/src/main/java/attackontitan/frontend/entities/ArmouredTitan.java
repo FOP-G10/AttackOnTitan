@@ -1,35 +1,43 @@
 package attackontitan.frontend.entities;
 
 import attackontitan.backend.game.Game;
+import attackontitan.backend.gameobjects.titans.Titan;
 import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.tiles.Tile;
 
 import java.awt.*;
+import java.util.ArrayList;
 
-public class ArmouredTitan extends Entity {
+public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.ArmouredTitan {
 
-    protected attackontitan.backend.gameobjects.titans.Titan titan;
+    private float x, y;
+
+    private attackontitan.backend.gameobjects.titans.ArmouredTitan titan;
+
+    protected Game gameProcess;
+
+    public static ArrayList<ArmouredTitan> allArmoured = new ArrayList<>();
 
     public ArmouredTitan(float x, float y) {
-        super(x, y);
-        titan = new attackontitan.backend.gameobjects.titans.ArmouredTitan();
+        super();
+        this.x = x;
+        this.y = y;
+        allArmoured.add(this);
     }
 
     public void tick() {
-//        if(!this.gameProcess.armouredIndex.isEmpty()) {
-//            x = this.gameProcess.armouredIndex.get(0)[0];
-//            y = this.gameProcess.armouredIndex.get(0)[1];
-//        }else {
-//            x = -1;
-//            y = -1;
-//        }
-        if(y < 9) {
-            y += 0.1;
-        }
 
     }
 
     public void render(Graphics g) {
-        g.drawImage(Asset.armouredTitan, (int)x * Tile.TILE_WIDTH, (int)y * Tile.TILE_HEIGHT, null);
+        g.drawImage(Asset.armouredTitan, (int)y * Tile.TILE_WIDTH, (int)x * Tile.TILE_HEIGHT, null);
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public void setY(float y) {
+        this.y = y;
     }
 }

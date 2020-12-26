@@ -5,27 +5,38 @@ import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.tiles.Tile;
 
 import java.awt.*;
+import java.util.ArrayList;
 
-public class ColossusTitan extends Entity{
+public class ColossusTitan extends attackontitan.backend.gameobjects.titans.ColossusTitan {
 
-    protected attackontitan.backend.gameobjects.titans.ColossusTitan colossusTitan;
-    private Game game;
+    private float x, y;
+
+    protected attackontitan.backend.gameobjects.titans.ColossusTitan titan;
+    private Game gameProcess;
+
+    public static ArrayList<ColossusTitan> allColossus = new ArrayList<>();
 
     public ColossusTitan(float x, float y) {
-        super(x, y);
-        colossusTitan = new attackontitan.backend.gameobjects.titans.ColossusTitan();
+        super();
+        this.x = x;
+        this.y = y;
+
+        allColossus.add(this);
     }
 
-    @Override
     public void tick() {
-        if (x < 9) {
-            x += 0.1;
-        }
 
     }
 
-    @Override
     public void render(Graphics g) {
-        g.drawImage(Asset.colossusTitan, (int)x * Tile.TILE_WIDTH, (int)y * Tile.TILE_HEIGHT, null);
+        g.drawImage(Asset.colossusTitan, (int)y * Tile.TILE_WIDTH, (int)x * Tile.TILE_HEIGHT, null);
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public void setY(float y) {
+        this.y = y;
     }
 }

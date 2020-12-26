@@ -24,11 +24,13 @@ public class Game implements Runnable {
     private World world;
 
     private State gameState;
+    public attackontitan.backend.game.Game gameProcess;
 
-    public Game(String title, int width, int height) {
+    public Game(String title, int width, int height, attackontitan.backend.game.Game gameProcess) {
         this.width = width;
         this.height = height;
         this.title = title;
+        this.gameProcess = gameProcess;
     }
 
     public void init() {
@@ -90,6 +92,7 @@ public class Game implements Runnable {
             lastTime = now;
 
             if(delta >= 1) {
+
                 tick();
                 ticks += 1; // increment to count the tick
                 render();
@@ -97,7 +100,7 @@ public class Game implements Runnable {
             }
 
             if (timer >= 1000000000) {
-                System.out.println(ticks + " fps");
+//                System.out.println(ticks + " fps");
                 ticks = 0; // reset the value
                 timer = 0; // reset the value
             }

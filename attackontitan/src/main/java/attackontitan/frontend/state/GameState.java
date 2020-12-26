@@ -15,24 +15,49 @@ public class GameState extends State{
     private ArmouredTitan armouredTitan;
     private ColossusTitan colossusTitan;
 
+    private attackontitan.backend.game.Game gameProcess;
+
     public GameState(Game game) {
         super(game);
         world = new World("");
-        armouredTitan = new ArmouredTitan(3, 0);
-        colossusTitan = new ColossusTitan(0, 9);
+//        this.gameProcess = new attackontitan.backend.game.Game(false);
+//        armouredTitan = new ArmouredTitan(game.gameProcess, 3, 0);
+//        colossusTitan = new ColossusTitan(game.gameProcess, 0, 9);
     }
 
     @Override
     public void tick() {
         world.tick();
-        armouredTitan.tick();
-        colossusTitan.tick();
+//        this.gameProcess.playerTurn();
+//        this.gameProcess.titanTurn();
+//        this.gameProcess.incrementHour(1);
+        if(!ArmouredTitan.allArmoured.isEmpty()) {
+            for(ArmouredTitan titan: ArmouredTitan.allArmoured) {
+                titan.tick();
+            }
+        }
+
+        if(!ColossusTitan.allColossus.isEmpty()) {
+            for(ColossusTitan titan: ColossusTitan.allColossus) {
+                titan.tick();
+            }
+        }
+
     }
 
     @Override
     public void render(Graphics g) {
         world.render(g);
-        armouredTitan.render(g);
-        colossusTitan.render(g);
+        if(!ArmouredTitan.allArmoured.isEmpty()) {
+            for(ArmouredTitan titan: ArmouredTitan.allArmoured) {
+                titan.render(g);
+            }
+        }
+
+        if(!ColossusTitan.allColossus.isEmpty()) {
+            for(ColossusTitan titan: ColossusTitan.allColossus) {
+                titan.render(g);
+            }
+        }
     }
 }
