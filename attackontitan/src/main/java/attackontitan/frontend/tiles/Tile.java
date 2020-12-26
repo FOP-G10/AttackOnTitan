@@ -15,6 +15,7 @@ public class Tile {
     public static Tile[] tiles = new Tile[256];
     public static Tile groundTile = new GroundTile(0);
     public static Tile wallTile = new WallTile(1);
+    public static Tile weaponTile = new WeaponTile(2);
 
     public Tile(BufferedImage texture, int id) {
         this.texture = texture;

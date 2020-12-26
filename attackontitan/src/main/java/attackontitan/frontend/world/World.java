@@ -28,6 +28,10 @@ public class World {
                 getTile(x, y).render(g, x * Tile.TILE_WIDTH, y * Tile.TILE_HEIGHT);
             }
         }
+
+        for (int x=0; x<width; x++) {
+            Tile.tiles[2].render(g, x * Tile.TILE_WIDTH, 10 * Tile.TILE_HEIGHT - 16);
+        }
     }
 
     public Tile getTile(int x, int y) {
