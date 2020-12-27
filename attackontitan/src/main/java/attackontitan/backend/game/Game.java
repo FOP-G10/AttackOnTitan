@@ -9,7 +9,7 @@ public class Game extends Process{
     public Game(boolean hardMode) {
         super(hardMode);
     }
-    public void titanTurn() {
+    public void titanTurn(JFrame parentFrame) {
         if (this.armouredIndex.size() + this.colossusIndex.size() > 0){
             System.out.println("ArmouredTitan's turn...");
             System.out.println();
@@ -48,13 +48,14 @@ public class Game extends Process{
         this.addArmoured();
     }
 
-    public void playerTurn() {
+    public void playerTurn(JFrame parentFrame) {
         System.out.println("Player's turn...");
 
         this.printBoard();
 //        System.out.println("Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)");
 //        String weaponString = sc.nextLine();
-        String weaponString = JOptionPane.showInputDialog("Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)");
+//        JOptionPane jOptionPane = new JOptionPane();
+        String weaponString = JOptionPane.showInputDialog(parentFrame, "Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)");
         if (!weaponString.isEmpty()) {
             this.upgradeWeapon(weaponString);
         } else {
@@ -73,7 +74,7 @@ public class Game extends Process{
         this.printBoard();
 //        System.out.println("Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: " + this.coin);
 //        String upgradeWalls = sc.nextLine();
-        String upgradeWalls = JOptionPane.showInputDialog("Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: " + this.coin);
+        String upgradeWalls = JOptionPane.showInputDialog(parentFrame, "Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: " + this.coin);
         if (upgradeWalls.isEmpty()) {
 //            System.out.println("Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)");
 //            upgradeWalls = sc.nextLine();
@@ -132,4 +133,6 @@ public class Game extends Process{
         }
         return true;
     }
+
+
 }

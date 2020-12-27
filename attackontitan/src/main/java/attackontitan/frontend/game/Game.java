@@ -7,6 +7,7 @@ import attackontitan.frontend.state.GameState;
 import attackontitan.frontend.state.State;
 import attackontitan.frontend.world.World;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -128,5 +129,12 @@ public class Game implements Runnable {
         }catch(InterruptedException e) {
             System.out.println(e.toString());
         }
+    }
+
+    public JFrame getFrame() {
+        while(this.display == null) {
+            System.out.println("wait");
+        }
+        return this.display.getFrame();
     }
 }

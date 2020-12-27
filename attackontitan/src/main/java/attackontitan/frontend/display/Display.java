@@ -23,6 +23,7 @@ public class Display {
         this.frame.setResizable(false);
         this.frame.setLocationRelativeTo(null);
         this.frame.setVisible(true);
+        this.frame.setTitle("Attack On Titan");
 
         this.canvas = new Canvas();
         this.canvas.setPreferredSize(new Dimension(this.width, this.height));

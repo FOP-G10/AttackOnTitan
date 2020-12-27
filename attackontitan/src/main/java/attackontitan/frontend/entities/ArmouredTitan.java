@@ -31,6 +31,8 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
 
     public void render(Graphics g) {
         g.drawImage(Asset.armouredTitan, (int)y * Tile.TILE_WIDTH, (int)x * Tile.TILE_HEIGHT, null);
+        g.setColor(Color.lightGray);
+        g.drawString("HP: " + this.hp, ((int)y) * Tile.TILE_WIDTH, ((int)x) * Tile.TILE_HEIGHT);
     }
 
     public void setX(float x) {

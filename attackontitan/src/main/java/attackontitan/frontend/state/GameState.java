@@ -19,7 +19,7 @@ public class GameState extends State{
 
     public GameState(Game game) {
         super(game);
-        world = new World("");
+        world = new World(game.gameProcess);
 //        this.gameProcess = new attackontitan.backend.game.Game(false);
 //        armouredTitan = new ArmouredTitan(game.gameProcess, 3, 0);
 //        colossusTitan = new ColossusTitan(game.gameProcess, 0, 9);

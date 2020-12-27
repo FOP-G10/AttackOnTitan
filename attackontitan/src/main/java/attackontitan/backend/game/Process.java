@@ -378,4 +378,8 @@ public class Process extends PlayerAccount {
     public void incrementHour(int hour) {
         this.hour += hour;
     }
+
+    public Wall[] getWalls() {
+        return walls;
+    }
 }

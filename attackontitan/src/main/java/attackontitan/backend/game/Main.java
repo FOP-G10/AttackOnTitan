@@ -17,19 +17,19 @@ import java.util.Scanner;
 public class Main{
     
     public static void main(String[] args) {
-        System.out.println("Choose game mode: \nA) Easy\nB) Hard");
-        Scanner sc = new Scanner(System.in);
-        Game aot = new Game(sc.nextLine().toUpperCase().charAt(0) == 'B');
-        do {
-            aot.playerTurn();
-            System.out.print("Press enter to continue...");
-            sc.nextLine();
-            aot.titanTurn();
-            aot.incrementHour(1);
-            System.out.print("Press enter to continue...");
-            sc.nextLine();
-        } while (aot.checkResult());
-        
-        System.out.println("Game over");
+//        System.out.println("Choose game mode: \nA) Easy\nB) Hard");
+//        Scanner sc = new Scanner(System.in);
+//        Game aot = new Game(sc.nextLine().toUpperCase().charAt(0) == 'B');
+//        do {
+//            aot.playerTurn();
+//            System.out.print("Press enter to continue...");
+//            sc.nextLine();
+//            aot.titanTurn();
+//            aot.incrementHour(1);
+//            System.out.print("Press enter to continue...");
+//            sc.nextLine();
+//        } while (aot.checkResult());
+//
+//        System.out.println("Game over");
     }
 }

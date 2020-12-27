@@ -30,6 +30,8 @@ public class ColossusTitan extends attackontitan.backend.gameobjects.titans.Colo
 
     public void render(Graphics g) {
         g.drawImage(Asset.colossusTitan, (int)y * Tile.TILE_WIDTH, (int)x * Tile.TILE_HEIGHT, null);
+        g.setColor(Color.lightGray);
+        g.drawString("HP: " + this.hp, ((int)y) * Tile.TILE_WIDTH, ((int)x) * Tile.TILE_HEIGHT);
     }
 
     public void setX(float x) {
