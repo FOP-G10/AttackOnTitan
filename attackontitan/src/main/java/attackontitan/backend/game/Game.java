@@ -119,7 +119,8 @@ public class Game extends Process{
     private boolean checkWalls() {
         for (Wall wall: this.walls) {
             if (!wall.checkCondition()) {
-                System.out.println("Game over. You lose. ");
+                JFrame jframe = new JFrame();
+                JOptionPane.showMessageDialog(null,"Game over. You lose. ");
                 return false;
             }
         }
@@ -128,7 +129,8 @@ public class Game extends Process{
 
     private boolean checkTitans() {
         if (this.colossusIndex.isEmpty() && this.addedTitans && this.armouredIndex.isEmpty()) {
-            System.out.println("You win. All titans are dead. ");
+            JFrame jframe = new JFrame();
+            JOptionPane.showMessageDialog(null,"You win. All titans are dead. ");
             return false;
         }
         return true;

@@ -42,9 +42,6 @@ public class World {
             g.setColor(Color.white);
             g.drawString(String.valueOf(gameProcess.getWalls()[x].getHp()), x * Tile.TILE_WIDTH, 11 * Tile.TILE_HEIGHT);
         }
-
-        g.drawString("HOUR: " + gameProcess.getHour(), (this.width-2) * Tile.TILE_WIDTH - 10, Tile.TILE_HEIGHT);
-        g.drawString("Coin: " + gameProcess.getCoin(), (this.width-2) * Tile.TILE_WIDTH - 10, Tile.TILE_HEIGHT * 2);
     }
 
     public Tile getTile(int x, int y) {

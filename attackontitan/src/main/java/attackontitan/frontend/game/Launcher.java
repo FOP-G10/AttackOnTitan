@@ -10,7 +10,7 @@ public class Launcher {
 //        System.out.println("Choose game mode: \nA) Easy\nB) Hard");
         boolean gameMode = JOptionPane.showInputDialog("Choose game mode: \nA) Easy\nB) Hard").toUpperCase().charAt(0) == 'B';
         attackontitan.backend.game.Game aot = new attackontitan.backend.game.Game(gameMode);
-        Game game = new Game("Attack On ArmouredTitan", 320, 352, aot);
+        Game game = new Game("Attack On ArmouredTitan", 320, 384, aot);
         game.start();
         do {
             aot.playerTurn(game.getFrame());

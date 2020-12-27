@@ -29,6 +29,9 @@ public class ColossusTitan extends attackontitan.backend.gameobjects.titans.Colo
     }
 
     public void render(Graphics g) {
+        if(this.hp <= 0) {
+            return;
+        }
         g.drawImage(Asset.colossusTitan, (int)y * Tile.TILE_WIDTH, (int)x * Tile.TILE_HEIGHT, null);
         g.setColor(Color.lightGray);
         g.drawString("HP: " + this.hp, ((int)y) * Tile.TILE_WIDTH, ((int)x) * Tile.TILE_HEIGHT);
