@@ -65,5 +65,7 @@ public class GameState extends State{
                 titan.render(g);
             }
         }
+        g.setColor(Color.white);
+        g.fillRect(this.game.getMouseManager().getMouseX(), this.game.getMouseManager().getMouseY(), 10, 10);
     }
 }

@@ -3,6 +3,7 @@ package attackontitan.frontend.game;
 import attackontitan.frontend.display.Display;
 import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.gfx.ImageLoader;
+import attackontitan.frontend.input.MouseManager;
 import attackontitan.frontend.state.GameState;
 import attackontitan.frontend.state.State;
 import attackontitan.frontend.world.World;
@@ -22,6 +23,8 @@ public class Game implements Runnable {
     private BufferStrategy bs;
     private Graphics g;
 
+    private MouseManager mouseManager;
+
     private World world;
 
     private State gameState;
@@ -32,10 +35,17 @@ public class Game implements Runnable {
         this.height = height;
         this.title = title;
         this.gameProcess = gameProcess;
+        this.mouseManager = new MouseManager();
     }
 
     public void init() {
         this.display = new Display(this.title, this.width, this.height);
+
+        display.getFrame().addMouseListener(mouseManager);
+        display.getFrame().addMouseMotionListener(mouseManager);
+
+        display.getCanvas().addMouseListener(mouseManager);
+        display.getCanvas().addMouseMotionListener(mouseManager);
         // initialize the assets
         // what this will do is
         // load the spritesheet
@@ -136,5 +146,9 @@ public class Game implements Runnable {
             System.out.println("wait");
         }
         return this.display.getFrame();
+    }
+
+    public MouseManager getMouseManager() {
+        return mouseManager;
     }
 }

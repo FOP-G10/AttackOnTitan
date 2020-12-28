@@ -146,6 +146,7 @@ public class Game extends Process{
         final JDialog d = pane.createDialog((JFrame)null, "Title");
 //        d.setLocation(10,10);
         d.setLocation(parent.getWidth(), parent.getHeight() + d.getHeight());
+        parent.setEnabled(true);
         d.setVisible(true);
 
         return (String)pane.getInputValue();
