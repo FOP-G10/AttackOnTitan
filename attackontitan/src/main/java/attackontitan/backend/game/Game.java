@@ -55,7 +55,8 @@ public class Game extends Process{
 //        System.out.println("Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)");
 //        String weaponString = sc.nextLine();
 //        JOptionPane jOptionPane = new JOptionPane();
-        String weaponString = JOptionPane.showInputDialog(parentFrame, "Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)");
+//        String weaponString = JOptionPane.showInputDialog(parentFrame, "Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)");
+        String weaponString = getInput("Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)", parentFrame);
         if (!weaponString.isEmpty()) {
             this.upgradeWeapon(weaponString);
         } else {
@@ -74,18 +75,21 @@ public class Game extends Process{
         this.printBoard();
 //        System.out.println("Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: " + this.coin);
 //        String upgradeWalls = sc.nextLine();
-        String upgradeWalls = JOptionPane.showInputDialog(parentFrame, "Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: " + this.coin);
+//        String upgradeWalls = JOptionPane.showInputDialog(parentFrame, "Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: " + this.coin);
+        String upgradeWalls = getInput("Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: " + this.coin, parentFrame);
         if (upgradeWalls.isEmpty()) {
 //            System.out.println("Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)");
 //            upgradeWalls = sc.nextLine();
-            upgradeWalls = JOptionPane.showInputDialog("Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)");
+//            upgradeWalls = JOptionPane.showInputDialog("Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)");
+            upgradeWalls = getInput("Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)", parentFrame);
         }else {
             upgradeWalls = "0123456789";
         }
         if (!upgradeWalls.isEmpty()) {
 //            System.out.println("How many HP do you want to add up to the wall(s)? Current coin number: " + this.coin);
 //            String upgradeHp = sc.nextLine();
-            String upgradeHp = JOptionPane.showInputDialog("How many HP do you want to add up to the wall(s)? Current coin number: " + this.coin);
+//            String upgradeHp = JOptionPane.showInputDialog("How many HP do you want to add up to the wall(s)? Current coin number: " + this.coin);
+            String upgradeHp = getInput("How many HP do you want to add up to the wall(s)? Current coin number: " + this.coin, parentFrame);
             if (upgradeWalls.length() == upgradeHp.length()) {
                 this.upgradeWall(upgradeWalls, upgradeHp);
             } else {
@@ -134,6 +138,17 @@ public class Game extends Process{
             return false;
         }
         return true;
+    }
+
+    public static String getInput(String message, JFrame parent) {
+        final JOptionPane pane = new JOptionPane(message);
+        pane.setWantsInput(true);
+        final JDialog d = pane.createDialog((JFrame)null, "Title");
+//        d.setLocation(10,10);
+        d.setLocation(parent.getWidth(), parent.getHeight() + d.getHeight());
+        d.setVisible(true);
+
+        return (String)pane.getInputValue();
     }
 
 
