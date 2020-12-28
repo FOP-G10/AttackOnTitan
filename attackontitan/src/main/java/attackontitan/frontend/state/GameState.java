@@ -56,16 +56,14 @@ public class GameState extends State{
         stats.render(g);
         if(!ArmouredTitan.allArmoured.isEmpty()) {
             for(ArmouredTitan titan: ArmouredTitan.allArmoured) {
-                titan.render(g);
+                titan.render(g, this.game.getMouseManager());
             }
         }
 
         if(!ColossusTitan.allColossus.isEmpty()) {
             for(ColossusTitan titan: ColossusTitan.allColossus) {
-                titan.render(g);
+                titan.render(g, this.game.getMouseManager());
             }
         }
-        g.setColor(Color.white);
-        g.fillRect(this.game.getMouseManager().getMouseX(), this.game.getMouseManager().getMouseY(), 10, 10);
     }
 }

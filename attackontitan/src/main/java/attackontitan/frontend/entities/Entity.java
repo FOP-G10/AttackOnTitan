@@ -1,5 +1,7 @@
 package attackontitan.frontend.entities;
 
+import attackontitan.frontend.input.MouseManager;
+
 import java.awt.*;
 
 public abstract class Entity {
@@ -13,5 +15,5 @@ public abstract class Entity {
 
     public abstract void tick();
 
-    public abstract void render(Graphics g);
+    public abstract void render(Graphics g, MouseManager mouseManager);
 }
