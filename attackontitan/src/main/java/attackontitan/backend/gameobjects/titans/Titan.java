@@ -48,5 +48,8 @@ public class Titan<T extends Titan<T>> {
     public int moveForward() {
         return 1;
     }
-    
+
+    public int getHp() {
+        return hp;
+    }
 }

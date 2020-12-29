@@ -29,7 +29,7 @@ public class Game implements Runnable {
     private World world;
 
     private State gameState;
-    private State menuState;
+    public State menuState;
     public attackontitan.backend.game.Game gameProcess;
 
     public Game(String title, int width, int height, attackontitan.backend.game.Game gameProcess) {

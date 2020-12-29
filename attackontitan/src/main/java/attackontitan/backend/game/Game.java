@@ -17,7 +17,7 @@ public class Game extends Process{
             // move
             System.out.println("ArmouredTitan start to move");
             this.moveArmouredForward();
-            this.moveColossusSideways();
+            this.moveColossusSideways() ;
 
 
             // attack

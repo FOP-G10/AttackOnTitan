@@ -26,7 +26,7 @@ public class Process extends PlayerAccount {
     protected Ground ground;
     public static Wall[] walls;
 
-    protected int hour;
+    public static int hour;
     public ArrayList<Integer[]> colossusIndex;
     public ArrayList<Integer[]> armouredIndex;
 
@@ -98,7 +98,7 @@ public class Process extends PlayerAccount {
         }
     }
     
-    protected void checkAddCoin() {
+    public void checkAddCoin() {
         if (this.hour > 0 && this.hour % 5 == 0) {
             this.addCoin();
         }
@@ -381,5 +381,9 @@ public class Process extends PlayerAccount {
 
     public Wall[] getWalls() {
         return walls;
+    }
+
+    public boolean isHardMode() {
+        return hardMode;
     }
 }

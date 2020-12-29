@@ -19,7 +19,7 @@ public class World {
 
     public World(Game gameProcess) {
         this.width = 10;
-        this.height = 11;
+        this.height = 12;
         this.gameProcess = gameProcess;
         loadWorld();
     }

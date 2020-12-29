@@ -10,7 +10,7 @@ public class Stats {
     private Game gameProcess;
 
     private int startX = 0;
-    private int startY = 12;
+    private int startY = 13;
 
     private int hour;
     private int coin;

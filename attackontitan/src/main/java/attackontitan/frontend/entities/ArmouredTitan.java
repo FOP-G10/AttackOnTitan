@@ -9,6 +9,7 @@ import attackontitan.frontend.tiles.Tile;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.ArmouredTitan {
 
@@ -19,6 +20,7 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
     protected Game gameProcess;
 
     public static ArrayList<ArmouredTitan> allArmoured = new ArrayList<>();
+    public static boolean armouredCondition = true;
 
     public ArmouredTitan(int x, int y) {
         super();
@@ -27,13 +29,77 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
         allArmoured.add(this);
     }
 
-    public void tick() {
+    public void tick(boolean hardMode) {
         this.armouredAttack();
+        this.moveArmouredForward();
+        for (Wall wall: Wall.walls) {
+            if (wall.getWall().getHp() < 0) {
+                Wall.wallCondition = false;
+                break;
+            }
+        }
+    }
+
+    public void moveArmouredForward() {
+        int row = this.getX();
+        int col = this.getY();
+        attackontitan.frontend.entities.ArmouredTitan arTitan = this;
+        int step;
+        step = arTitan.moveForward();
+
+        if (step + row < 10) {
+            arTitan.setX(row+step);
+            arTitan.setY(col);
+
+            System.out.println("The armoured titan moved forward.");
+        } else {
+            System.out.println("The armoured titan did not move forward.");
+        }
+    }
+
+    private void moveArmouredSideways() {
+        int row = this.getX();
+        int col = this.getY();
+
+        attackontitan.frontend.entities.ArmouredTitan arTitan = this;
+
+        int step;
+        do {
+            step = arTitan.moveSideways();
+        } while (col + step < 0 || col + step >= 10);
+
+        arTitan.setX(row);
+        arTitan.setY(col+step);
+
+        System.out.println("The armoured titan moved sideways.");
+
     }
 
     protected void armouredAttack() {
+        int count = 0;
+        int[] index = {this.getX(), this.getY()};
+        if (index[0] == 9) {
+            if (Weapon.weapons[index[1]].getWeapon().getLevel() > 0) {
+                Weapon.weapons[index[1]].getWeapon().damage();
+                System.out.println("The armoured titan attacked the weapon on wall " + index[1]);
+            } else {
+                attackontitan.frontend.entities.ArmouredTitan focus;
 
+                focus = this;
+
+                if ((focus.getExtraChance() == 0)) {
+                    this.moveArmouredSideways();
+                    System.out.println("The armoured titan reached line 9 but did not attack. ");
+                } else {
+                    Wall.walls[index[1]].getWall().damage(focus.attack());
+                    System.out.println("The armoured titan attacked the wall " + index[1]);
+                    count++;
+                }
+            }
+        }
     }
+
+
 
     public void render(Graphics g, MouseManager mouseManager) {
         if (this.hp <= 0) {
@@ -60,5 +126,13 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }
