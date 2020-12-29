@@ -1,6 +1,7 @@
 package attackontitan.frontend.entities;
 
 import attackontitan.backend.game.Game;
+import attackontitan.backend.game.Process;
 import attackontitan.backend.gameobjects.titans.Titan;
 import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.input.MouseManager;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 
 public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.ArmouredTitan {
 
-    private float x, y;
+    private int x, y;
 
     private attackontitan.backend.gameobjects.titans.ArmouredTitan titan;
 
@@ -19,7 +20,7 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
 
     public static ArrayList<ArmouredTitan> allArmoured = new ArrayList<>();
 
-    public ArmouredTitan(float x, float y) {
+    public ArmouredTitan(int x, int y) {
         super();
         this.x = x;
         this.y = y;
@@ -27,6 +28,10 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
     }
 
     public void tick() {
+        this.armouredAttack();
+    }
+
+    protected void armouredAttack() {
 
     }
 
@@ -49,11 +54,11 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
         }
     }
 
-    public void setX(float x) {
+    public void setX(int x) {
         this.x = x;
     }
 
-    public void setY(float y) {
+    public void setY(int y) {
         this.y = y;
     }
 }

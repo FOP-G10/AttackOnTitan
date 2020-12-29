@@ -24,7 +24,7 @@ import java.util.Scanner;
  */
 public class Process extends PlayerAccount {
     protected Ground ground;
-    protected Wall[] walls;
+    public static Wall[] walls;
 
     protected int hour;
     public ArrayList<Integer[]> colossusIndex;

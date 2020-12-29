@@ -35,13 +35,13 @@ public class World {
             }
         }
 
-        for (int x=0; x<width; x++) {
-            if (gameProcess.getWalls()[x].showWeapon().getLevel() > 0) {
-                Tile.tiles[2].render(g, x * Tile.TILE_WIDTH, 10 * Tile.TILE_HEIGHT - 16);
-            }
-            g.setColor(Color.white);
-            g.drawString(String.valueOf(gameProcess.getWalls()[x].getHp()), x * Tile.TILE_WIDTH, 11 * Tile.TILE_HEIGHT);
-        }
+//        for (int x=0; x<width; x++) {
+//            if (gameProcess.getWalls()[x].showWeapon().getLevel() > 0) {
+//                Tile.tiles[2].render(g, x * Tile.TILE_WIDTH, 10 * Tile.TILE_HEIGHT - 16);
+//            }
+//            g.setColor(Color.white);
+//            g.drawString(String.valueOf(gameProcess.getWalls()[x].getHp()), x * Tile.TILE_WIDTH, 11 * Tile.TILE_HEIGHT);
+//        }
     }
 
     public Tile getTile(int x, int y) {
@@ -53,13 +53,10 @@ public class World {
         Ground ground = new Ground(process);
         tileDisplay = new int[height][width];
 
-        for(int y=0; y<height-1; y++) {
+        for(int y=0; y<height; y++) {
             for(int x=0; x<width; x++) {
                 tileDisplay[y][x] = 0;
             }
-        }
-        for (int x=0; x<width; x++) {
-            tileDisplay[height-1][x] = 1;
         }
     }
 }

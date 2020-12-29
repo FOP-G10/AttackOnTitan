@@ -6,9 +6,9 @@ import java.awt.*;
 
 public abstract class Entity {
 
-    protected float x, y;
+    protected int x, y;
 
-    public Entity(float x, float y) {
+    public Entity(int x, int y) {
         this.x = x;
         this.y = y;
     }

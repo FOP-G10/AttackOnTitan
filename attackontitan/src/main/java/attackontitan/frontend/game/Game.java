@@ -5,6 +5,7 @@ import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.gfx.ImageLoader;
 import attackontitan.frontend.input.MouseManager;
 import attackontitan.frontend.state.GameState;
+import attackontitan.frontend.state.MenuState;
 import attackontitan.frontend.state.State;
 import attackontitan.frontend.world.World;
 
@@ -28,6 +29,7 @@ public class Game implements Runnable {
     private World world;
 
     private State gameState;
+    private State menuState;
     public attackontitan.backend.game.Game gameProcess;
 
     public Game(String title, int width, int height, attackontitan.backend.game.Game gameProcess) {
@@ -41,8 +43,8 @@ public class Game implements Runnable {
     public void init() {
         this.display = new Display(this.title, this.width, this.height);
 
-        display.getFrame().addMouseListener(mouseManager);
-        display.getFrame().addMouseMotionListener(mouseManager);
+//        display.getFrame().addMouseListener(mouseManager);
+//        display.getFrame().addMouseMotionListener(mouseManager);
 
         display.getCanvas().addMouseListener(mouseManager);
         display.getCanvas().addMouseMotionListener(mouseManager);
@@ -54,7 +56,8 @@ public class Game implements Runnable {
         Asset.init();
 
         gameState = new GameState(this); // initialise the game state
-        State.setCurrentState(gameState); //  set the current state of the game to game state
+        menuState = new MenuState(this);
+        State.setCurrentState(menuState); //  set the current state of the game to game state
     }
 
     public void tick() {
@@ -150,5 +153,9 @@ public class Game implements Runnable {
 
     public MouseManager getMouseManager() {
         return mouseManager;
+    }
+
+    public State getGameState() {
+        return gameState;
     }
 }

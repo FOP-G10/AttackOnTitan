@@ -12,12 +12,12 @@ public class Launcher {
         attackontitan.backend.game.Game aot = new attackontitan.backend.game.Game(gameMode);
         Game game = new Game("Attack On ArmouredTitan", 320, 384, aot);
         game.start();
-        do {
-            aot.playerTurn(game.getFrame());
-            aot.titanTurn(game.getFrame());
-            aot.incrementHour(1);
-        } while (aot.checkResult());
-
-        System.out.println("Game over");
+//        do {
+//            aot.playerTurn(game.getFrame());
+//            aot.titanTurn(game.getFrame());
+//            aot.incrementHour(1);
+//        } while (aot.checkResult());
+//
+//        System.out.println("Game over");
     }
 }

@@ -3,6 +3,7 @@ package attackontitan.frontend.state;
 import attackontitan.backend.game.Process;
 import attackontitan.frontend.entities.ArmouredTitan;
 import attackontitan.frontend.entities.ColossusTitan;
+import attackontitan.frontend.entities.Wall;
 import attackontitan.frontend.game.Game;
 import attackontitan.frontend.world.Stats;
 import attackontitan.frontend.world.World;
@@ -24,9 +25,7 @@ public class GameState extends State{
         super(game);
         world = new World(game.gameProcess);
         stats = new Stats(game.gameProcess);
-//        this.gameProcess = new attackontitan.backend.game.Game(false);
-//        armouredTitan = new ArmouredTitan(game.gameProcess, 3, 0);
-//        colossusTitan = new ColossusTitan(game.gameProcess, 0, 9);
+        Wall.createWalls(game.getMouseManager());
     }
 
     @Override
@@ -36,6 +35,19 @@ public class GameState extends State{
 //        this.gameProcess.playerTurn();
 //        this.gameProcess.titanTurn();
 //        this.gameProcess.incrementHour(1);
+
+        // player's turn
+        if(!Wall.walls.isEmpty()) {
+            for(Wall wall: Wall.walls) {
+                wall.tick();
+            }
+        }
+
+
+        //button to complete
+
+
+        // titan's turn
         if(!ArmouredTitan.allArmoured.isEmpty()) {
             for(ArmouredTitan titan: ArmouredTitan.allArmoured) {
                 titan.tick();
@@ -54,6 +66,13 @@ public class GameState extends State{
     public void render(Graphics g) {
         world.render(g);
         stats.render(g);
+        int i = 0;
+        if(!Wall.walls.isEmpty()) {
+            for(Wall wall: Wall.walls) {
+                wall.render(g, this.game.getMouseManager());
+            }
+        }
+
         if(!ArmouredTitan.allArmoured.isEmpty()) {
             for(ArmouredTitan titan: ArmouredTitan.allArmoured) {
                 titan.render(g, this.game.getMouseManager());
