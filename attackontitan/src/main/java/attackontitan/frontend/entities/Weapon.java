@@ -39,7 +39,6 @@ public class Weapon extends Entity{
 
     @Override
     public void render(Graphics g, MouseManager mouseManager) {
-        System.out.println(this.weapon.getLevel());
         if (this.weapon.getLevel() == 0) {
             g.drawImage(Asset.weapon0, x * Tile.TILE_WIDTH, 10 * Tile.TILE_HEIGHT, null);
         }else if (this.weapon.getLevel() == 1) {
@@ -52,7 +51,6 @@ public class Weapon extends Entity{
     }
 
     public void onMouseReleased(MouseEvent e) {
-        System.out.println("detected");
         if(hovering) {
             if (this.weapon.upgrade() && GameState.gameProcess.checkEnough(this.weapon.attack())) {
                 GameState.gameProcess.payCoin(this.weapon.attack());
@@ -62,10 +60,6 @@ public class Weapon extends Entity{
 
     public void onMouseMove(MouseEvent e) {
         hovering = rect.contains(e.getX(), e.getY());
-        if(hovering) {
-            System.out.println("CAPTURE");
-        }
-
     }
 
     public attackontitan.backend.gameobjects.Weapon getWeapon() {

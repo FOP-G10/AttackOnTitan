@@ -114,33 +114,30 @@ public class GameState extends State{
 
     @Override
     public void render(Graphics g) {
-        if(Wall.wallCondition && (ArmouredTitan.armouredCondition || ColossusTitan.colossusCondition)){
-            world.render(g);
-            stats.render(g);
-            int i = 0;
-            for (Wall wall : Wall.walls) {
-                wall.render(g, this.game.getMouseManager());
-            }
-
-            for (Weapon weapon : Weapon.weapons) {
-                weapon.render(g, this.game.getMouseManager());
-            }
-
-            if (!ArmouredTitan.allArmoured.isEmpty()) {
-                for (ArmouredTitan titan : ArmouredTitan.allArmoured) {
-                    titan.render(g, this.game.getMouseManager());
-                }
-            }
-
-            if (!ColossusTitan.allColossus.isEmpty()) {
-                for (ColossusTitan titan : ColossusTitan.allColossus) {
-                    titan.render(g, this.game.getMouseManager());
-                }
-            }
-
-            g.drawImage(Asset.endturn, 320-80, 12 * Tile.TILE_HEIGHT, null);
+        world.render(g);
+        stats.render(g);
+        int i = 0;
+        for (Wall wall : Wall.walls) {
+            wall.render(g, this.game.getMouseManager());
         }
-        System.out.println("this is run");
+
+        for (Weapon weapon : Weapon.weapons) {
+            weapon.render(g, this.game.getMouseManager());
+        }
+
+        if (!ArmouredTitan.allArmoured.isEmpty()) {
+            for (ArmouredTitan titan : ArmouredTitan.allArmoured) {
+                titan.render(g, this.game.getMouseManager());
+            }
+        }
+
+        if (!ColossusTitan.allColossus.isEmpty()) {
+            for (ColossusTitan titan : ColossusTitan.allColossus) {
+                titan.render(g, this.game.getMouseManager());
+            }
+        }
+
+        g.drawImage(Asset.endturn, 320-80, 12 * Tile.TILE_HEIGHT, null);
     }
 
     protected void weaponAttack() {

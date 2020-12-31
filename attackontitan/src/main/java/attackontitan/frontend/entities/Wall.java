@@ -33,7 +33,6 @@ public class Wall extends Entity {
     public static void createWalls(MouseManager mouseManager) {
         for (int i=0; i<10; i++) {
             walls[i] = new Wall(i,11, mouseManager);
-            System.out.println(i);
         }
     }
 
@@ -70,9 +69,7 @@ public class Wall extends Entity {
     }
 
     public void onMouseReleased(MouseEvent e) {
-        System.out.println("detected");
         if(hovering) {
-            System.out.println("Pressed on wall at position " + x + " and " + y);
             String upgradeHp = JOptionPane.showInputDialog("How many HP do you want to add up to the wall?");
             if (!upgradeHp.isEmpty()) {
                 int upgrade = Integer.parseInt(upgradeHp);
@@ -87,7 +84,6 @@ public class Wall extends Entity {
     public void onMouseMove(MouseEvent e) {
         hovering = rect.contains(e.getX(), e.getY());
         if(hovering) {
-            System.out.println("CAPTURE");
         }
 
     }

@@ -6,11 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e8241755-b567-4033-a8b5-af54959a7a85" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/entities/ColossusTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/entities/ColossusTitan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/entities/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/entities/Wall.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/entities/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/entities/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/gfx/Asset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/gfx/Asset.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/state/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/state/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/tiles/WeaponTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/tiles/WeaponTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/world/Stats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/world/Stats.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

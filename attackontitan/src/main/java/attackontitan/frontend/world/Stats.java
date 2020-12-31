@@ -35,7 +35,6 @@ public class Stats {
     }
 
     public static void onMouseReleased(MouseEvent e) {
-        System.out.println("detected");
         if(hovering) {
             GameState.nextRound = true;
         }
@@ -43,9 +42,5 @@ public class Stats {
 
     public static void onMouseMove(MouseEvent e) {
         hovering = rect.contains(e.getX(), e.getY());
-        if(hovering) {
-            System.out.println("CAPTURE");
-        }
-
     }
 }
