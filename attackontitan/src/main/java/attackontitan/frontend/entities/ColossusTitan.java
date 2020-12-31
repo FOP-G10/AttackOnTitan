@@ -29,6 +29,9 @@ public class ColossusTitan extends attackontitan.backend.gameobjects.titans.Colo
     }
 
     public void tick() {
+        if(this.hp <= 0) {
+            return;
+        }
         colossusAttack();
         moveColossusSideways();
     }

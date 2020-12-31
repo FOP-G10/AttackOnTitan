@@ -1,6 +1,7 @@
 package attackontitan.frontend.state;
 
 import attackontitan.frontend.game.Game;
+import attackontitan.frontend.gfx.Asset;
 
 import java.awt.*;
 
@@ -27,6 +28,6 @@ public class MenuState extends State{
 
     @Override
     public void render(Graphics g) {
-
+        g.drawImage(Asset.menu, 0, 0, null);
     }
 }

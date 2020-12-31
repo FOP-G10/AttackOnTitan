@@ -30,7 +30,7 @@ public class GameState extends State{
 
     public static boolean nextRound = false;
 
-    public attackontitan.backend.game.Game gameProcess;
+    public static attackontitan.backend.game.Game gameProcess;
 
     public GameState(Game game) {
         super(game);
@@ -61,7 +61,7 @@ public class GameState extends State{
 
     @Override
     public void tick() {
-        if(Wall.wallCondition && ArmouredTitan.armouredCondition && ColossusTitan.colossusCondition){
+        if(Wall.wallCondition && (ArmouredTitan.armouredCondition || ColossusTitan.colossusCondition)){
             world.tick();
             stats.tick();
 //        this.gameProcess.playerTurn();
@@ -107,7 +107,7 @@ public class GameState extends State{
 
     @Override
     public void render(Graphics g) {
-        if(Wall.wallCondition && ArmouredTitan.armouredCondition && ColossusTitan.colossusCondition){
+        if(Wall.wallCondition && (ArmouredTitan.armouredCondition || ColossusTitan.colossusCondition)){
             world.render(g);
             stats.render(g);
             int i = 0;

@@ -4,6 +4,7 @@ import attackontitan.backend.game.Game;
 import attackontitan.backend.game.Process;
 import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.input.MouseManager;
+import attackontitan.frontend.state.GameState;
 import attackontitan.frontend.tiles.Tile;
 
 import javax.swing.*;
@@ -75,6 +76,7 @@ public class Wall extends Entity {
             String upgradeHp = JOptionPane.showInputDialog("How many HP do you want to add up to the wall?");
             if (!upgradeHp.isEmpty()) {
                 this.wall.upgradeWall(Integer.parseInt(upgradeHp));
+                GameState.gameProcess.payCoin(Integer.parseInt(upgradeHp));
             }
         }
     }

@@ -2,6 +2,7 @@ package attackontitan.frontend.entities;
 
 import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.input.MouseManager;
+import attackontitan.frontend.state.GameState;
 import attackontitan.frontend.tiles.Tile;
 
 import javax.swing.*;
@@ -49,6 +50,7 @@ public class Weapon extends Entity{
         System.out.println("detected");
         if(hovering) {
             this.weapon.upgrade();
+            GameState.gameProcess.payCoin(1);
         }
     }
 

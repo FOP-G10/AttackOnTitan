@@ -30,10 +30,13 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
     }
 
     public void tick(boolean hardMode) {
+        if(this.hp <= 0) {
+            return;
+        }
         this.armouredAttack();
         this.moveArmouredForward();
         for (Wall wall: Wall.walls) {
-            if (wall.getWall().getHp() < 0) {
+            if (wall.getWall().getHp() <= 0) {
                 Wall.wallCondition = false;
                 break;
             }
