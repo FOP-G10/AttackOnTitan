@@ -3,6 +3,7 @@ package attackontitan.frontend.game;
 import attackontitan.frontend.display.Display;
 import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.gfx.ImageLoader;
+import attackontitan.frontend.input.KeyboardManager;
 import attackontitan.frontend.input.MouseManager;
 import attackontitan.frontend.state.GameState;
 import attackontitan.frontend.state.MenuState;
@@ -25,27 +26,29 @@ public class Game implements Runnable {
     private Graphics g;
 
     private MouseManager mouseManager;
+    private KeyboardManager keyboardManager;
 
     private World world;
 
     private State gameState;
     public State menuState;
-    public attackontitan.backend.game.Game gameProcess;
 
-    public Game(String title, int width, int height, attackontitan.backend.game.Game gameProcess) {
+    public Game(String title, int width, int height) {
         this.width = width;
         this.height = height;
         this.title = title;
-        this.gameProcess = gameProcess;
+//        this.gameProcess = gameProcess;
         this.mouseManager = new MouseManager();
+        this.keyboardManager = new KeyboardManager();
     }
 
     public void init() {
         this.display = new Display(this.title, this.width, this.height);
 
-//        display.getFrame().addMouseListener(mouseManager);
-//        display.getFrame().addMouseMotionListener(mouseManager);
-
+        display.getFrame().addMouseListener(mouseManager);
+        display.getFrame().addMouseMotionListener(mouseManager);
+        display.getFrame().addKeyListener(keyboardManager);
+        display.getCanvas().addKeyListener(keyboardManager);
         display.getCanvas().addMouseListener(mouseManager);
         display.getCanvas().addMouseMotionListener(mouseManager);
         // initialize the assets
@@ -55,12 +58,12 @@ public class Game implements Runnable {
         // assign them to static variables in the asset class
         Asset.init();
 
-        gameState = new GameState(this); // initialise the game state
         menuState = new MenuState(this);
         State.setCurrentState(menuState); //  set the current state of the game to game state
     }
 
     public void tick() {
+        keyboardManager.tick();
         if(State.getCurrentState() != null) {
             State.getCurrentState().tick(); // run the tick method in the current state, here is game state
         }
@@ -85,6 +88,10 @@ public class Game implements Runnable {
         // End drawing
         bs.show();
         g.dispose();
+    }
+
+    public KeyboardManager getKeyboardManager() {
+        return keyboardManager;
     }
 
     @Override

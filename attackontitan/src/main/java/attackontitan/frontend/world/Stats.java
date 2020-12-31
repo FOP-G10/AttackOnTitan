@@ -1,9 +1,11 @@
 package attackontitan.frontend.world;
 
 import attackontitan.backend.game.Game;
+import attackontitan.frontend.state.GameState;
 import attackontitan.frontend.tiles.Tile;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
 
 public class Stats {
 
@@ -14,6 +16,9 @@ public class Stats {
 
     private int hour;
     private int coin;
+
+    private static boolean hovering = false;
+    private static Rectangle rect = new Rectangle(100, 12 * Tile.TILE_HEIGHT, 50, 30);
 
     public Stats(Game gameProcess) {
         this.gameProcess = gameProcess;
@@ -27,5 +32,22 @@ public class Stats {
     public void render(Graphics g) {
         g.setColor(Color.black);
         g.drawString("Hour: " + this.hour + "    " + "Coin: " + this.coin, startX * Tile.TILE_WIDTH, startY * Tile.TILE_HEIGHT);
+        g.setColor(Color.black);
+        g.fillRect(100 + startX * Tile.TILE_WIDTH, 12 * Tile.TILE_HEIGHT, 50, 30);
+    }
+
+    public static void onMouseReleased(MouseEvent e) {
+        System.out.println("detected");
+        if(hovering) {
+            GameState.nextRound = true;
+        }
+    }
+
+    public static void onMouseMove(MouseEvent e) {
+        hovering = rect.contains(e.getX(), e.getY());
+        if(hovering) {
+            System.out.println("CAPTURE");
+        }
+
     }
 }

@@ -12,6 +12,7 @@ import attackontitan.frontend.world.World;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
@@ -27,14 +28,23 @@ public class GameState extends State{
 
     public static boolean gameOver = false;
 
+    public static boolean nextRound = false;
+
+    public attackontitan.backend.game.Game gameProcess;
+
     public GameState(Game game) {
         super(game);
-        world = new World(game.gameProcess);
-        stats = new Stats(game.gameProcess);
+
+        gameProcess = new attackontitan.backend.game.Game(JOptionPane.showInputDialog("Choose game mode: \nA) Easy\nB) Hard").toUpperCase().charAt(0) == 'B');
+        world = new World(gameProcess);
+        stats = new Stats(gameProcess);
+
 
         Wall.wallCondition = true;
         ArmouredTitan.armouredCondition = true;
         ColossusTitan.colossusCondition = true;
+        nextRound = false;
+        gameOver = false;
 
         Wall.walls = new Wall[10];
         ColossusTitan.allColossus = new ArrayList<>();
@@ -68,24 +78,25 @@ public class GameState extends State{
             }
 
             //button to complete
-            if (game.getMouseManager().isLeftPressed() && game.getMouseManager().isRightPressed()) {
+            if (nextRound) {
                 // action here after user complete upgrading
                 weaponAttack();
-                this.game.gameProcess.checkAddCoin();
+                gameProcess.checkAddCoin();
                 // titan's turn
 
                 for (ArmouredTitan titan : ArmouredTitan.allArmoured) {
-                    titan.tick(game.gameProcess.isHardMode());
+                    titan.tick(gameProcess.isHardMode());
                 }
 
                 for (ColossusTitan titan : ColossusTitan.allColossus) {
                     titan.tick();
                 }
 
-                addArmoured(game.gameProcess.isHardMode());
+                addArmoured(gameProcess.isHardMode());
                 addColossus();
 
-                game.gameProcess.incrementHour(1);
+                gameProcess.incrementHour(1);
+                nextRound = false;
             }
         }else{
             State.setCurrentState(game.menuState);
@@ -120,6 +131,7 @@ public class GameState extends State{
                 }
             }
         }
+        System.out.println("this is run");
     }
 
     protected void weaponAttack() {
@@ -169,12 +181,7 @@ public class GameState extends State{
         }
     }
 
-
-
-
-
-
-
-
-
+//    public static void onEnter(KeyEvent e) {
+//        nextRound = e.getKeyCode() == KeyEvent.VK_ENTER;
+//    }
 }
