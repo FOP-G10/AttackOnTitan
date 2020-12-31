@@ -18,7 +18,7 @@ public class Stats {
     private int coin;
 
     private static boolean hovering = false;
-    private static Rectangle rect = new Rectangle(320-60, 12 * Tile.TILE_HEIGHT, 50, 30);
+    private static Rectangle rect = new Rectangle(320-80, 12 * Tile.TILE_HEIGHT, 50, 30);
 
     public Stats(Game gameProcess) {
         this.gameProcess = gameProcess;
@@ -31,9 +31,7 @@ public class Stats {
 
     public void render(Graphics g) {
         g.setColor(Color.black);
-        g.drawString("Hour: " + this.hour + "    " + "Coin: " + this.coin, startX * Tile.TILE_WIDTH, startY * Tile.TILE_HEIGHT);
-        g.setColor(Color.black);
-        g.fillRect(320 - 60, 12 * Tile.TILE_HEIGHT, 50, 30);
+        g.drawString("Hour: " + this.hour + "    " + "Coin: " + this.coin, startX * Tile.TILE_WIDTH + 15, startY * Tile.TILE_HEIGHT - 15);
     }
 
     public static void onMouseReleased(MouseEvent e) {

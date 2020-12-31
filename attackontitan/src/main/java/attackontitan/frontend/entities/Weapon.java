@@ -39,18 +39,24 @@ public class Weapon extends Entity{
 
     @Override
     public void render(Graphics g, MouseManager mouseManager) {
-        for (Weapon weapon: weapons) {
-            g.drawImage(Asset.weapon, x * Tile.TILE_WIDTH, 10 * Tile.TILE_HEIGHT, null);
-            g.setColor(Color.WHITE);
-            g.drawString("Lvl " + this.weapon.getLevel(), x * Tile.TILE_WIDTH, (y-1) * Tile.TILE_HEIGHT);
-      }
+        System.out.println(this.weapon.getLevel());
+        if (this.weapon.getLevel() == 0) {
+            g.drawImage(Asset.weapon0, x * Tile.TILE_WIDTH, 10 * Tile.TILE_HEIGHT, null);
+        }else if (this.weapon.getLevel() == 1) {
+            g.drawImage(Asset.weapon1, x * Tile.TILE_WIDTH, 10 * Tile.TILE_HEIGHT, null);
+        }else if (this.weapon.getLevel() == 2) {
+            g.drawImage(Asset.weapon2, x * Tile.TILE_WIDTH, 10 * Tile.TILE_HEIGHT, null);
+        }else if (this.weapon.getLevel() == 3) {
+            g.drawImage(Asset.weapon3, x * Tile.TILE_WIDTH, 10 * Tile.TILE_HEIGHT, null);
+        }
     }
 
     public void onMouseReleased(MouseEvent e) {
         System.out.println("detected");
         if(hovering) {
-            this.weapon.upgrade();
-            GameState.gameProcess.payCoin(1);
+            if (this.weapon.upgrade() && GameState.gameProcess.checkEnough(this.weapon.attack())) {
+                GameState.gameProcess.payCoin(this.weapon.attack());
+            }
         }
     }
 

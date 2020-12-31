@@ -7,6 +7,8 @@ import attackontitan.frontend.entities.ColossusTitan;
 import attackontitan.frontend.entities.Wall;
 import attackontitan.frontend.entities.Weapon;
 import attackontitan.frontend.game.Game;
+import attackontitan.frontend.gfx.Asset;
+import attackontitan.frontend.tiles.Tile;
 import attackontitan.frontend.world.Stats;
 import attackontitan.frontend.world.World;
 
@@ -100,7 +102,12 @@ public class GameState extends State{
             }
         }else{
             State.setCurrentState(game.menuState);
-            JOptionPane.showMessageDialog(null,"Game Over");
+            if(!Wall.wallCondition) {
+                JOptionPane.showMessageDialog(null,"Game Over\nYou lose.");
+            }else{
+                JOptionPane.showMessageDialog(null,"Game Over\nYou win.");
+            }
+
         }
 
     }
@@ -130,6 +137,8 @@ public class GameState extends State{
                     titan.render(g, this.game.getMouseManager());
                 }
             }
+
+            g.drawImage(Asset.endturn, 320-80, 12 * Tile.TILE_HEIGHT, null);
         }
         System.out.println("this is run");
     }

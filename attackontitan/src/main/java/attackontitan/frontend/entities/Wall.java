@@ -66,7 +66,7 @@ public class Wall extends Entity {
     public void render(Graphics g, MouseManager mouseManager) {
         g.drawImage(Asset.wall, x * Tile.TILE_WIDTH, y * Tile.TILE_HEIGHT,null);
         g.setColor(Color.white);
-        g.drawString(String.valueOf(this.wall.getHp()), x * Tile.TILE_WIDTH, (y+1) * Tile.TILE_HEIGHT);
+        g.drawString(String.valueOf(Math.max(this.wall.getHp(), 0)), x * Tile.TILE_WIDTH, (y+1) * Tile.TILE_HEIGHT);
     }
 
     public void onMouseReleased(MouseEvent e) {
@@ -75,8 +75,11 @@ public class Wall extends Entity {
             System.out.println("Pressed on wall at position " + x + " and " + y);
             String upgradeHp = JOptionPane.showInputDialog("How many HP do you want to add up to the wall?");
             if (!upgradeHp.isEmpty()) {
-                this.wall.upgradeWall(Integer.parseInt(upgradeHp));
-                GameState.gameProcess.payCoin(Integer.parseInt(upgradeHp));
+                int upgrade = Integer.parseInt(upgradeHp);
+                if(GameState.gameProcess.getCoin() >= upgrade) {
+                    this.wall.upgradeWall(upgrade);
+                    GameState.gameProcess.payCoin(upgrade);
+                }
             }
         }
     }
