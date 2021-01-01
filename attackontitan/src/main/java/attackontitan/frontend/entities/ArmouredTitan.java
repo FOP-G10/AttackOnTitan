@@ -119,7 +119,10 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
 
         if(checkX && checkY) {
             g.setColor(Color.lightGray);
-            g.drawString("HP: " + this.hp, ((int)y) * Tile.TILE_WIDTH, ((int)x) * Tile.TILE_HEIGHT);
+            g.drawString("Armoured Titan", ((int)y) * Tile.TILE_WIDTH, (((int)x) * Tile.TILE_HEIGHT) - 40);
+            g.drawString("HP: " + this.hp, ((int)y) * Tile.TILE_WIDTH, (((int)x) * Tile.TILE_HEIGHT) - 20);
+            g.drawString("Attack Point: " + this.attackPoint, ((int)y) * Tile.TILE_WIDTH, (((int)x) * Tile.TILE_HEIGHT));
+
         }
     }
 

@@ -48,6 +48,11 @@ public class Weapon extends Entity{
         }else if (this.weapon.getLevel() == 3) {
             g.drawImage(Asset.weapon3, x * Tile.TILE_WIDTH, 10 * Tile.TILE_HEIGHT, null);
         }
+
+        if (hovering) {
+            g.setColor(Color.lightGray);
+            g.drawString("Lvl " + this.weapon.getLevel(), x * Tile.TILE_WIDTH, 10 * Tile.TILE_HEIGHT);
+        }
     }
 
     public void onMouseReleased(MouseEvent e) {

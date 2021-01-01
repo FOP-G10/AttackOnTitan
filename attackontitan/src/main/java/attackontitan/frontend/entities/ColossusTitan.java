@@ -99,7 +99,9 @@ public class ColossusTitan extends attackontitan.backend.gameobjects.titans.Colo
 
         if(checkX && checkY) {
             g.setColor(Color.lightGray);
-            g.drawString("HP: " + this.hp, ((int)y) * Tile.TILE_WIDTH, ((int)x) * Tile.TILE_HEIGHT);
+            g.drawString("Colossus Titan", ((int)y) * Tile.TILE_WIDTH, (((int)x) * Tile.TILE_HEIGHT) - 40);
+            g.drawString("HP: " + this.hp, ((int)y) * Tile.TILE_WIDTH, (((int)x) * Tile.TILE_HEIGHT) - 20);
+            g.drawString("Attack Point: " + this.attackPoint, ((int)y) * Tile.TILE_WIDTH, (((int)x) * Tile.TILE_HEIGHT));
         }
     }
 
