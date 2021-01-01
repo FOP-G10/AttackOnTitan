@@ -1,5 +1,6 @@
 package attackontitan.frontend.state;
 
+import attackontitan.frontend.audio.AudioStuff;
 import attackontitan.frontend.game.Game;
 import attackontitan.frontend.gfx.Asset;
 
@@ -9,9 +10,13 @@ public class MenuState extends State{
 
     private Game game;
 
+    private AudioStuff audioStuff;
+
     public MenuState(Game game) {
         super(game);
         this.game = game;
+        audioStuff = new AudioStuff("res/audio/menuAudio2.wav");
+        audioStuff.playMusic();
     }
 
     @Override
@@ -22,6 +27,7 @@ public class MenuState extends State{
     @Override
     public void tick() {
         if(game.getMouseManager().isLeftPressed()) {
+            audioStuff.stopMusic();
             State.setCurrentState(new GameState(game));
         }
     }

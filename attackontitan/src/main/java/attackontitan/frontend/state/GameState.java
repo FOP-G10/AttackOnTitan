@@ -2,6 +2,7 @@ package attackontitan.frontend.state;
 
 import attackontitan.backend.game.Process;
 import attackontitan.backend.gameobjects.titans.Titan;
+import attackontitan.frontend.audio.AudioStuff;
 import attackontitan.frontend.entities.ArmouredTitan;
 import attackontitan.frontend.entities.ColossusTitan;
 import attackontitan.frontend.entities.Wall;
@@ -33,6 +34,7 @@ public class GameState extends State{
     public static boolean nextRound = false;
 
     public static attackontitan.backend.game.Game gameProcess;
+    public static AudioStuff audioStuff;
 
     public GameState(Game game) {
         super(game);
@@ -40,7 +42,6 @@ public class GameState extends State{
         gameProcess = new attackontitan.backend.game.Game(JOptionPane.showInputDialog("Choose game mode: \nA) Easy\nB) Hard").toUpperCase().charAt(0) == 'B');
         world = new World(gameProcess);
         stats = new Stats(gameProcess);
-
 
         Wall.wallCondition = true;
         ArmouredTitan.armouredCondition = true;
@@ -51,6 +52,9 @@ public class GameState extends State{
         Wall.walls = new Wall[10];
         ColossusTitan.allColossus = new ArrayList<>();
         ArmouredTitan.allArmoured = new ArrayList<>();
+
+        audioStuff = new AudioStuff("res/audio/gameAudio3.wav");
+        audioStuff.playMusic();
 
         Wall.createWalls(game.getMouseManager());
         Weapon.init();
@@ -103,7 +107,7 @@ public class GameState extends State{
                 nextRound = false;
             }
         }else{
-            State.setCurrentState(game.menuState);
+            audioStuff.stopMusic();
 
             if(!Wall.wallCondition) {
                 JOptionPane.showMessageDialog(null,"Game Over\nYou lose.");
@@ -111,6 +115,9 @@ public class GameState extends State{
             }else{
                 JOptionPane.showMessageDialog(null,"Game Over\nYou win.");
             }
+
+
+            State.setCurrentState(new MenuState(this.game));
 
         }
 
@@ -142,9 +149,6 @@ public class GameState extends State{
         }
 
         g.drawImage(Asset.endturn, 320-80, 12 * Tile.TILE_HEIGHT, null);
-//        if(!(Wall.wallCondition && (ArmouredTitan.armouredCondition || ColossusTitan.colossusCondition))){
-//            JOptionPane.showMessageDialog(null,"Game Over\nYou lose.");
-//        }
     }
 
     protected void weaponAttack() {
@@ -192,21 +196,5 @@ public class GameState extends State{
         } else {
             System.out.println("No colossus titan added. ");
         }
-    }
-
-//    public static void onEnter(KeyEvent e) {
-//        nextRound = e.getKeyCode() == KeyEvent.VK_ENTER;
-//    }
-
-    public static String showMessage(String message, JFrame parent) {
-        final JOptionPane pane = new JOptionPane(message);
-        pane.setWantsInput(false);
-        final JDialog d = pane.createDialog((JFrame)null, "Title");
-//        d.setLocation(10,10);
-        d.setLocation(parent.getWidth(), parent.getHeight() + d.getHeight());
-        d.setAutoRequestFocus(false);
-        d.setVisible(true);
-
-        return (String)pane.getInputValue();
     }
 }

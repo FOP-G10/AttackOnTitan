@@ -18,7 +18,7 @@ public class Stats {
     private int coin;
 
     private static boolean hovering = false;
-    private static Rectangle rect = new Rectangle(320-80, 12 * Tile.TILE_HEIGHT, 50, 30);
+    private static Rectangle rect = new Rectangle(320-80, 12 * Tile.TILE_HEIGHT, 60, 30);
 
     public Stats(Game gameProcess) {
         this.gameProcess = gameProcess;
