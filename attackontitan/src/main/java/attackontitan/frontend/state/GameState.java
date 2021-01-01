@@ -54,6 +54,8 @@ public class GameState extends State{
 
         Wall.createWalls(game.getMouseManager());
         Weapon.init();
+
+        JOptionPane.showMessageDialog(null,"Click on the wall or weapon to upgrade. \nClick on the end turn button to end your turn. ");
     }
 
     @Override
@@ -100,7 +102,6 @@ public class GameState extends State{
                 gameProcess.incrementHour(1);
                 nextRound = false;
             }
-            System.out.println("Run as usual");
         }else{
             State.setCurrentState(game.menuState);
 
@@ -110,7 +111,6 @@ public class GameState extends State{
             }else{
                 JOptionPane.showMessageDialog(null,"Game Over\nYou win.");
             }
-            System.out.println("Game over");
 
         }
 
@@ -142,7 +142,6 @@ public class GameState extends State{
         }
 
         g.drawImage(Asset.endturn, 320-80, 12 * Tile.TILE_HEIGHT, null);
-        System.out.println("Everything renders once. ");
 //        if(!(Wall.wallCondition && (ArmouredTitan.armouredCondition || ColossusTitan.colossusCondition))){
 //            JOptionPane.showMessageDialog(null,"Game Over\nYou lose.");
 //        }
