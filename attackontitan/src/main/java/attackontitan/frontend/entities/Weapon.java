@@ -52,8 +52,11 @@ public class Weapon extends Entity{
 
     public void onMouseReleased(MouseEvent e) {
         if(hovering) {
-            if (this.weapon.upgrade() && GameState.gameProcess.checkEnough(this.weapon.attack())) {
+            boolean upgrade = this.weapon.upgrade();
+            if (upgrade && GameState.gameProcess.checkEnough(this.weapon.attack())) {
                 GameState.gameProcess.payCoin(this.weapon.attack());
+            }else if(upgrade) {
+                this.weapon.downgrade();
             }
         }
     }

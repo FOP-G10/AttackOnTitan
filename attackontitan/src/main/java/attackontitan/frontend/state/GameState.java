@@ -100,13 +100,17 @@ public class GameState extends State{
                 gameProcess.incrementHour(1);
                 nextRound = false;
             }
+            System.out.println("Run as usual");
         }else{
             State.setCurrentState(game.menuState);
+
             if(!Wall.wallCondition) {
                 JOptionPane.showMessageDialog(null,"Game Over\nYou lose.");
+//                showMessage("Game Over\nYou lose.", this.game.getFrame());
             }else{
                 JOptionPane.showMessageDialog(null,"Game Over\nYou win.");
             }
+            System.out.println("Game over");
 
         }
 
@@ -138,6 +142,10 @@ public class GameState extends State{
         }
 
         g.drawImage(Asset.endturn, 320-80, 12 * Tile.TILE_HEIGHT, null);
+        System.out.println("Everything renders once. ");
+//        if(!(Wall.wallCondition && (ArmouredTitan.armouredCondition || ColossusTitan.colossusCondition))){
+//            JOptionPane.showMessageDialog(null,"Game Over\nYou lose.");
+//        }
     }
 
     protected void weaponAttack() {
@@ -190,4 +198,16 @@ public class GameState extends State{
 //    public static void onEnter(KeyEvent e) {
 //        nextRound = e.getKeyCode() == KeyEvent.VK_ENTER;
 //    }
+
+    public static String showMessage(String message, JFrame parent) {
+        final JOptionPane pane = new JOptionPane(message);
+        pane.setWantsInput(false);
+        final JDialog d = pane.createDialog((JFrame)null, "Title");
+//        d.setLocation(10,10);
+        d.setLocation(parent.getWidth(), parent.getHeight() + d.getHeight());
+        d.setAutoRequestFocus(false);
+        d.setVisible(true);
+
+        return (String)pane.getInputValue();
+    }
 }

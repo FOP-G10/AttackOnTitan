@@ -55,7 +55,7 @@ public class ColossusTitan extends attackontitan.backend.gameobjects.titans.Colo
                 Wall.walls[index[1]].getWall().damage(colossus.attack());
 
                 System.out.println("The colossus titan attacked the wall " + index[1]);
-                System.out.println("HP wall " + index[1] + ": " + Wall.walls[index[1]].getWall().getHp());
+//                System.out.println("HP wall " + index[1] + ": " + Wall.walls[index[1]].getWall().getHp());
                 count ++;
             }
         }

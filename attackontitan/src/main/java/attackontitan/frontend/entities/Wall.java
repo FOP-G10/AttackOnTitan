@@ -65,7 +65,8 @@ public class Wall extends Entity {
     public void render(Graphics g, MouseManager mouseManager) {
         g.drawImage(Asset.wall, x * Tile.TILE_WIDTH, y * Tile.TILE_HEIGHT,null);
         g.setColor(Color.white);
-        g.drawString(String.valueOf(Math.max(this.wall.getHp(), 0)), x * Tile.TILE_WIDTH, (y+1) * Tile.TILE_HEIGHT);
+        g.drawString(String.valueOf(this.wall.getHp()), x * Tile.TILE_WIDTH, (y+1) * Tile.TILE_HEIGHT);
+        System.out.println("HP wall: " + this.wall.getHp());
     }
 
     public void onMouseReleased(MouseEvent e) {

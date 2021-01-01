@@ -72,7 +72,7 @@ public class Game implements Runnable {
     public void render() {
         bs = display.getCanvas().getBufferStrategy();
         if (bs == null) {
-            display.getCanvas().createBufferStrategy(3); // create the buffer strategy if there is none
+            display.getCanvas().createBufferStrategy(2); // create the buffer strategy if there is none
             return; // return to prevent error
         }
         g = bs.getDrawGraphics(); // magical paint brush
