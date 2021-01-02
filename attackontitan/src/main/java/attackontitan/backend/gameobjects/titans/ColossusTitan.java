@@ -11,7 +11,7 @@ import java.util.Random;
  *
  * @author Autumn
  */
-public class ColossusTitan extends Titan<ColossusTitan> {
+public class ColossusTitan extends Titan {
     
     public ColossusTitan() {
         super(50, 10);

@@ -10,9 +10,8 @@ import java.util.Random;
 /**
  *
  * @author Autumn
- * @param <T>
  */
-public class Titan<T extends Titan<T>> {
+public class Titan {
     
     protected int hp;
     protected final int attackPoint;
@@ -26,16 +25,24 @@ public class Titan<T extends Titan<T>> {
         return this.attackPoint;
     }
     
-    public T damage(int damagePoints) {
+    public Titan damage(int damagePoints) {
+        String titanName;
+        try {
+            ArmouredTitan titan = (ArmouredTitan)this;
+            titanName = "Armoured titan";
+        }catch(ClassCastException e) {
+            ColossusTitan titan = (ColossusTitan)this;
+            titanName = "Colossus titan";
+        }
         this.hp -= damagePoints;
-        System.out.println("The titan take damage: " + damagePoints + " points");
-        System.out.println("Current HP for armoured titan: " + this.hp + " points");
+        System.out.println("The " + titanName + " take damage: " + damagePoints + " points");
+        System.out.println("Current HP for " + titanName + ": " + this.hp + " points");
         System.out.println();
         if (this.hp <= 0) {
-            System.out.println("Colossus titan died. ");
+            System.out.println( titanName + " died.");
             return null;
         } else {
-            return (T)this;
+            return this;
         }
     }
 

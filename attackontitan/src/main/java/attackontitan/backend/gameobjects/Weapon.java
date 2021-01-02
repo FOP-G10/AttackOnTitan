@@ -35,7 +35,7 @@ public class Weapon {
 
     public void downgrade() {
         this.level -= 1;
-    }
+    } 
     
     public final void setAttackDamage() {
         attackDamage.put(0, 0);
