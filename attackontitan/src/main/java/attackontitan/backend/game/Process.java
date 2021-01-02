@@ -110,9 +110,12 @@ public class Process extends PlayerAccount {
             System.out.print("upgrading weapon on wall " + index + "\t");
             Wall focusWall = this.walls[Integer.parseInt(index)];
             try {
-                if (focusWall.showWeapon().upgrade() && this.checkEnough(focusWall.showWeapon().attack())) {
+                boolean weaponUpgraded = focusWall.showWeapon().upgrade();
+                if (weaponUpgraded && this.checkEnough(focusWall.showWeapon().attack())) {
                     this.payCoin(focusWall.showWeapon().attack());
                     count ++;
+                }else if(weaponUpgraded && !this.checkEnough(focusWall.showWeapon().attack())) {
+                    focusWall.showWeapon().downgrade();
                 }
             }catch (NullPointerException e) {
                 System.out.println(e);
