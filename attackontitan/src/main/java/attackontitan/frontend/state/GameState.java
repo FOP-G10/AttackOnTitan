@@ -1,7 +1,6 @@
 package attackontitan.frontend.state;
 
 import attackontitan.backend.game.Process;
-import attackontitan.backend.gameobjects.titans.Titan;
 import attackontitan.frontend.audio.AudioStuff;
 import attackontitan.frontend.entities.ArmouredTitan;
 import attackontitan.frontend.entities.ColossusTitan;
@@ -15,11 +14,8 @@ import attackontitan.frontend.world.World;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 public class GameState extends State{
 
@@ -53,7 +49,7 @@ public class GameState extends State{
         ColossusTitan.allColossus = new ArrayList<>();
         ArmouredTitan.allArmoured = new ArrayList<>();
 
-        audioStuff = new AudioStuff("res/audio/gameAudio3.wav");
+        audioStuff = new AudioStuff("/audiotracks/gameAudio3.wav");
         audioStuff.playMusic();
 
         Wall.createWalls(game.getMouseManager());

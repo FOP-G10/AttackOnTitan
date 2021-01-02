@@ -1,8 +1,7 @@
 package attackontitan.frontend.audio;
 
 import javax.sound.sampled.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class AudioStuff {
 
@@ -13,15 +12,13 @@ public class AudioStuff {
     }
 
     public void setUpMusic(String musicLocation) {
-        try {
-            File musicFile = new File(musicLocation);
+        try{
+            InputStream inputStream = AudioStuff.class.getResourceAsStream(musicLocation);
+            InputStream br = new BufferedInputStream(inputStream);
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(br);
+            clip = AudioSystem.getClip();
 
-            if(musicFile.exists()) {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(musicFile);
-                clip = AudioSystem.getClip();
-
-                clip.open(audioInputStream);
-            }
+            clip.open(audioInputStream);
         }catch(IOException| UnsupportedAudioFileException| LineUnavailableException e) {
             e.printStackTrace();
         }

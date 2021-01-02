@@ -12,7 +12,18 @@
     <list default="true" id="e8241755-b567-4033-a8b5-af54959a7a85" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/attackontitan_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/attackontitan_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/audio/8-bit-arcade-fighting-dudes-216339/8-bit Arcade - Fighting Dudes-Full.wav" beforeDir="false" afterPath="$PROJECT_DIR$/res/audiotracks/8-bit-arcade-fighting-dudes-216339/8-bit Arcade - Fighting Dudes-Full.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/audio/8-bit-arcade-fighting-dudes-216339/8-bit Arcade - Fighting Dudes-Loop.wav" beforeDir="false" afterPath="$PROJECT_DIR$/res/audiotracks/8-bit-arcade-fighting-dudes-216339/8-bit Arcade - Fighting Dudes-Loop.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/audio/8-bit-arcade-fighting-dudes-216339/__MACOSX/._8-bit Arcade - Fighting Dudes-Full.wav" beforeDir="false" afterPath="$PROJECT_DIR$/res/audiotracks/8-bit-arcade-fighting-dudes-216339/__MACOSX/._8-bit Arcade - Fighting Dudes-Full.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/audio/8-bit-arcade-fighting-dudes-216339/__MACOSX/._8-bit Arcade - Fighting Dudes-Loop.wav" beforeDir="false" afterPath="$PROJECT_DIR$/res/audiotracks/8-bit-arcade-fighting-dudes-216339/__MACOSX/._8-bit Arcade - Fighting Dudes-Loop.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/audio/gameAudio.wav" beforeDir="false" afterPath="$PROJECT_DIR$/res/audiotracks/gameAudio.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/audio/gameAudio3.wav" beforeDir="false" afterPath="$PROJECT_DIR$/res/audiotracks/gameAudio3.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/audio/menuAudio.wav" beforeDir="false" afterPath="$PROJECT_DIR$/res/audiotracks/menuAudio.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/audio/menuAudio2.wav" beforeDir="false" afterPath="$PROJECT_DIR$/res/audiotracks/menuAudio2.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/audio/AudioStuff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/audio/AudioStuff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/state/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/state/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/state/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/state/MenuState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +50,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="build.tools" />

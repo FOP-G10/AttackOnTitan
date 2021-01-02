@@ -15,7 +15,7 @@ public class MenuState extends State{
     public MenuState(Game game) {
         super(game);
         this.game = game;
-        audioStuff = new AudioStuff("res/audio/menuAudio2.wav");
+        audioStuff = new AudioStuff("/audiotracks/menuAudio2.wav");
         audioStuff.playMusic();
     }
 
