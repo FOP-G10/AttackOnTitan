@@ -162,10 +162,12 @@ public class Process extends PlayerAccount {
                     if (row[i] != null && row[i].length > 0){
                         for (int j=0; j<row[i].length; j++) {
                             Titan focus = row[i][j];
-                            focus = focus.damage(this.walls[i].showWeapon().attack());
-                            count++;
-                            row[i][j] = focus;
-                            System.out.println("The weapon on wall " + i + " attacks");
+                            if(focus != null) {
+                                focus = focus.damage(this.walls[i].showWeapon().attack());
+                                count++;
+                                row[i][j] = focus;
+                                System.out.println("The weapon on wall " + i + " attacks");
+                            }
                         }
                     }
                 }
@@ -225,7 +227,7 @@ public class Process extends PlayerAccount {
             this.armouredIndex.add(coor);
             System.out.println("A armoured titan is added to the ground. ");
             this.addedTitans = true;
-        }else {
+        } else {
             System.out.println("No armoured titan added. ");
         }
     }
@@ -299,7 +301,7 @@ public class Process extends PlayerAccount {
             index[1] = col + step;
             index[2] = 0;
             System.out.println("The armoured titan moved sideways.");
-        }else {
+        } else {
             System.out.println("The armoured titan does not move sideways.");
         }
     }
@@ -330,15 +332,14 @@ public class Process extends PlayerAccount {
                 if (this.walls[index[1]].showWeapon().getLevel() > 0){
                     this.walls[index[1]].showWeapon().damage();
                     System.out.println("The armoured titan attacked the weapon on wall " + index[1]);
-                }else {
+                } else {
                     ArmouredTitan focus;
                     focus = (ArmouredTitan)this.ground.getElementOnGround(index[0], index[1], index[2]);
 
                     if (focus.getExtraChance() == 0){
                         this.moveArmouredSideways(index);
                         System.out.println("The armoured titan reached line 9 but did not attack. ");
-                    }
-                    else {
+                    } else {
                         this.walls[index[1]].damage(focus.attack());
                         System.out.println("The armoured titan attacked the wall " + index[1]);
                         count ++;
