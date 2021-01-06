@@ -17,7 +17,6 @@ public class PlayerAccount {
     protected int coinSpent;
     protected boolean hardMode;
     private static final HashMap<Integer, Integer> coinScheme = setCoinScheme();
-    String username;
     
     public PlayerAccount(boolean hardMode) {
         this.coin = 50;
@@ -37,7 +36,7 @@ public class PlayerAccount {
     }
 
     private void upgradeCoinLevel() {
-        if(this.coinLevel < 2 && this.coinSpent >= coinScheme.get(this.coinLevel)) {
+        if ( this.coinLevel < 2 && this.coinSpent >= coinScheme.get(this.coinLevel) ) {
             this.coinSpent -= coinScheme.get(this.coinLevel);
             this.coinLevel += 1;
         }
@@ -51,7 +50,7 @@ public class PlayerAccount {
         System.out.println("Coin +" + coinScheme.get(this.coinLevel));
     }
     
-    public boolean checkEnough(int coinNeeded) {
+    public boolean checkCoinEnough(int coinNeeded) {
         if (this.coin >= coinNeeded) {
             return true;
         } else {

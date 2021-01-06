@@ -13,9 +13,9 @@ import attackontitan.backend.game.Process;
  * @author Autumn
  */
 public class Ground {
-    private Titan[][][] ground;
-    private Process process;
-    private static int[][] obstacle = {{0, 5}, {7, 4}};
+    private final Titan[][][] ground;
+    private final Process process;
+    private static final int[][] obstacle = {{0, 5}, {7, 4}};
 
     public Ground(Process process) {
         this.ground = new Titan[10][10][2];
@@ -40,6 +40,7 @@ public class Ground {
                 }
                 sb.append(" ");
             }
+             // switch case below to print out the labels on the end of first and second line accordingly
             switch (i) {
                 case 0:
                     sb.append("HOUR: ").append(this.process.getHour()).append("\n");

@@ -2,13 +2,18 @@ package attackontitan.backend.game;
 
 import attackontitan.backend.gameobjects.Wall;
 
+import java.util.Scanner;
+
 public class Game extends Process{
+    private static final Scanner sc = new Scanner(System.in);
 
     public Game(boolean hardMode) {
         super(hardMode);
     }
+
     public void titanTurn() {
         if (this.armouredIndex.size() + this.colossusIndex.size() > 0){
+
             System.out.println("Titan's turn...");
             System.out.println();
 
@@ -32,16 +37,16 @@ public class Game extends Process{
 
             System.out.println("The board after the titan's turn... ");
             this.printBoard();
-            System.out.println();
-            System.out.print("Press enter to continue... ");
-            sc.nextLine();
+
         } else {
             System.out.println("No titan on the ground.");
             System.out.println("Titan's turn skipped.");
-            System.out.println();
-            System.out.print("Press enter to continue... ");
-            sc.nextLine();
         }
+        System.out.println();
+
+        System.out.print("Press enter to continue... ");
+        sc.nextLine();
+
         this.addColossus();
         this.addArmoured();
     }
@@ -49,6 +54,7 @@ public class Game extends Process{
     public void playerTurn() {
         System.out.println("Player's turn...");
 
+        // Get the user input to upgrade weapon
         this.printBoard();
         System.out.println("Choose the weapon(s) you would like to upgrade (Type a string of integer or hit Enter to skip)");
         String weaponString = sc.nextLine();
@@ -60,6 +66,7 @@ public class Game extends Process{
         System.out.print("Press enter to continue... ");
         sc.nextLine();
 
+        // Show the board after upgrading
         System.out.println("Player's turn");
         System.out.println();
         System.out.println("Your board after upgrading weapon: ");
@@ -67,13 +74,15 @@ public class Game extends Process{
         System.out.print("Press Enter to continue... ");
         sc.nextLine();
 
+
+        // Get the user input to upgrade walls
         this.printBoard();
         System.out.println("Do you want to upgrade all walls? (press 1 if yes, press Enter if no) Current coin number: " + this.coin);
         String upgradeWalls = sc.nextLine();
         if (upgradeWalls.isEmpty()) {
             System.out.println("Choose the wall you would like to upgrade (Type a string of integer or hit Enter ot skip)");
             upgradeWalls = sc.nextLine();
-        }else {
+        } else {
             upgradeWalls = "0123456789";
         }
         if (!upgradeWalls.isEmpty()) {
@@ -90,17 +99,21 @@ public class Game extends Process{
         System.out.print("Press enter to continue... ");
         sc.nextLine();
 
+
+        // Show users the walls after upgrading
         System.out.println("Your board after upgrading walls: ");
         this.printBoard();
         System.out.println();
         System.out.print("Press Enter to continue... ");
         sc.nextLine();
 
+        // Weapon start to attack
         this.weaponAttack();
         System.out.println("Your board after attacking... ");
         this.printBoard();
 
-        this.checkAddCoin();
+        // Add coin
+        this.addCoin();
 
         System.out.println();
     }
@@ -111,7 +124,7 @@ public class Game extends Process{
 
     private boolean checkWalls() {
         for (Wall wall: this.walls) {
-            if (!wall.checkCondition()) {
+            if ( !wall.checkCondition() ) {
                 System.out.println("Game over. You lose. ");
                 return false;
             }

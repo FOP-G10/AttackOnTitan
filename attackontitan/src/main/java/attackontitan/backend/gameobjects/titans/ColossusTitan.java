@@ -5,14 +5,11 @@
  */
 package attackontitan.backend.gameobjects.titans;
 
-import java.util.Random;
-
 /**
  *
  * @author Autumn
  */
 public class ColossusTitan extends Titan {
-    
     public ColossusTitan() {
         this.hp = 50;
         this.attackPoint = 10;
@@ -41,5 +38,4 @@ public class ColossusTitan extends Titan {
     public int moveForward() {
         return 0;
     }
-    
 }

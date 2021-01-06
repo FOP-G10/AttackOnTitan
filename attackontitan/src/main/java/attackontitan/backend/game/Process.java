@@ -14,8 +14,6 @@ import attackontitan.backend.world.Ground;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
-
 
 /**
  *
@@ -33,8 +31,7 @@ public class Process extends PlayerAccount {
     private final boolean hardMode;
 
     private static final Random r = new Random();
-    protected static Scanner sc = new Scanner(System.in);
-    
+
     public Process(boolean hardMode) {
         super(hardMode);
         this.ground = new Ground(this);
@@ -44,6 +41,8 @@ public class Process extends PlayerAccount {
         this.armouredIndex = new ArrayList<>();
         this.hardMode = hardMode;
     }
+
+    // Methods below creates the walls and weapon and print them out in the console
     
     protected void printBoard() {
         System.out.println();
@@ -62,6 +61,9 @@ public class Process extends PlayerAccount {
 
     private void printWallsAndWeapons() {
         int maxWeaponRow = 0;
+
+        // Get the maximum level of all weapons on all walls
+        // To know how many lines is used for printing the weapons
         for (Wall wall: this.walls) {
             maxWeaponRow = Math.max(wall.showWeapon().getLevel(), maxWeaponRow);
         }
@@ -76,30 +78,61 @@ public class Process extends PlayerAccount {
             }
             System.out.println();
         }
+
+        // Leave a few space because we don't know to print at the same column as the numbering
         System.out.print("  ");
-        for (Wall wall: this.walls) {
+
+        // Print walls
+        for (int i=0; i<this.walls.length; i++) {
             System.out.print("-- ");
         }
+
+        // Print the labels indicating the -- are walls
         System.out.println("The Wall");
+
+        // Leave a few space because we don't know to print at the same column as the numbering
         System.out.print("  ");
+
+        // Print the index of the walls
         for (int i=0; i<this.walls.length; i++) {
             System.out.printf("%2d ", i);
         }
+
+        // Add a label indicating that the row is index
         System.out.println("index");
+
+        // Leave a few space because we don't know to print at the same column as the numbering
         System.out.print("  ");
+
+        // Print the hp of the walls
         for (Wall wall: walls) {
             System.out.printf("%2d ", wall.getHp());
         }
+
+        // Add a label indicating that the row is HP
         System.out.println("HP");
+
+        // Leave a few space because we don't know to print at the same column as the numbering
         System.out.print("  ");
-        for (Wall wall: this.walls) {
+
+        // THIS IS NOT PRINTING WALLS
+        // Just printing the ending lines
+        for (int i=0; i<this.walls.length; i++) {
             System.out.print("-- ");
         }
     }
-    
-    protected void checkAddCoin() {
-        this.addCoin();
+
+    // Methods below controls the game flow which is by controlling the hour
+
+    public int getHour() {
+        return hour;
     }
+
+    public void incrementHour(int hour) {
+        this.hour += hour;
+    }
+
+    // Methods describing the process for the player's turn below
     
     protected void upgradeWeapon(String wallIndices) {
         int count = 0;
@@ -108,10 +141,10 @@ public class Process extends PlayerAccount {
             System.out.print("upgrading weapon on wall " + index + "\t");
             Wall focusWall = this.walls[Integer.parseInt(index)];
             boolean weaponUpgraded = focusWall.showWeapon().upgrade();
-            if (weaponUpgraded && this.checkEnough(focusWall.showWeapon().attack())) {
+            if (weaponUpgraded && this.checkCoinEnough(focusWall.showWeapon().attack())) {
                 this.payCoin(focusWall.showWeapon().attack());
                 count ++;
-            }else if(weaponUpgraded && !this.checkEnough(focusWall.showWeapon().attack())) {
+            } else if(weaponUpgraded && !this.checkCoinEnough(focusWall.showWeapon().attack())) {
                 focusWall.showWeapon().downgrade();
             }
         }
@@ -120,6 +153,46 @@ public class Process extends PlayerAccount {
             System.out.println("No weapon upgraded. ");
         }
     }
+
+    protected void weaponAttack() {
+        int count = 0;
+        for (int i=0; i<this.walls.length; i++) {
+            if (this.walls[i].showWeapon().getLevel() > 0) {
+                for (Titan[][] row: this.ground.getGround()) {
+                    if (row[i] != null && row[i].length > 0){
+                        for (int j=0; j<row[i].length; j++) {
+                            Titan focus = row[i][j];
+                            focus = focus.damage(this.walls[i].showWeapon().attack());
+                            count++;
+                            row[i][j] = focus;
+                            System.out.println("The weapon on wall " + i + " attacks");
+                        }
+                    }
+                }
+            }
+        }
+        this.updateArmouredIndex();
+        this.updateColossusIndex();
+        if (count == 0) {
+            System.out.println("The weapons on all walls did not launch an attack... ");
+        }
+    }
+
+    protected void upgradeWall(String wallIndex, String hpUpgrade) {
+        String[] index = wallIndex.trim().replace(" ", "").split("");
+        String[] hpUp = hpUpgrade.trim().replace(" ", "").split("");
+        for (int i=0; i<index.length; i++) {
+            int indexInt = Integer.parseInt(index[i]);
+            int hpUpInt = Integer.parseInt(hpUp[i]);
+            if (this.checkCoinEnough(hpUpInt)) {
+                this.walls[indexInt].upgradeWall(hpUpInt);
+                this.payCoin(hpUpInt);
+                System.out.println("Wall " + indexInt + " upgrade successfully. ");
+            }
+        }
+    }
+
+    // Methods describing the titans' turn below starting from this line
     
     protected void addColossus() {
         if (this.hour == 5) {
@@ -278,44 +351,8 @@ public class Process extends PlayerAccount {
             System.out.println("The armoured titan did not launch an attack.");
         }
     }
-    
-    protected void weaponAttack() {
-        int count = 0;
-        for (int i=0; i<this.walls.length; i++) {
-            if (this.walls[i].showWeapon().getLevel() > 0) {
-                for (Titan[][] row: this.ground.getGround()) {
-                    if (row[i] != null && row[i].length > 0){
-                        for (int j=0; j<row[i].length; j++) {
-                            Titan focus = row[i][j];
-                            focus = focus.damage(this.walls[i].showWeapon().attack());
-                            count++;
-                            row[i][j] = focus;
-                            System.out.println("The weapon on wall " + i + " attacks");
-                        }
-                    }
-                }
-            }
-        }
-        this.updateArmouredIndex();
-        this.updateColossusIndex();
-        if (count == 0) {
-                System.out.println("The weapons on all walls did not launch an attack... ");
-        }
-    }
-    
-    protected void upgradeWall(String wallIndex, String hpUpgrade) {
-        String[] index = wallIndex.trim().replace(" ", "").split("");
-        String[] hpUp = hpUpgrade.trim().replace(" ", "").split("");
-        for (int i=0; i<index.length; i++) {
-            int indexInt = Integer.parseInt(index[i]);
-            int hpUpInt = Integer.parseInt(hpUp[i]);
-            if (this.checkEnough(hpUpInt)) {
-                this.walls[indexInt].upgradeWall(hpUpInt);
-                this.payCoin(hpUpInt);
-                System.out.println("Wall " + indexInt + " upgrade successfully. ");
-            }
-        }
-    }
+
+    // util function just to get things done and prevent errors
 
     private void updateColossusIndex() {
 
@@ -346,13 +383,5 @@ public class Process extends PlayerAccount {
                 index[2] = 0;
             }
         }
-    }
-
-    public int getHour() {
-        return hour;
-    }
-
-    public void incrementHour(int hour) {
-        this.hour += hour;
     }
 }

@@ -5,8 +5,6 @@
  */
 package attackontitan.backend.gameobjects.titans;
 
-import java.util.Random;
-
 /**
  *
  * @author Autumn
