@@ -158,49 +158,49 @@ public class Process extends PlayerAccount {
     }
     
     protected void moveColossusSideways() {
-        for (int i=0; i<this.colossusIndex.size(); i++) {
-            int row = this.colossusIndex.get(i)[0];
-            int col = this.colossusIndex.get(i)[1];
-            int position = this.colossusIndex.get(i)[2];
+        for (Integer[] index : this.colossusIndex) {
+            int row = index[0];
+            int col = index[1];
+            int position = index[2];
             ColossusTitan colTitan;
-            colTitan = (ColossusTitan)this.ground.getElementOnGround(row, col, position);
-            
+            colTitan = (ColossusTitan) this.ground.getElementOnGround(row, col, position);
+
             int step;
             do {
                 step = colTitan.moveSideways();
             } while (col + step < 0 || col + step >= this.ground.getElementOnGround(row).length);
-            
-            if (this.ground.getElementOnGround(row, col + step, 1) == null){
+
+            if (this.ground.getElementOnGround(row, col + step, 1) == null) {
                 this.ground.setElementOnGround(row, col, position, null);
-                this.ground.setElementOnGround(row, col+step, 1, colTitan);
-                this.colossusIndex.get(i)[2] = 1;
-                this.colossusIndex.get(i)[1] = col + step;
+                this.ground.setElementOnGround(row, col + step, 1, colTitan);
+                index[2] = 1;
+                index[1] = col + step;
                 System.out.println("The colossus titan moved sideways. ");
-            }else {
+            } else {
                 System.out.println("The colossus titan does not move sideways. ");
-            } 
+            }
         }
     }
     
     protected void moveArmouredForward() {
         System.out.println(this.armouredIndex.size());
-        for (int i=0; i<this.armouredIndex.size(); i++) {
-            int row = this.armouredIndex.get(i)[0];
-            int col = this.armouredIndex.get(i)[1];
-            int position = this.armouredIndex.get(i)[2];
-            ArmouredTitan arTitan = (ArmouredTitan)this.ground.getElementOnGround(row, col, position);
+        for (Integer[] index : this.armouredIndex) {
+            int row = index[0];
+            int col = index[1];
+            int position = index[2];
+            ArmouredTitan arTitan = (ArmouredTitan) this.ground.getElementOnGround(row, col, position);
             int step;
             step = arTitan.moveForward();
 
             if (step + row < this.ground.getNumberOfRows()) {
-                
-                if (this.ground.getElementOnGround(row+step, col, 0) == null) {
+
+                if (this.ground.getElementOnGround(row + step, col, 0) == null) {
                     this.ground.setElementOnGround(row, col, position, null);
-                    this.ground.setElementOnGround(row+step, col, 0, arTitan);
-                    this.armouredIndex.get(i)[2] = 0;
-                    this.armouredIndex.get(i)[0] = row + step;
+                    this.ground.setElementOnGround(row + step, col, 0, arTitan);
+                    index[2] = 0;
+                    index[0] = row + step;
                     System.out.println("The armoured titan moved forward.");
-                }else {
+                } else {
                     System.out.println("The armoured titan did not move forward.");
                 }
             } else {

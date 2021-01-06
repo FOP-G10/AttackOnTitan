@@ -14,12 +14,27 @@ import java.util.Random;
 public class ColossusTitan extends Titan {
     
     public ColossusTitan() {
-        super(50, 10);
+        this.hp = 50;
+        this.attackPoint = 10;
     }
     
     @Override
     public String toString() {
         return "CC";
+    }
+
+    @Override
+    public Titan damage(int damagePoints) {
+        this.hp -= damagePoints;
+        System.out.println("The Colossus Titan take damage: " + damagePoints + " points");
+        System.out.println("Current HP for Colossus Titan: " + this.hp + " points");
+        System.out.println();
+        if (this.hp <= 0) {
+            System.out.println("Colossus Titan died.");
+            return null;
+        } else {
+            return this;
+        }
     }
 
     @Override
