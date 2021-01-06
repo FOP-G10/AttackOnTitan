@@ -98,9 +98,7 @@ public class Process extends PlayerAccount {
     }
     
     protected void checkAddCoin() {
-        if (this.hour > 0 && this.hour % 5 == 0) {
-            this.addCoin();
-        }
+        this.addCoin();
     }
     
     protected void upgradeWeapon(String wallIndices) {
