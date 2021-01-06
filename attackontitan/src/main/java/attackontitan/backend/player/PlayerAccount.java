@@ -67,8 +67,4 @@ public class PlayerAccount {
     public int getCoin() {
         return coin;
     }
-
-    public void setCoin(int coin) {
-        this.coin = coin;
-    }
 }

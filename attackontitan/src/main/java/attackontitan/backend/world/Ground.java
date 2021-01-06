@@ -59,10 +59,6 @@ public class Ground {
         return this.ground[x];
     }
 
-    public Titan[] getElementOnGround(int x, int y) {
-        return this.ground[x][y];
-    }
-
     public Titan getElementOnGround(int x, int y, int z) {
         return this.ground[x][y][z];
     }

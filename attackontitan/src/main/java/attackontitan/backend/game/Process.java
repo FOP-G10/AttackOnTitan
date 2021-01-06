@@ -107,16 +107,12 @@ public class Process extends PlayerAccount {
         for (String index: indices) {
             System.out.print("upgrading weapon on wall " + index + "\t");
             Wall focusWall = this.walls[Integer.parseInt(index)];
-            try {
-                boolean weaponUpgraded = focusWall.showWeapon().upgrade();
-                if (weaponUpgraded && this.checkEnough(focusWall.showWeapon().attack())) {
-                    this.payCoin(focusWall.showWeapon().attack());
-                    count ++;
-                }else if(weaponUpgraded && !this.checkEnough(focusWall.showWeapon().attack())) {
-                    focusWall.showWeapon().downgrade();
-                }
-            }catch (NullPointerException e) {
-                System.out.println(e);
+            boolean weaponUpgraded = focusWall.showWeapon().upgrade();
+            if (weaponUpgraded && this.checkEnough(focusWall.showWeapon().attack())) {
+                this.payCoin(focusWall.showWeapon().attack());
+                count ++;
+            }else if(weaponUpgraded && !this.checkEnough(focusWall.showWeapon().attack())) {
+                focusWall.showWeapon().downgrade();
             }
         }
         
@@ -243,11 +239,7 @@ public class Process extends PlayerAccount {
                 System.out.println("The colossus titan attacked the weapon on wall " + index[1]);
                 count ++;
             } else {
-                try {
-                    this.walls[index[1]].damage(((ColossusTitan)this.ground.getElementOnGround(index[0], index[1], index[2])).attack());
-                } catch(IndexOutOfBoundsException e) {
-                    this.walls[index[1]].damage(((ColossusTitan)this.ground.getElementOnGround(index[0], index[1], index[2])).attack());
-                }
+                this.walls[index[1]].damage((this.ground.getElementOnGround(index[0], index[1], index[2])).attack());
                 
                 System.out.println("The colossus titan attacked the wall " + index[1]);
                 count ++;
@@ -267,12 +259,8 @@ public class Process extends PlayerAccount {
                     System.out.println("The armoured titan attacked the weapon on wall " + index[1]);
                 }else {
                     ArmouredTitan focus;
-                    try {
-                        focus = (ArmouredTitan)this.ground.getElementOnGround(index[0], index[1], index[2]);
-                    }catch (IndexOutOfBoundsException e) {
-                        focus = (ArmouredTitan)this.ground.getElementOnGround(index[0], index[1], index[2]);
-                    }
-                    
+                    focus = (ArmouredTitan)this.ground.getElementOnGround(index[0], index[1], index[2]);
+
                     if (focus.getExtraChance() == 0){
                         this.moveArmouredSideways(index);
                         System.out.println("The armoured titan reached line 9 but did not attack. ");
@@ -298,14 +286,11 @@ public class Process extends PlayerAccount {
                 for (Titan[][] row: this.ground.getGround()) {
                     if (row[i] != null && row[i].length > 0){
                         for (int j=0; j<row[i].length; j++) {
-                            try {
-                                Titan titan = row[i][j];
-                                Titan focus = titan;
-                                focus = focus.damage(this.walls[i].showWeapon().attack());
-                                count++;
-                                row[i][j] = focus;
-                                System.out.println("The weapon on wall " + i + " attacks");
-                            }catch(NullPointerException e){}
+                            Titan focus = row[i][j];
+                            focus = focus.damage(this.walls[i].showWeapon().attack());
+                            count++;
+                            row[i][j] = focus;
+                            System.out.println("The weapon on wall " + i + " attacks");
                         }
                     }
                 }
@@ -338,7 +323,6 @@ public class Process extends PlayerAccount {
             Integer[] index = this.colossusIndex.get(i);
             try {
                 if (this.ground.getElementOnGround(index[0], index[1], index[2]) == null) {
-                    System.out.println("update");
                     this.colossusIndex.remove(index);
                     i --;
                 }
@@ -355,7 +339,6 @@ public class Process extends PlayerAccount {
             Integer[] index = this.armouredIndex.get(i);
             try {
                 if (this.ground.getElementOnGround(index[0], index[1], index[2]) == null) {
-                    System.out.println("update");
                     this.armouredIndex.remove(index);
                     i --;
                 }

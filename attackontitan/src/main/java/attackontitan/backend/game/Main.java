@@ -5,9 +5,6 @@
  */
 package attackontitan.backend.game;
 
-import attackontitan.backend.gameobjects.Wall;
-
-import java.util.Locale;
 import java.util.Scanner;
 
 /**
