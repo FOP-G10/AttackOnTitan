@@ -27,6 +27,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
     }
 
     public boolean isLeftPressed() {
+        System.out.println(leftPressed);
         return leftPressed;
     }
 
@@ -46,12 +47,15 @@ public class MouseManager implements MouseListener, MouseMotionListener {
             leftPressed = false;
         }
 
-        for (int i=0; i<10; i++) {
-            Wall.walls[i].onMouseReleased();
-            Weapon.weapons[i].onMouseReleased();
-        }
+        if (State.getCurrentState().toString().equals("Game")) {
 
-        Stats.onMouseReleased();
+            for (int i = 0; i < 10; i++) {
+                Wall.walls[i].onMouseReleased();
+                Weapon.weapons[i].onMouseReleased();
+            }
+
+            Stats.onMouseReleased();
+        }
     }
 
     @Override
@@ -74,7 +78,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
         mouseX = e.getX();
         mouseY = e.getY();
 
-        if(State.getCurrentState().toString().equals("Game")) {
+        if(State.getCurrentState() != null && State.getCurrentState().toString().equals("Game")) {
             for (int i=0; i<10; i++) {
                 Wall.walls[i].onMouseMove(e);
                 Weapon.weapons[i].onMouseMove(e);

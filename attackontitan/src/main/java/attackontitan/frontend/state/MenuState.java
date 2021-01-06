@@ -4,6 +4,7 @@ import attackontitan.frontend.audio.AudioStuff;
 import attackontitan.frontend.game.Game;
 import attackontitan.frontend.gfx.Asset;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class MenuState extends State{
@@ -27,8 +28,11 @@ public class MenuState extends State{
     @Override
     public void tick() {
         if(game.getMouseManager().isLeftPressed()) {
-            audioStuff.stopMusic();
-            State.setCurrentState(new GameState(game));
+            String ans = JOptionPane.showInputDialog("Choose game mode: \nA) Easy\nB) Hard");
+            if (ans != null && ans.length() > 0) {
+                audioStuff.stopMusic();
+                State.setCurrentState(new GameState(game, ans.toUpperCase().charAt(0) == 'B'));
+            }
         }
     }
 

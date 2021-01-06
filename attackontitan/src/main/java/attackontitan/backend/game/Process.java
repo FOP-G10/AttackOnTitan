@@ -45,9 +45,7 @@ public class Process extends PlayerAccount {
     }
     
     public void checkAddCoin() {
-        if (hour > 0 && hour % 5 == 0) {
-            this.addCoin();
-        }
+        this.addCoin();
     }
 
     public int getHour() {
