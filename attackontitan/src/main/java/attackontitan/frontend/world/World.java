@@ -5,10 +5,7 @@ import attackontitan.backend.world.Ground;
 import attackontitan.backend.game.Process;
 import attackontitan.frontend.tiles.Tile;
 
-import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.io.InputStream;
-import java.io.OutputStream;
 
 public class World {
 

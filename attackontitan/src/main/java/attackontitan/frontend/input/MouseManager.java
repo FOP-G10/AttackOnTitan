@@ -51,7 +51,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
             Weapon.weapons[i].onMouseReleased();
         }
 
-        Stats.onMouseReleased(e);
+        Stats.onMouseReleased();
     }
 
     @Override

@@ -9,16 +9,13 @@ import java.awt.event.MouseEvent;
 
 public class Stats {
 
-    private GameBackend gameProcess;
-
-    private int startX = 0;
-    private int startY = 13;
+    private final GameBackend gameProcess;
 
     private int hour;
     private int coin;
 
     private static boolean hovering = false;
-    private static Rectangle rect = new Rectangle(320-80, 12 * Tile.TILE_HEIGHT, 60, 30);
+    private static final Rectangle rect = new Rectangle(320-80, 12 * Tile.TILE_HEIGHT, 60, 30);
 
     public Stats(GameBackend gameProcess) {
         this.gameProcess = gameProcess;
@@ -31,10 +28,11 @@ public class Stats {
 
     public void render(Graphics g) {
         g.setColor(Color.black);
-        g.drawString("Hour: " + this.hour + "    " + "Coin: " + this.coin, startX * Tile.TILE_WIDTH + 15, startY * Tile.TILE_HEIGHT - 15);
+        int startY = 13;
+        g.drawString("Hour: " + this.hour + "    " + "Coin: " + this.coin, 15, startY * Tile.TILE_HEIGHT - 15);
     }
 
-    public static void onMouseReleased(MouseEvent e) {
+    public static void onMouseReleased() {
         if(hovering) {
             GameState.nextRound = true;
         }
