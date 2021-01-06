@@ -17,7 +17,6 @@ public class PlayerAccount {
     protected int coinSpent;
     protected boolean hardMode;
     private static final HashMap<Integer, Integer> coinScheme = setCoinScheme();
-    String username;
     
     public PlayerAccount(boolean hardMode) {
         this.coin = 50;
@@ -66,9 +65,5 @@ public class PlayerAccount {
 
     public int getCoin() {
         return coin;
-    }
-
-    public void setCoin(int coin) {
-        this.coin = coin;
     }
 }

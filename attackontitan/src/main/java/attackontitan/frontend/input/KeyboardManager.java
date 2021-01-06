@@ -7,7 +7,6 @@ import java.awt.event.KeyListener;
 
 public class KeyboardManager implements KeyListener {
     private boolean[] keys;
-    public boolean enter;
 
     public KeyboardManager() {
         keys = new boolean[256];
@@ -31,6 +30,5 @@ public class KeyboardManager implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         keys[e.getKeyCode()] = false;
-//        GameState.onEnter(e);
     }
 }

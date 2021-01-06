@@ -1,7 +1,5 @@
 package attackontitan.frontend.entities;
 
-import attackontitan.backend.game.Game;
-import attackontitan.backend.game.Process;
 import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.input.MouseManager;
 import attackontitan.frontend.state.GameState;
@@ -10,29 +8,26 @@ import attackontitan.frontend.tiles.Tile;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 
 public class Wall extends Entity {
-    private attackontitan.backend.gameobjects.Wall wall;
-    private MouseManager mouseManager;
+    private final attackontitan.backend.gameobjects.Wall wall;
 
     public static Wall[] walls = new Wall[10];
     public static boolean wallCondition = true;
 
     private boolean hovering;
-    private Rectangle rect;
+    private final Rectangle rect;
 
-    public Wall(int x, int y, MouseManager mouseManager) {
+    public Wall(int x, int y) {
         super(x, y);
         this.wall = new attackontitan.backend.gameobjects.Wall();
-        this.mouseManager = mouseManager;
         walls[x] = (this);
         rect = new Rectangle(x * Tile.TILE_WIDTH, y * Tile.TILE_HEIGHT, Tile.TILE_WIDTH, Tile.TILE_HEIGHT);
     }
 
-    public static void createWalls(MouseManager mouseManager) {
+    public static void createWalls() {
         for (int i=0; i<10; i++) {
-            walls[i] = new Wall(i,11, mouseManager);
+            walls[i] = new Wall(i,11);
         }
     }
 
@@ -74,7 +69,7 @@ public class Wall extends Entity {
         System.out.println("HP wall: " + this.wall.getHp());
     }
 
-    public void onMouseReleased(MouseEvent e) {
+    public void onMouseReleased() {
         if(hovering) {
             String upgradeHp = JOptionPane.showInputDialog("How many HP do you want to add up to the wall?");
             if (!upgradeHp.isEmpty()) {
@@ -89,8 +84,6 @@ public class Wall extends Entity {
 
     public void onMouseMove(MouseEvent e) {
         hovering = rect.contains(e.getX(), e.getY());
-        if(hovering) {
-        }
     }
 
     public attackontitan.backend.gameobjects.Wall getWall() {

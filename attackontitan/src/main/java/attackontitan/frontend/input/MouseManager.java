@@ -12,8 +12,7 @@ import java.awt.event.MouseMotionListener;
 public class MouseManager implements MouseListener, MouseMotionListener {
 
     private int mouseX, mouseY;
-    private boolean leftPressed, rightPressed;
-    private static int count = 0;
+    private boolean leftPressed;
 
     public MouseManager() {
 
@@ -31,27 +30,13 @@ public class MouseManager implements MouseListener, MouseMotionListener {
         return leftPressed;
     }
 
-    public boolean isRightPressed() {
-        return rightPressed;
-    }
-
     @Override
-    public void mouseClicked(MouseEvent e) {
-//        if(e.getButton() == MouseEvent.BUTTON1) {
-//            leftPressed = true;
-//        }else {
-//            leftPressed = false;
-//        }
-    }
+    public void mouseClicked(MouseEvent e) {}
 
     @Override
     public void mousePressed(MouseEvent e) {
         if(e.getButton() == MouseEvent.BUTTON1) {
-//            System.out.println("left pressed");
             leftPressed = true;
-        }
-        if(e.getButton() == MouseEvent.BUTTON3) {
-            rightPressed = true;
         }
     }
 
@@ -62,8 +47,8 @@ public class MouseManager implements MouseListener, MouseMotionListener {
         }
 
         for (int i=0; i<10; i++) {
-            Wall.walls[i].onMouseReleased(e);
-            Weapon.weapons[i].onMouseReleased(e);
+            Wall.walls[i].onMouseReleased();
+            Weapon.weapons[i].onMouseReleased();
         }
 
         Stats.onMouseReleased(e);

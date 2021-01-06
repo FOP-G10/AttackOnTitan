@@ -1,23 +1,15 @@
 package attackontitan.frontend.entities;
 
-import attackontitan.backend.game.Game;
-import attackontitan.backend.game.Process;
-import attackontitan.backend.gameobjects.titans.Titan;
 import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.input.MouseManager;
 import attackontitan.frontend.tiles.Tile;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.ArmouredTitan {
 
     private int x, y;
-
-    private attackontitan.backend.gameobjects.titans.ArmouredTitan titan;
-
-    protected Game gameProcess;
 
     public static ArrayList<ArmouredTitan> allArmoured = new ArrayList<>();
     public static boolean armouredCondition = true;
@@ -79,7 +71,6 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
     }
 
     protected void armouredAttack() {
-        int count = 0;
         int[] index = {this.getX(), this.getY()};
         if (index[0] == 9) {
             if (Weapon.weapons[index[1]].getWeapon().getLevel() > 0) {
@@ -96,7 +87,6 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
                 } else {
                     Wall.walls[index[1]].getWall().damage(focus.attack());
                     System.out.println("The armoured titan attacked the wall " + index[1]);
-                    count++;
                 }
             }
         }
@@ -108,20 +98,20 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
         if (this.hp <= 0) {
             return;
         }
-        g.drawImage(Asset.armouredTitan, (int)y * Tile.TILE_WIDTH, (int)x * Tile.TILE_HEIGHT, null);
+        g.drawImage(Asset.armouredTitan, y * Tile.TILE_WIDTH, x * Tile.TILE_HEIGHT, null);
 
 
         int mouseX = mouseManager.getMouseX();
         int mouseY = mouseManager.getMouseY();
 
-        boolean checkX = mouseX >= (int)y * Tile.TILE_WIDTH && mouseX <= (int)y * Tile.TILE_WIDTH + Tile.TILE_WIDTH;
-        boolean checkY = mouseY >= (int)x * Tile.TILE_HEIGHT && mouseY <= (int)x * Tile.TILE_HEIGHT + Tile.TILE_HEIGHT;
+        boolean checkX = mouseX >= y * Tile.TILE_WIDTH && mouseX <= y * Tile.TILE_WIDTH + Tile.TILE_WIDTH;
+        boolean checkY = mouseY >= x * Tile.TILE_HEIGHT && mouseY <= x * Tile.TILE_HEIGHT + Tile.TILE_HEIGHT;
 
         if(checkX && checkY) {
             g.setColor(Color.lightGray);
-            g.drawString("Armoured Titan", ((int)y) * Tile.TILE_WIDTH, (((int)x) * Tile.TILE_HEIGHT) - 40);
-            g.drawString("HP: " + this.hp, ((int)y) * Tile.TILE_WIDTH, (((int)x) * Tile.TILE_HEIGHT) - 20);
-            g.drawString("Attack Point: " + this.attackPoint, ((int)y) * Tile.TILE_WIDTH, (((int)x) * Tile.TILE_HEIGHT));
+            g.drawString("Armoured Titan", y * Tile.TILE_WIDTH, (x * Tile.TILE_HEIGHT) - 40);
+            g.drawString("HP: " + this.hp, y * Tile.TILE_WIDTH, (x * Tile.TILE_HEIGHT) - 20);
+            g.drawString("Attack Point: " + this.attackPoint, y * Tile.TILE_WIDTH, (x * Tile.TILE_HEIGHT));
 
         }
     }

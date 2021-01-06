@@ -13,9 +13,9 @@ import attackontitan.backend.game.Process;
  * @author Autumn
  */
 public class Ground {
-    private Titan[][][] ground;
-    private Process process;
-    private static int[][] obstacle = {{0, 5}, {7, 4}};
+    private final Titan[][][] ground;
+    private final Process process;
+    private static final int[][] obstacle = {{0, 5}, {7, 4}};
 
     public Ground(Process process) {
         this.ground = new Titan[10][10][2];
@@ -53,30 +53,6 @@ public class Ground {
             }
         }
         return sb.toString();
-    }
-
-    public Titan[][] getElementOnGround(int x) {
-        return this.ground[x];
-    }
-
-    public Titan[] getElementOnGround(int x, int y) {
-        return this.ground[x][y];
-    }
-
-    public Titan getElementOnGround(int x, int y, int z) {
-        return this.ground[x][y][z];
-    }
-
-    public void setElementOnGround(int x, int y, int z, Titan val) {
-        this.ground[x][y][z] = val;
-    }
-
-    public int getNumberOfRows() {
-        return this.ground.length;
-    }
-
-    public Titan[][][] getGround() {
-        return this.ground;
     }
 
     private static boolean verifyObstacle(int row, int col) {

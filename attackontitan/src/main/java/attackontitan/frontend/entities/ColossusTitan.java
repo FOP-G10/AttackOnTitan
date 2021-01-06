@@ -1,21 +1,15 @@
 package attackontitan.frontend.entities;
 
-import attackontitan.backend.game.Game;
-import attackontitan.backend.game.Process;
 import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.input.MouseManager;
 import attackontitan.frontend.tiles.Tile;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class ColossusTitan extends attackontitan.backend.gameobjects.titans.ColossusTitan {
 
     private int x, y;
-
-    protected attackontitan.backend.gameobjects.titans.ColossusTitan titan;
-    private Game gameProcess;
 
     public static ArrayList<ColossusTitan> allColossus = new ArrayList<>();
     public static boolean colossusCondition = true;
@@ -83,25 +77,23 @@ public class ColossusTitan extends attackontitan.backend.gameobjects.titans.Colo
         }
     }
 
-
-
     public void render(Graphics g, MouseManager mouseManager) {
         if(this.hp <= 0) {
             return;
         }
-        g.drawImage(Asset.colossusTitan, (int)y * Tile.TILE_WIDTH, (int)x * Tile.TILE_HEIGHT, null);
+        g.drawImage(Asset.colossusTitan, y * Tile.TILE_WIDTH, x * Tile.TILE_HEIGHT, null);
 
         int mouseX = mouseManager.getMouseX();
         int mouseY = mouseManager.getMouseY();
 
-        boolean checkX = mouseX >= (int)y * Tile.TILE_WIDTH && mouseX <= (int)y * Tile.TILE_WIDTH + Tile.TILE_WIDTH;
-        boolean checkY = mouseY >= (int)x * Tile.TILE_HEIGHT && mouseY <= (int)x * Tile.TILE_HEIGHT + Tile.TILE_HEIGHT;
+        boolean checkX = mouseX >= y * Tile.TILE_WIDTH && mouseX <= y * Tile.TILE_WIDTH + Tile.TILE_WIDTH;
+        boolean checkY = mouseY >= x * Tile.TILE_HEIGHT && mouseY <= x * Tile.TILE_HEIGHT + Tile.TILE_HEIGHT;
 
         if(checkX && checkY) {
             g.setColor(Color.lightGray);
-            g.drawString("Colossus Titan", ((int)y) * Tile.TILE_WIDTH, (((int)x) * Tile.TILE_HEIGHT) - 40);
-            g.drawString("HP: " + this.hp, ((int)y) * Tile.TILE_WIDTH, (((int)x) * Tile.TILE_HEIGHT) - 20);
-            g.drawString("Attack Point: " + this.attackPoint, ((int)y) * Tile.TILE_WIDTH, (((int)x) * Tile.TILE_HEIGHT));
+            g.drawString("Colossus Titan", y * Tile.TILE_WIDTH, (x * Tile.TILE_HEIGHT) - 40);
+            g.drawString("HP: " + this.hp, y * Tile.TILE_WIDTH, (x * Tile.TILE_HEIGHT) - 20);
+            g.drawString("Attack Point: " + this.attackPoint, y * Tile.TILE_WIDTH, (x * Tile.TILE_HEIGHT));
         }
     }
 

@@ -9,7 +9,7 @@ public class Asset {
     public static void init() {
         SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/sprite-inprogress.png"));
         SpriteSheet menuSheet = new SpriteSheet(ImageLoader.loadImage("/textures/menu.png"));
-        SpriteSheet endbutton = new SpriteSheet(ImageLoader.loadImage("/textures/endbutton.png"));
+        SpriteSheet endButton = new SpriteSheet(ImageLoader.loadImage("/textures/endbutton.png"));
 
         ground = sheet.crop(0, 0, width, height);
         wall = sheet.crop(width, 0, width, height);
@@ -19,7 +19,7 @@ public class Asset {
         weapon2 = sheet.crop(width * 2, height, width, height);
         weapon3 = sheet.crop(0, height * 2, width, height);
         weapon0 = sheet.crop(width, height * 2, width, height);
-        endturn = endbutton.getSheet();
+        endturn = endButton.getSheet();
         menu = menuSheet.getSheet();
     }
 }

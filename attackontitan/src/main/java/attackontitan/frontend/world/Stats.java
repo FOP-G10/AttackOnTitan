@@ -1,6 +1,6 @@
 package attackontitan.frontend.world;
 
-import attackontitan.backend.game.Game;
+import attackontitan.backend.game.GameBackend;
 import attackontitan.frontend.state.GameState;
 import attackontitan.frontend.tiles.Tile;
 
@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
 
 public class Stats {
 
-    private Game gameProcess;
+    private GameBackend gameProcess;
 
     private int startX = 0;
     private int startY = 13;
@@ -20,7 +20,7 @@ public class Stats {
     private static boolean hovering = false;
     private static Rectangle rect = new Rectangle(320-80, 12 * Tile.TILE_HEIGHT, 60, 30);
 
-    public Stats(Game gameProcess) {
+    public Stats(GameBackend gameProcess) {
         this.gameProcess = gameProcess;
     }
 

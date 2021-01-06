@@ -8,9 +8,9 @@ import java.awt.*;
 
 public class MenuState extends State{
 
-    private Game game;
+    private final Game game;
 
-    private AudioStuff audioStuff;
+    private final AudioStuff audioStuff;
 
     public MenuState(Game game) {
         super(game);

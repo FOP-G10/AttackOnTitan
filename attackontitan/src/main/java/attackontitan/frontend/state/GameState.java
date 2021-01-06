@@ -1,5 +1,6 @@
 package attackontitan.frontend.state;
 
+import attackontitan.backend.game.GameBackend;
 import attackontitan.backend.game.Process;
 import attackontitan.frontend.audio.AudioStuff;
 import attackontitan.frontend.entities.ArmouredTitan;
@@ -19,23 +20,20 @@ import java.util.Random;
 
 public class GameState extends State{
 
-    private World world;
-    private Stats stats;
-
-    private ArmouredTitan armouredTitan;
-    private ColossusTitan colossusTitan;
+    private final World world;
+    private final Stats stats;
 
     public static boolean gameOver = false;
 
     public static boolean nextRound = false;
 
-    public static attackontitan.backend.game.Game gameProcess;
+    public static GameBackend gameProcess;
     public static AudioStuff audioStuff;
 
     public GameState(Game game) {
         super(game);
 
-        gameProcess = new attackontitan.backend.game.Game(JOptionPane.showInputDialog("Choose game mode: \nA) Easy\nB) Hard").toUpperCase().charAt(0) == 'B');
+        gameProcess = new GameBackend(JOptionPane.showInputDialog("Choose game mode: \nA) Easy\nB) Hard").toUpperCase().charAt(0) == 'B');
         world = new World(gameProcess);
         stats = new Stats(gameProcess);
 
@@ -52,7 +50,7 @@ public class GameState extends State{
         audioStuff = new AudioStuff("/audiotracks/gameAudio3.wav");
         audioStuff.playMusic();
 
-        Wall.createWalls(game.getMouseManager());
+        Wall.createWalls();
         Weapon.init();
 
         JOptionPane.showMessageDialog(null,"Click on the wall or weapon to upgrade. \nClick on the end turn button to end your turn. ");
@@ -68,9 +66,6 @@ public class GameState extends State{
         if(Wall.wallCondition && (ArmouredTitan.armouredCondition || ColossusTitan.colossusCondition)){
             world.tick();
             stats.tick();
-//        this.gameProcess.playerTurn();
-//        this.gameProcess.titanTurn();
-//        this.gameProcess.incrementHour(1);
 
             // player's turn
             for (Wall wall : Wall.walls) {
@@ -107,7 +102,6 @@ public class GameState extends State{
 
             if(!Wall.wallCondition) {
                 JOptionPane.showMessageDialog(null,"Game Over\nYou lose.");
-//                showMessage("Game Over\nYou lose.", this.game.getFrame());
             }else{
                 JOptionPane.showMessageDialog(null,"Game Over\nYou win.");
             }
@@ -123,7 +117,6 @@ public class GameState extends State{
     public void render(Graphics g) {
         world.render(g);
         stats.render(g);
-        int i = 0;
         for (Wall wall : Wall.walls) {
             wall.render(g, this.game.getMouseManager());
         }
@@ -148,7 +141,6 @@ public class GameState extends State{
     }
 
     protected void weaponAttack() {
-        int count = 0;
         for (int i=0; i<Weapon.weapons.length; i++) {
             if (Weapon.weapons[i].getWeapon().getLevel() > 0) {
                 for (ArmouredTitan armoured : ArmouredTitan.allArmoured) {

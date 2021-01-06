@@ -5,13 +5,11 @@
  */
 package attackontitan.backend.gameobjects.titans;
 
-import java.util.Random;
-
 /**
  *
  * @author Autumn
  */
-public class ArmouredTitan extends Titan<ArmouredTitan> {
+public class ArmouredTitan extends Titan {
     
     private int extraChance;
     

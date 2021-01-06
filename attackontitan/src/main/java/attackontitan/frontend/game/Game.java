@@ -16,28 +16,21 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
 public class Game implements Runnable {
-    private String title;
-    private int width, height;
+    private final String title;
+    private final int width, height;
     private Display display;
     private boolean running = false;
     private Thread thread;
 
-    private BufferStrategy bs;
-    private Graphics g;
+    private final MouseManager mouseManager;
+    private final KeyboardManager keyboardManager;
 
-    private MouseManager mouseManager;
-    private KeyboardManager keyboardManager;
-
-    private World world;
-
-    private State gameState;
     public State menuState;
 
     public Game(String title, int width, int height) {
         this.width = width;
         this.height = height;
         this.title = title;
-//        this.gameProcess = gameProcess;
         this.mouseManager = new MouseManager();
         this.keyboardManager = new KeyboardManager();
     }
@@ -70,12 +63,12 @@ public class Game implements Runnable {
     }
 
     public void render() {
-        bs = display.getCanvas().getBufferStrategy();
+        BufferStrategy bs = display.getCanvas().getBufferStrategy();
         if (bs == null) {
             display.getCanvas().createBufferStrategy(2); // create the buffer strategy if there is none
             return; // return to prevent error
         }
-        g = bs.getDrawGraphics(); // magical paint brush
+        Graphics g = bs.getDrawGraphics(); // magical paint brush
 
         // clear canvas
         g.clearRect(0, 0, this.width, this.height); // clear the window before every rendering
@@ -90,17 +83,13 @@ public class Game implements Runnable {
         g.dispose();
     }
 
-    public KeyboardManager getKeyboardManager() {
-        return keyboardManager;
-    }
-
     @Override
     public void run() { // called when the thread start
         init(); // initialize the display
 
         int fps = 60;
         double timePerTick = 1000000000.0 / fps; // get the time available before the next tick
-        int ticks = 0; // count the ticks
+        // count the ticks
         long timer = 0;
         double delta = 0; // to keep track of the time run
         long now; // keep the current time in the loop
@@ -115,14 +104,12 @@ public class Game implements Runnable {
             if(delta >= 1) {
 
                 tick();
-                ticks += 1; // increment to count the tick
                 render();
                 delta -= 1; // one delta is equal to the total time per tick
             }
 
             if (timer >= 1000000000) {
 //                System.out.println(ticks + " fps");
-                ticks = 0; // reset the value
                 timer = 0; // reset the value
             }
         }
@@ -160,9 +147,5 @@ public class Game implements Runnable {
 
     public MouseManager getMouseManager() {
         return mouseManager;
-    }
-
-    public State getGameState() {
-        return gameState;
     }
 }

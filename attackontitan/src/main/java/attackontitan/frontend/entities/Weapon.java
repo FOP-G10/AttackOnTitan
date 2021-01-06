@@ -5,19 +5,17 @@ import attackontitan.frontend.input.MouseManager;
 import attackontitan.frontend.state.GameState;
 import attackontitan.frontend.tiles.Tile;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 
 public class Weapon extends Entity{
 
-    private attackontitan.backend.gameobjects.Weapon weapon;
+    private final attackontitan.backend.gameobjects.Weapon weapon;
 
     public static Weapon[] weapons = new Weapon[10];
 
     private boolean hovering;
-    private Rectangle rect;
+    private final Rectangle rect;
 
     public Weapon(int x, int y) {
         super(x, y);
@@ -55,7 +53,7 @@ public class Weapon extends Entity{
         }
     }
 
-    public void onMouseReleased(MouseEvent e) {
+    public void onMouseReleased() {
         if(hovering) {
             boolean upgrade = this.weapon.upgrade();
             if (upgrade && GameState.gameProcess.checkEnough(this.weapon.attack())) {

@@ -11,27 +11,17 @@ package attackontitan.backend.gameobjects;
  */
 public class Wall {
     private int hp;
-    private final Weapon weapon;
-    
+
     public Wall(){
         this.hp = 50;
-        this.weapon = new Weapon();
     }
     
     public void upgradeWall(int val) {
         this.hp += val;
     }
     
-    public boolean checkCondition(){
-        return this.hp > 0;
-    }
-    
     public void damage(int damagePoint) {
         this.hp -= damagePoint;
-    }
-    
-    public Weapon showWeapon() {
-        return this.weapon;
     }
     
     public int getHp() {
