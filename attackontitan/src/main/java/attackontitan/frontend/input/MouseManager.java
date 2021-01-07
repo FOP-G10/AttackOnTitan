@@ -4,6 +4,7 @@ import attackontitan.frontend.entities.Wall;
 import attackontitan.frontend.entities.Weapon;
 import attackontitan.frontend.state.State;
 import attackontitan.frontend.world.Stats;
+import attackontitan.frontend.world.World;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -27,22 +28,26 @@ public class MouseManager implements MouseListener, MouseMotionListener {
     }
 
     public boolean isLeftPressed() {
-        System.out.println(leftPressed);
         return leftPressed;
+    }
+
+    public void noPressed() {
+        leftPressed = false;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {}
 
     @Override
-    public void mousePressed(MouseEvent e) {
+    public synchronized void mousePressed(MouseEvent e) {
         if(e.getButton() == MouseEvent.BUTTON1) {
             leftPressed = true;
         }
+        System.out.println("Pressed");
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
+    public synchronized void mouseReleased(MouseEvent e) {
         if(e.getButton() == MouseEvent.BUTTON1) {
             leftPressed = false;
         }
@@ -54,7 +59,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
                 Weapon.weapons[i].onMouseReleased();
             }
 
-            Stats.onMouseReleased();
+            World.onMouseReleased();
         }
     }
 
@@ -74,7 +79,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
     }
 
     @Override
-    public void mouseMoved(MouseEvent e) {
+    public synchronized void mouseMoved(MouseEvent e) {
         mouseX = e.getX();
         mouseY = e.getY();
 
@@ -85,7 +90,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
             }
         }
 
-        Stats.onMouseMove(e);
+        World.onMouseMove(e);
 
     }
 }

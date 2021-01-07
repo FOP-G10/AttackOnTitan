@@ -24,7 +24,6 @@ public class GameState extends State{
     private Stats stats = null;
 
     public static boolean gameOver = false;
-
     public static boolean nextRound = false;
 
     public static GameBackend gameProcess;
@@ -33,33 +32,27 @@ public class GameState extends State{
     public GameState(Game game, boolean hardMode) {
         super(game);
 
-        try {
-            gameProcess = new GameBackend(hardMode);
-            world = new World(gameProcess);
-            stats = new Stats(gameProcess);
+        gameProcess = new GameBackend(hardMode);
+        world = new World(gameProcess);
+        stats = new Stats(gameProcess);
 
-            Wall.wallCondition = true;
-            ArmouredTitan.armouredCondition = true;
-            ColossusTitan.colossusCondition = true;
-            nextRound = false;
-            gameOver = false;
+        Wall.wallCondition = true;
+        ArmouredTitan.armouredCondition = true;
+        ColossusTitan.colossusCondition = true;
+        nextRound = false;
+        gameOver = false;
 
-            Wall.walls = new Wall[10];
-            ColossusTitan.allColossus = new ArrayList<>();
-            ArmouredTitan.allArmoured = new ArrayList<>();
+        Wall.walls = new Wall[10];
+        ColossusTitan.allColossus = new ArrayList<>();
+        ArmouredTitan.allArmoured = new ArrayList<>();
 
-            audioStuff = new AudioStuff("/audiotracks/gameAudio3.wav");
-            audioStuff.playMusic();
+        audioStuff = new AudioStuff("/audiotracks/gameAudio3.wav");
+        audioStuff.playMusic();
 
-            Wall.createWalls();
-            Weapon.init();
+        Wall.createWalls();
+        Weapon.init();
 
-            JOptionPane.showMessageDialog(null,"Click on the wall or weapon to upgrade. \nClick on the end turn button to end your turn. ");
-        } catch(NullPointerException e) {
-            State.setCurrentState(new MenuState(game));
-        }
-//        gameProcess = new GameBackend(JOptionPane.showInputDialog("Choose game mode: \nA) Easy\nB) Hard").toUpperCase().charAt(0) == 'B');
-
+        JOptionPane.showMessageDialog(null,"Click on the wall or weapon to upgrade. \nClick on the end turn button to end your turn. ");
     }
 
     @Override
@@ -103,7 +96,7 @@ public class GameState extends State{
                 gameProcess.incrementHour(1);
                 nextRound = false;
             }
-        }else{
+        } else{
             audioStuff.stopMusic();
 
             if(!Wall.wallCondition) {
@@ -143,7 +136,7 @@ public class GameState extends State{
             }
         }
 
-        g.drawImage(Asset.endturn, 320-80, 12 * Tile.TILE_HEIGHT, null);
+
     }
 
     protected void weaponAttack() {

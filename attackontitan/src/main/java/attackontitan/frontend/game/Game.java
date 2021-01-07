@@ -2,18 +2,13 @@ package attackontitan.frontend.game;
 
 import attackontitan.frontend.display.Display;
 import attackontitan.frontend.gfx.Asset;
-import attackontitan.frontend.gfx.ImageLoader;
-import attackontitan.frontend.input.KeyboardManager;
 import attackontitan.frontend.input.MouseManager;
-import attackontitan.frontend.state.GameState;
 import attackontitan.frontend.state.MenuState;
 import attackontitan.frontend.state.State;
-import attackontitan.frontend.world.World;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
 
 public class Game implements Runnable {
     private final String title;
@@ -23,7 +18,6 @@ public class Game implements Runnable {
     private Thread thread;
 
     private final MouseManager mouseManager;
-    private final KeyboardManager keyboardManager;
 
     public State menuState;
 
@@ -32,7 +26,6 @@ public class Game implements Runnable {
         this.height = height;
         this.title = title;
         this.mouseManager = new MouseManager();
-        this.keyboardManager = new KeyboardManager();
     }
 
     public void init() {
@@ -40,10 +33,9 @@ public class Game implements Runnable {
 
         display.getFrame().addMouseListener(mouseManager);
         display.getFrame().addMouseMotionListener(mouseManager);
-        display.getFrame().addKeyListener(keyboardManager);
-        display.getCanvas().addKeyListener(keyboardManager);
         display.getCanvas().addMouseListener(mouseManager);
         display.getCanvas().addMouseMotionListener(mouseManager);
+
         // initialize the assets
         // what this will do is
         // load the spritesheet
@@ -56,7 +48,6 @@ public class Game implements Runnable {
     }
 
     public void tick() {
-        keyboardManager.tick();
         if(State.getCurrentState() != null) {
             State.getCurrentState().tick(); // run the tick method in the current state, here is game state
         }
@@ -102,7 +93,6 @@ public class Game implements Runnable {
             lastTime = now;
 
             if(delta >= 1) {
-
                 tick();
                 render();
                 delta -= 1; // one delta is equal to the total time per tick
@@ -117,7 +107,7 @@ public class Game implements Runnable {
     }
 
     public synchronized void start() {
-        if(running) {
+        if (running) {
             return; // to prevent the thread from starting if it is already started
         }
         this.running = true; // show that the thread is running

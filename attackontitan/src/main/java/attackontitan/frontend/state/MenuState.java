@@ -33,6 +33,7 @@ public class MenuState extends State{
                 audioStuff.stopMusic();
                 State.setCurrentState(new GameState(game, ans.toUpperCase().charAt(0) == 'B'));
             }
+            game.getMouseManager().noPressed();
         }
     }
 

@@ -29,6 +29,7 @@ public class Display {
         this.canvas.setPreferredSize(new Dimension(this.width, this.height));
         this.canvas.setMaximumSize(new Dimension(this.width, this.height));
         this.canvas.setMinimumSize(new Dimension(this.width, this.height));
+        this.canvas.setBackground(Color.black);
         this.canvas.setFocusable(false);
 
         this.frame.add(this.canvas);

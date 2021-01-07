@@ -66,13 +66,12 @@ public class Wall extends Entity {
         }
 
         g.drawString(String.valueOf(Math.max(this.wall.getHp(), 0)), x * Tile.TILE_WIDTH, (y+1) * Tile.TILE_HEIGHT);
-        System.out.println("HP wall: " + this.wall.getHp());
     }
 
     public void onMouseReleased() {
         if(hovering) {
             String upgradeHp = JOptionPane.showInputDialog("How many HP do you want to add up to the wall?");
-            if (!upgradeHp.isEmpty()) {
+            if (upgradeHp != null && !upgradeHp.isEmpty()) {
                 int upgrade = Integer.parseInt(upgradeHp);
                 if(GameState.gameProcess.getCoin() >= upgrade) {
                     this.wall.upgradeWall(upgrade);
