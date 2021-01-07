@@ -32,7 +32,18 @@ public class Weapon extends Entity{
 
     @Override
     public void tick() {
-
+        if (this.getWeapon().getLevel() > 0) {
+            for (ArmouredTitan armoured : ArmouredTitan.allArmoured) {
+                if (armoured.getY() == this.x) {
+                    armoured.damage(this.getWeapon().attack());
+                }
+            }
+            for (ColossusTitan colossus : ColossusTitan.allColossus) {
+                if (colossus.getY() == this.x) {
+                    colossus.damage(this.getWeapon().attack());
+                }
+            }
+        }
     }
 
     @Override

@@ -71,14 +71,12 @@ public class GameState extends State{
                 wall.tick();
             }
 
-            for (Weapon weapon : Weapon.weapons) {
-                weapon.tick();
-            }
-
             //button to complete
             if (nextRound) {
                 // action here after user complete upgrading
-                weaponAttack();
+                for (Weapon weapon: Weapon.weapons) {
+                    weapon.tick();
+                }
                 gameProcess.checkAddCoin();
                 // titan's turn
 
@@ -105,11 +103,8 @@ public class GameState extends State{
                 JOptionPane.showMessageDialog(null,"Game Over\nYou win.");
             }
 
-
             State.setCurrentState(new MenuState(this.game));
-
         }
-
     }
 
     @Override
@@ -133,25 +128,6 @@ public class GameState extends State{
         if (!ColossusTitan.allColossus.isEmpty()) {
             for (ColossusTitan titan : ColossusTitan.allColossus) {
                 titan.render(g, this.game.getMouseManager());
-            }
-        }
-
-
-    }
-
-    protected void weaponAttack() {
-        for (int i=0; i<Weapon.weapons.length; i++) {
-            if (Weapon.weapons[i].getWeapon().getLevel() > 0) {
-                for (ArmouredTitan armoured : ArmouredTitan.allArmoured) {
-                    if (armoured.getY() == i) {
-                        armoured.damage(Weapon.weapons[i].getWeapon().attack());
-                    }
-                }
-                for (ColossusTitan colossus : ColossusTitan.allColossus) {
-                    if (colossus.getY() == i) {
-                        colossus.damage(Weapon.weapons[i].getWeapon().attack());
-                    }
-                }
             }
         }
     }
