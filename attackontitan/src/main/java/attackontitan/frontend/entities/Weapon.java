@@ -38,13 +38,13 @@ public class Weapon extends Entity{
             for (ArmouredTitan armoured : ArmouredTitan.allArmoured) {
                 if (armoured.getY() == this.x && armoured.getHp() > 0) {
                     armoured.damage(this.getWeapon().attack());
-                    fireballHeight[this.x] = fireballHeight[this.x] == 0 ? 11 : fireballHeight[this.x];
+                    fireballHeight[this.x] = fireballHeight[this.x] == 0 ? 10 : fireballHeight[this.x];
                 }
             }
             for (ColossusTitan colossus : ColossusTitan.allColossus) {
                 if (colossus.getY() == this.x && colossus.getHp() > 0) {
                     colossus.damage(this.getWeapon().attack());
-                    fireballHeight[this.x] = fireballHeight[this.x] == 0 ? 11 : fireballHeight[this.x];
+                    fireballHeight[this.x] = fireballHeight[this.x] == 0 ? 10 : fireballHeight[this.x];
                 }
             }
         }
@@ -64,7 +64,11 @@ public class Weapon extends Entity{
 
         for(int i=0; i<fireballHeight.length; i++) {
             if(fireballHeight[i] > 0) {
-                g.drawImage(Asset.fireball, i * Tile.TILE_WIDTH, (int)fireballHeight[i] * Tile.TILE_HEIGHT, null);
+                if ((int)fireballHeight[i] % 2 == 0) {
+                    g.drawImage(Asset.fireball1, i * Tile.TILE_WIDTH, (int) fireballHeight[i] * Tile.TILE_HEIGHT, null);
+                }else {
+                    g.drawImage(Asset.fireball2, i * Tile.TILE_WIDTH, (int) fireballHeight[i] * Tile.TILE_HEIGHT, null);
+                }
                 fireballHeight[i] -= 0.01;
             }else {
                 fireballHeight[i] = (int)fireballHeight[i];

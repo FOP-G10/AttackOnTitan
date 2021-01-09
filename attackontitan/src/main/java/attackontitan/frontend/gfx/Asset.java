@@ -7,7 +7,7 @@ public class Asset {
     private static final int width = 32, height = 32;
     public static BufferedImage ground, wall, armouredTitan, colossusTitan, endturn, weapon1, weapon2, weapon3, weapon0, menu;
     public static BufferedImage wallDamage1, wallDamage2, menuIcon, volumeIcon, muteIcon;
-    public static BufferedImage fireball;
+    public static BufferedImage fireball1, fireball2;
 
     public static void init() {
         SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/sprite-inprogress(2).png"));
@@ -30,7 +30,8 @@ public class Asset {
         volumeIcon = sheet2.crop(2*width, 0, width, height);
         muteIcon = sheet2.crop(0, height, width, height);
         menuIcon = sheet2.crop(width, height, width, height);
-        fireball = sheet2.crop(2 * width, height, width, height);
+        fireball1 = sheet2.crop(2 * width, height, width, height);
+        fireball2 = sheet2.crop(0, 2*height, width, height);
     }
 
     public static BufferedImage resize(BufferedImage img, int newW, int newH) {
