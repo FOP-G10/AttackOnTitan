@@ -4,6 +4,7 @@ import attackontitan.frontend.entities.Wall;
 import attackontitan.frontend.entities.Weapon;
 import attackontitan.frontend.state.GameState;
 import attackontitan.frontend.state.MenuState;
+import attackontitan.frontend.state.ModeState;
 import attackontitan.frontend.state.State;
 import attackontitan.frontend.world.Stats;
 import attackontitan.frontend.world.World;
@@ -63,8 +64,10 @@ public class MouseManager implements MouseListener, MouseMotionListener {
             GameState.onMouseReleased();
 
             World.onMouseReleased();
-        }else {
+        }else if (State.getCurrentState() != null && State.getCurrentState().toString().equals("Menu")) {
             MenuState.onMouseReleased();
+        } else {
+            ModeState.onMouseReleased();
         }
     }
 
@@ -95,8 +98,10 @@ public class MouseManager implements MouseListener, MouseMotionListener {
             }
             GameState.onMouseMoved(e);
             World.onMouseMove(e);
-        } else {
+        } else if (State.getCurrentState() != null && State.getCurrentState().toString().equals("Menu")) {
             MenuState.onMouseMoved(e);
+        } else {
+            ModeState.onMouseMoved(e);
         }
     }
 }

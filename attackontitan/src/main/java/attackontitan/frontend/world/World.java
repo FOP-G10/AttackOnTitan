@@ -37,6 +37,9 @@ public class World {
                 getTile(x, y).render(g, x * Tile.TILE_WIDTH, y * Tile.TILE_HEIGHT);
             }
         }
+        String gameMode = this.gameProcess.isHardMode() ? "Hard" : "Easy";
+        g.setColor(Color.white);
+        g.drawString("Mode: " + gameMode, 10, 10);
         g.drawImage(Asset.endturn, 320-80, 12 * Tile.TILE_HEIGHT, null);
     }
 

@@ -17,6 +17,7 @@ public class MenuState extends State{
 
     private static Rectangle mute = new Rectangle(9* Tile.TILE_WIDTH, 0, 32, 32);
     private static boolean hoveringMute = false;
+    private static boolean goMode = false;
 
     public MenuState(Game game) {
         super(game);
@@ -32,13 +33,15 @@ public class MenuState extends State{
 
     @Override
     public void tick() {
-        if(!hoveringMute && game.getMouseManager().isLeftPressed()) {
-            String ans = JOptionPane.showInputDialog("Choose game mode: \nA) Easy\nB) Hard");
-            if (ans != null && ans.length() > 0) {
+        if(goMode) {
+//            String ans = JOptionPane.showInputDialog("Choose game mode: \nA) Easy\nB) Hard");
+//            if (ans != null && ans.length() > 0) {
                 audioStuff.stopMusic();
-                State.setCurrentState(new GameState(game, ans.toUpperCase().charAt(0) == 'B'));
-            }
+//                State.setCurrentState(new GameState(game, ans.toUpperCase().charAt(0) == 'B'));
+//            }
             game.getMouseManager().noPressed();
+            goMode = false;
+            State.setCurrentState(new ModeState(game));
         }
     }
 
@@ -63,6 +66,10 @@ public class MenuState extends State{
             audioStuff.stopMusic();
         }else if(hoveringMute) {
             audioStuff.playMusic();
+        }
+
+        if(!hoveringMute) {
+            goMode = true;
         }
     }
 }

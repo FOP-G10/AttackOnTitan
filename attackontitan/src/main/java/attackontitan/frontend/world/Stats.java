@@ -22,7 +22,7 @@ public class Stats {
     }
 
     public void render(Graphics g) {
-        g.setColor(Color.gray);
+        g.setColor(Color.white);
         int startY = 13;
         g.drawString("Hour: " + this.hour + "    " + "Coin: " + this.coin, 15, startY * Tile.TILE_HEIGHT - 15);
     }

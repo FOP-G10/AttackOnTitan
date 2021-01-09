@@ -8,12 +8,14 @@ public class Asset {
     public static BufferedImage ground, wall, armouredTitan, colossusTitan, endturn, weapon1, weapon2, weapon3, weapon0, menu;
     public static BufferedImage wallDamage1, wallDamage2, menuIcon, volumeIcon, muteIcon;
     public static BufferedImage fireball1, fireball2;
+    public static BufferedImage mode, easyButton, hardButton;
 
     public static void init() {
         SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/sprite-inprogress(2).png"));
         SpriteSheet menuSheet = new SpriteSheet(ImageLoader.loadImage("/textures/menu.png"));
         SpriteSheet endButton = new SpriteSheet(ImageLoader.loadImage("/textures/endbutton.png"));
         SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/sprites(2).png"));
+        SpriteSheet modeSheet = new SpriteSheet(ImageLoader.loadImage("/textures/mode_menu.png"));
 
         ground = sheet.crop(0, 0, width, height);
         wall = sheet.crop(width, 0, width, height);
@@ -32,6 +34,7 @@ public class Asset {
         menuIcon = sheet2.crop(width, height, width, height);
         fireball1 = sheet2.crop(2 * width, height, width, height);
         fireball2 = sheet2.crop(0, 2*height, width, height);
+        mode = modeSheet.getSheet();
     }
 
     public static BufferedImage resize(BufferedImage img, int newW, int newH) {
