@@ -163,10 +163,11 @@ public class Process extends PlayerAccount {
                         for (int j=0; j<row[i].length; j++) {
                             Titan focus = row[i][j];
                             if(focus != null) {
+                                System.out.println("The weapon on wall " + i + " attacks");
                                 focus = focus.damage(this.walls[i].showWeapon().attack());
                                 count++;
                                 row[i][j] = focus;
-                                System.out.println("The weapon on wall " + i + " attacks");
+
                             }
                         }
                     }
