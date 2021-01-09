@@ -309,16 +309,10 @@ public class Process extends PlayerAccount {
     protected void colossusAttack() {
         int count = 0;
         for (Integer[] index: this.colossusIndex) {
-            if (this.walls[index[1]].showWeapon().getLevel() > 0) {
-                this.walls[index[1]].showWeapon().damage();
-                System.out.println("The colossus titan attacked the weapon on wall " + index[1]);
-                count ++;
-            } else {
-                this.walls[index[1]].damage((this.ground.getElementOnGround(index[0], index[1], index[2])).attack());
-                
-                System.out.println("The colossus titan attacked the wall " + index[1]);
-                count ++;
-            }
+            this.walls[index[1]].damage((this.ground.getElementOnGround(index[0], index[1], index[2])).attack());
+
+            System.out.println("The colossus titan attacked the wall " + index[1]);
+            count ++;
         }
         if (count == 0) {
             System.out.println("The colossus titan did not launch an attack.");
