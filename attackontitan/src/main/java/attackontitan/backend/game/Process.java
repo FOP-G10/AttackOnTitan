@@ -315,7 +315,7 @@ public class Process extends PlayerAccount {
             count ++;
         }
         if (count == 0) {
-            System.out.println("The colossus titan did not launch an attack.");
+            System.out.println("No colossus launched an attack.");
         }
     }
     
@@ -343,7 +343,7 @@ public class Process extends PlayerAccount {
         }
         
         if (count == 0) {
-            System.out.println("The armoured titan did not launch an attack.");
+            System.out.println("No armoured titan launched an attack.");
         }
     }
 
