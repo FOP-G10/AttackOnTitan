@@ -46,7 +46,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
         if(e.getButton() == MouseEvent.BUTTON1) {
             leftPressed = true;
         }
-        System.out.println("Pressed");
+//        System.out.println("Pressed");
     }
 
     @Override

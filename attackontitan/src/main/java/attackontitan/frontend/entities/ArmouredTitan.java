@@ -46,9 +46,9 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
             arTitan.setX(row+step);
             arTitan.setY(col);
 
-            System.out.println("The armoured titan moved forward.");
+//            System.out.println("The armoured titan moved forward.");
         } else {
-            System.out.println("The armoured titan did not move forward.");
+//            System.out.println("The armoured titan did not move forward.");
         }
     }
 
@@ -66,7 +66,7 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
         arTitan.setX(row);
         arTitan.setY(col+step);
 
-        System.out.println("The armoured titan moved sideways.");
+//        System.out.println("The armoured titan moved sideways.");
 
     }
 
@@ -75,7 +75,7 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
         if (index[0] == 9) {
             if (Weapon.weapons[index[1]].getWeapon().getLevel() > 0) {
                 Weapon.weapons[index[1]].getWeapon().damage();
-                System.out.println("The armoured titan attacked the weapon on wall " + index[1]);
+//                System.out.println("The armoured titan attacked the weapon on wall " + index[1]);
             } else {
                 attackontitan.frontend.entities.ArmouredTitan focus;
 
@@ -83,10 +83,10 @@ public class ArmouredTitan extends attackontitan.backend.gameobjects.titans.Armo
 
                 if ((focus.getExtraChance() == 0)) {
                     this.moveArmouredSideways();
-                    System.out.println("The armoured titan reached line 9 but did not attack. ");
+//                    System.out.println("The armoured titan reached line 9 but did not attack. ");
                 } else {
                     Wall.walls[index[1]].getWall().damage(focus.attack());
-                    System.out.println("The armoured titan attacked the wall " + index[1]);
+//                    System.out.println("The armoured titan attacked the wall " + index[1]);
                 }
             }
         }

@@ -170,7 +170,7 @@ public class GameState extends State{
     }
 
     public static void addArmoured(boolean hardMode) {
-        System.out.println(Process.hour);
+//        System.out.println(Process.hour);
         if (Process.hour > 0 && ((!hardMode && Process.hour == 5) || (hardMode && Process.hour % 5 == 0))) {
             Random r = new Random();
 
@@ -178,10 +178,10 @@ public class GameState extends State{
             randomInt = r.nextInt(10);
             attackontitan.frontend.entities.ArmouredTitan arTitan = new attackontitan.frontend.entities.ArmouredTitan(0, randomInt);
 
-            System.out.println("A armoured titan is added to the ground. ");
+//            System.out.println("A armoured titan is added to the ground. ");
 
         }else {
-            System.out.println("No armoured titan added. ");
+//            System.out.println("No armoured titan added. ");
         }
     }
 
@@ -192,9 +192,9 @@ public class GameState extends State{
             randomInt = r.nextInt(10);
 
             attackontitan.frontend.entities.ColossusTitan newCol = new attackontitan.frontend.entities.ColossusTitan(9, randomInt);
-            System.out.println("A colossus titan is added to the ground. ");
+//            System.out.println("A colossus titan is added to the ground. ");
         } else {
-            System.out.println("No colossus titan added. ");
+//            System.out.println("No colossus titan added. ");
         }
     }
 

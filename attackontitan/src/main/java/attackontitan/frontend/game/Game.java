@@ -134,7 +134,7 @@ public class Game implements Runnable {
 
     public JFrame getFrame() {
         while(this.display == null) {
-            System.out.println("wait");
+//            System.out.println("wait");
         }
         return this.display.getFrame();
     }

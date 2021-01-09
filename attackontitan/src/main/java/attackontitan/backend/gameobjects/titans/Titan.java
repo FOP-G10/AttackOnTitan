@@ -27,11 +27,11 @@ public abstract class Titan {
     
     public Titan damage(int damagePoints) {
         this.hp -= damagePoints;
-        System.out.println("The titan take damage: " + damagePoints + " points");
-        System.out.println("Current HP for armoured titan: " + this.hp + " points");
-        System.out.println();
+//        System.out.println("The titan take damage: " + damagePoints + " points");
+//        System.out.println("Current HP for armoured titan: " + this.hp + " points");
+//        System.out.println();
         if (this.hp <= 0) {
-            System.out.println("Colossus titan died. ");
+//            System.out.println("Colossus titan died. ");
             return null;
         } else {
             return this;
