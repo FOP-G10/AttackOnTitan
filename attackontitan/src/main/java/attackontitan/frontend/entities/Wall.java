@@ -58,7 +58,13 @@ public class Wall extends Entity {
 
     @Override
     public void render(Graphics g, MouseManager mouseManager) {
-        g.drawImage(Asset.wall, x * Tile.TILE_WIDTH, y * Tile.TILE_HEIGHT,null);
+        if (this.wall.getHp() > 25) {
+            g.drawImage(Asset.wall, x * Tile.TILE_WIDTH, y * Tile.TILE_HEIGHT, null);
+        } else if (this.wall.getHp() > 10) {
+            g.drawImage(Asset.wallDamage1, x * Tile.TILE_WIDTH, y * Tile.TILE_HEIGHT, null);
+        } else {
+            g.drawImage(Asset.wallDamage2, x * Tile.TILE_WIDTH, y * Tile.TILE_HEIGHT, null);
+        }
         if(this.wall.getHp() > 0) {
             g.setColor(Color.white);
         }else {

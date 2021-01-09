@@ -8,6 +8,7 @@ import attackontitan.frontend.entities.ColossusTitan;
 import attackontitan.frontend.entities.Wall;
 import attackontitan.frontend.entities.Weapon;
 import attackontitan.frontend.game.Game;
+import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.tiles.Tile;
 import attackontitan.frontend.world.Stats;
 import attackontitan.frontend.world.World;
@@ -67,6 +68,7 @@ public class GameState extends State{
 
         audioStuff = new AudioStuff("/audiotracks/gameAudio3.wav");
         audioStuff.playMusic();
+        System.out.println("in the game state");
 
         Wall.createWalls();
         Weapon.init();
@@ -130,7 +132,6 @@ public class GameState extends State{
     public void render(Graphics g) {
         if (gameFont != null) {
             g.setFont(gameFont);
-            System.out.println("Set font");
         }
         world.render(g);
         stats.render(g);
@@ -154,10 +155,17 @@ public class GameState extends State{
             }
         }
 
-        g.setColor(Color.black);
-        g.fillRect(8*Tile.TILE_WIDTH, 0, 32, 32);
-        g.setColor(Color.white);
-        g.fillRect(9* Tile.TILE_WIDTH, 0, 32, 32);
+//        g.setColor(Color.black);
+//        g.fillRect(8*Tile.TILE_WIDTH, 0, 32, 32);
+//        g.setColor(Color.white);
+//        g.fillRect(9* Tile.TILE_WIDTH, 0, 32, 32);
+
+        g.drawImage(Asset.menuIcon, 8*Tile.TILE_WIDTH, 0, null);
+        if (audioStuff.playing) {
+            g.drawImage(Asset.volumeIcon, 9 * Tile.TILE_WIDTH, 0, null);
+        } else {
+            g.drawImage(Asset.muteIcon, 9 * Tile.TILE_WIDTH, 0, null);
+        }
     }
 
     public static void addArmoured(boolean hardMode) {
@@ -198,6 +206,7 @@ public class GameState extends State{
         if(hoveringMute && audioStuff.playing) {
             audioStuff.stopMusic();
         }else if(hoveringMute) {
+            System.out.println("mouse released");
             audioStuff.playMusic();
         }
 

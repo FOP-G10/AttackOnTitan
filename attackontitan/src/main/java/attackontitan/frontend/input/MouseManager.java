@@ -63,9 +63,9 @@ public class MouseManager implements MouseListener, MouseMotionListener {
             GameState.onMouseReleased();
 
             World.onMouseReleased();
+        }else {
+            MenuState.onMouseReleased();
         }
-
-        MenuState.onMouseReleased();
     }
 
     @Override
@@ -95,8 +95,8 @@ public class MouseManager implements MouseListener, MouseMotionListener {
             }
             GameState.onMouseMoved(e);
             World.onMouseMove(e);
+        } else {
+            MenuState.onMouseMoved(e);
         }
-
-        MenuState.onMouseMoved(e);
     }
 }

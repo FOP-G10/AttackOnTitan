@@ -23,6 +23,7 @@ public class MenuState extends State{
         this.game = game;
         audioStuff = new AudioStuff("/audiotracks/menuAudio2.wav");
         audioStuff.playMusic();
+        System.out.println("menu");
     }
 
     @Override
@@ -45,6 +46,13 @@ public class MenuState extends State{
     @Override
     public void render(Graphics g) {
         g.drawImage(Asset.menu, 0, 0, null);
+//        g.setColor(Color.black);
+//        g.fillRect(9* Tile.TILE_WIDTH, 0, 32, 32);
+        if (audioStuff.playing){
+            g.drawImage(Asset.volumeIcon, 9 * Tile.TILE_WIDTH, 0, null);
+        } else {
+            g.drawImage(Asset.muteIcon, 9 * Tile.TILE_WIDTH, 0, null);
+        }
     }
 
     public static void onMouseMoved(MouseEvent e) {
@@ -56,6 +64,7 @@ public class MenuState extends State{
             audioStuff.stopMusic();
         }else if(hoveringMute) {
             audioStuff.playMusic();
+            System.out.println("menu state");
         }
     }
 }
