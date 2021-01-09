@@ -41,17 +41,11 @@ public class ColossusTitan extends attackontitan.backend.gameobjects.titans.Colo
         int count = 0;
         for (ColossusTitan colossus: ColossusTitan.allColossus) {
             int[] index = {colossus.getX(), colossus.getY()};
-            if (Weapon.weapons[index[1]].getWeapon().getLevel() > 0) {
-                Weapon.weapons[index[1]].getWeapon().damage();
-                System.out.println("The colossus titan attacked the weapon on wall " + index[1]);
-                count ++;
-            } else {
-                Wall.walls[index[1]].getWall().damage(colossus.attack());
+            Wall.walls[index[1]].getWall().damage(colossus.attack());
 
-                System.out.println("The colossus titan attacked the wall " + index[1]);
+            System.out.println("The colossus titan attacked the wall " + index[1]);
 //                System.out.println("HP wall " + index[1] + ": " + Wall.walls[index[1]].getWall().getHp());
-                count ++;
-            }
+            count ++;
         }
         if (count == 0) {
             System.out.println("The colossus titan did not launch an attack.");

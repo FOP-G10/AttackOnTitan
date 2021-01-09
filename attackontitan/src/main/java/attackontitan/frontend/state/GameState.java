@@ -15,6 +15,7 @@ import attackontitan.frontend.world.World;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -28,6 +29,12 @@ public class GameState extends State{
 
     public static GameBackend gameProcess;
     public static AudioStuff audioStuff;
+
+    private static Rectangle mute = new Rectangle(9* Tile.TILE_WIDTH, 0, 32, 32);
+    private static boolean hoveringMute = false;
+
+    private static Rectangle backMenu = new Rectangle(8* Tile.TILE_WIDTH, 0, 32, 32);
+    private static boolean hoveringMenu = false;
 
     public GameState(Game game, boolean hardMode) {
         super(game);
@@ -130,6 +137,11 @@ public class GameState extends State{
                 titan.render(g, this.game.getMouseManager());
             }
         }
+
+        g.setColor(Color.black);
+        g.fillRect(8*Tile.TILE_WIDTH, 0, 32, 32);
+        g.setColor(Color.white);
+        g.fillRect(9* Tile.TILE_WIDTH, 0, 32, 32);
     }
 
     public static void addArmoured(boolean hardMode) {
@@ -158,6 +170,24 @@ public class GameState extends State{
             System.out.println("A colossus titan is added to the ground. ");
         } else {
             System.out.println("No colossus titan added. ");
+        }
+    }
+
+    public static void onMouseMoved(MouseEvent e) {
+        hoveringMute = mute.contains(e.getX(), e.getY());
+        hoveringMenu = backMenu.contains(e.getX(), e.getY());
+    }
+
+    public static void onMouseReleased() {
+        if(hoveringMute && audioStuff.playing) {
+            audioStuff.stopMusic();
+        }else if(hoveringMute) {
+            audioStuff.playMusic();
+        }
+
+        if(hoveringMenu) {
+            audioStuff.stopMusic();
+            State.setCurrentState(new MenuState(currentState.game));
         }
     }
 }

@@ -5,9 +5,11 @@ import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.input.MouseManager;
 import attackontitan.frontend.state.MenuState;
 import attackontitan.frontend.state.State;
+import attackontitan.frontend.tiles.Tile;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferStrategy;
 
 public class Game implements Runnable {
@@ -18,6 +20,8 @@ public class Game implements Runnable {
     private Thread thread;
 
     private final MouseManager mouseManager;
+
+
 
     public State menuState;
 
@@ -138,4 +142,5 @@ public class Game implements Runnable {
     public MouseManager getMouseManager() {
         return mouseManager;
     }
+
 }
