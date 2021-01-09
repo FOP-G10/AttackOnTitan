@@ -51,6 +51,7 @@ public class GameState extends State{
         Wall.wallCondition = true;
         ArmouredTitan.armouredCondition = true;
         ColossusTitan.colossusCondition = true;
+        Weapon.fireballHeight = new double[Weapon.weapons.length];
         nextRound = false;
         gameOver = false;
 
@@ -141,6 +142,7 @@ public class GameState extends State{
         for (Weapon weapon : Weapon.weapons) {
             weapon.render(g, this.game.getMouseManager());
         }
+
 
         if (!ArmouredTitan.allArmoured.isEmpty()) {
             for (ArmouredTitan titan : ArmouredTitan.allArmoured) {
