@@ -3,6 +3,7 @@ package attackontitan.frontend.input;
 import attackontitan.frontend.entities.Wall;
 import attackontitan.frontend.entities.Weapon;
 import attackontitan.frontend.state.GameState;
+import attackontitan.frontend.state.MenuState;
 import attackontitan.frontend.state.State;
 import attackontitan.frontend.world.Stats;
 import attackontitan.frontend.world.World;
@@ -59,11 +60,12 @@ public class MouseManager implements MouseListener, MouseMotionListener {
                 Wall.walls[i].onMouseReleased();
                 Weapon.weapons[i].onMouseReleased();
             }
+            GameState.onMouseReleased();
 
             World.onMouseReleased();
         }
 
-        GameState.onMouseReleased();
+        MenuState.onMouseReleased();
     }
 
     @Override
@@ -91,10 +93,10 @@ public class MouseManager implements MouseListener, MouseMotionListener {
                 Wall.walls[i].onMouseMove(e);
                 Weapon.weapons[i].onMouseMove(e);
             }
+            GameState.onMouseMoved(e);
+            World.onMouseMove(e);
         }
 
-        World.onMouseMove(e);
-
-        GameState.onMouseMoved(e);
+        MenuState.onMouseMoved(e);
     }
 }

@@ -8,7 +8,6 @@ import attackontitan.frontend.entities.ColossusTitan;
 import attackontitan.frontend.entities.Wall;
 import attackontitan.frontend.entities.Weapon;
 import attackontitan.frontend.game.Game;
-import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.tiles.Tile;
 import attackontitan.frontend.world.Stats;
 import attackontitan.frontend.world.World;
@@ -16,6 +15,8 @@ import attackontitan.frontend.world.World;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -36,6 +37,9 @@ public class GameState extends State{
     private static Rectangle backMenu = new Rectangle(8* Tile.TILE_WIDTH, 0, 32, 32);
     private static boolean hoveringMenu = false;
 
+    private Font gameFont;
+    private final InputStream fontStream = GameState.class.getResourceAsStream("/fonts/VCR_OSD_MONO_1.001.ttf");
+
     public GameState(Game game, boolean hardMode) {
         super(game);
 
@@ -48,6 +52,14 @@ public class GameState extends State{
         ColossusTitan.colossusCondition = true;
         nextRound = false;
         gameOver = false;
+
+
+        try {
+            gameFont = Font.createFont(Font.TRUETYPE_FONT, fontStream);
+            gameFont = gameFont.deriveFont(12f);
+        } catch (FontFormatException | IOException e) {
+            e.printStackTrace();
+        }
 
         Wall.walls = new Wall[10];
         ColossusTitan.allColossus = new ArrayList<>();
@@ -116,6 +128,10 @@ public class GameState extends State{
 
     @Override
     public void render(Graphics g) {
+        if (gameFont != null) {
+            g.setFont(gameFont);
+            System.out.println("Set font");
+        }
         world.render(g);
         stats.render(g);
         for (Wall wall : Wall.walls) {
