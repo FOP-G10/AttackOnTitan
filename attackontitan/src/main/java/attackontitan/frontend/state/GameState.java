@@ -68,7 +68,6 @@ public class GameState extends State{
 
         audioStuff = new AudioStuff("/audiotracks/gameAudio3.wav");
         audioStuff.playMusic();
-        System.out.println("in the game state");
 
         Wall.createWalls();
         Weapon.init();
@@ -206,7 +205,6 @@ public class GameState extends State{
         if(hoveringMute && audioStuff.playing) {
             audioStuff.stopMusic();
         }else if(hoveringMute) {
-            System.out.println("mouse released");
             audioStuff.playMusic();
         }
 

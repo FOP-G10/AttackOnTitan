@@ -23,7 +23,6 @@ public class MenuState extends State{
         this.game = game;
         audioStuff = new AudioStuff("/audiotracks/menuAudio2.wav");
         audioStuff.playMusic();
-        System.out.println("menu");
     }
 
     @Override
@@ -64,7 +63,6 @@ public class MenuState extends State{
             audioStuff.stopMusic();
         }else if(hoveringMute) {
             audioStuff.playMusic();
-            System.out.println("menu state");
         }
     }
 }
