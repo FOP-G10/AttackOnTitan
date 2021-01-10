@@ -61,6 +61,7 @@ public class PlayerAccount {
     
     public void payCoin(int amount) {
         this.coin -= amount;
+        this.coinSpent += amount;
     }
 
     public int getCoin() {

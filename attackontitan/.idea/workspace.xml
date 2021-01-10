@@ -9,22 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8241755-b567-4033-a8b5-af54959a7a85" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/audiotracks/8-bit-arcade-fighting-dudes-216339/8-bit Arcade - Fighting Dudes-Full.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/audiotracks/8-bit-arcade-fighting-dudes-216339/8-bit Arcade - Fighting Dudes-Loop.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/audiotracks/8-bit-arcade-fighting-dudes-216339/__MACOSX/._8-bit Arcade - Fighting Dudes-Full.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/audiotracks/8-bit-arcade-fighting-dudes-216339/__MACOSX/._8-bit Arcade - Fighting Dudes-Loop.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/audiotracks/gameAudio.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/audiotracks/menuAudio.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fonts/varela_regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/damage_wall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/mute.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/plain_menu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/sprite-inprogress-20201225-022226.piskel" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/sprite-inprogress.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/sprites.png" beforeDir="false" />
-    </list>
+    <list default="true" id="e8241755-b567-4033-a8b5-af54959a7a85" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
