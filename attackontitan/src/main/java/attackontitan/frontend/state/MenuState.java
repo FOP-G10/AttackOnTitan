@@ -5,7 +5,6 @@ import attackontitan.frontend.game.Game;
 import attackontitan.frontend.gfx.Asset;
 import attackontitan.frontend.tiles.Tile;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
@@ -22,7 +21,7 @@ public class MenuState extends State{
     public MenuState(Game game) {
         super(game);
         this.game = game;
-        audioStuff = new AudioStuff("/audiotracks/menuAudio2.wav");
+        audioStuff = new AudioStuff("/audiotracks/menuAudio.wav");
         audioStuff.playMusic();
     }
 

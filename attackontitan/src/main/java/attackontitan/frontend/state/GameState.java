@@ -39,7 +39,7 @@ public class GameState extends State{
     private static boolean hoveringMenu = false;
 
     private Font gameFont;
-    private final InputStream fontStream = GameState.class.getResourceAsStream("/fonts/VCR_OSD_MONO_1.001.ttf");
+    private final InputStream fontStream = GameState.class.getResourceAsStream("/fonts/gameFont.ttf");
 
     public GameState(Game game, boolean hardMode) {
         super(game);
@@ -67,7 +67,7 @@ public class GameState extends State{
         ColossusTitan.allColossus = new ArrayList<>();
         ArmouredTitan.allArmoured = new ArrayList<>();
 
-        audioStuff = new AudioStuff("/audiotracks/gameAudio3.wav");
+        audioStuff = new AudioStuff("/audiotracks/gameAudio.wav");
         audioStuff.playMusic();
 
         Wall.createWalls();
