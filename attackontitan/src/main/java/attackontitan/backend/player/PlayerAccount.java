@@ -47,14 +47,14 @@ public class PlayerAccount {
             this.upgradeCoinLevel();
         }
         this.coin += coinScheme.get(this.coinLevel);
-        System.out.println("Coin +" + coinScheme.get(this.coinLevel));
+//        System.out.println("Coin +" + coinScheme.get(this.coinLevel));
     }
     
     public boolean checkCoinEnough(int coinNeeded) {
         if (this.coin >= coinNeeded) {
             return true;
         } else {
-            System.out.println("Not enough coin for the transaction. ");
+//            System.out.println("Not enough coin for the transaction. ");
             return false;
         }
     }

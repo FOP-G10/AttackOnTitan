@@ -19,8 +19,19 @@ public abstract class Titan {
     public int attack() {
         return this.attackPoint;
     }
-    
-    public abstract Titan damage(int damagePoints);
+
+    public Titan damage(int damagePoints) {
+        this.hp -= damagePoints;
+//        System.out.println("The titan take damage: " + damagePoints + " points");
+//        System.out.println("Current HP for armoured titan: " + this.hp + " points");
+//        System.out.println();
+        if (this.hp <= 0) {
+//            System.out.println("Colossus titan died. ");
+            return null;
+        } else {
+            return this;
+        }
+    }
 
     public int moveSideways() {
         Random r = new Random();
@@ -31,5 +42,8 @@ public abstract class Titan {
     public int moveForward() {
         return 1;
     }
-    
+
+    public int getHp() {
+        return hp;
+    }
 }

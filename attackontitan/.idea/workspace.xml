@@ -1,11 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="attackontitan:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8241755-b567-4033-a8b5-af54959a7a85" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/attackontitan_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/audiotracks/8-bit-arcade-fighting-dudes-216339/8-bit Arcade - Fighting Dudes-Full.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/audiotracks/8-bit-arcade-fighting-dudes-216339/8-bit Arcade - Fighting Dudes-Loop.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/audiotracks/8-bit-arcade-fighting-dudes-216339/__MACOSX/._8-bit Arcade - Fighting Dudes-Full.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/audiotracks/8-bit-arcade-fighting-dudes-216339/__MACOSX/._8-bit Arcade - Fighting Dudes-Loop.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/audiotracks/gameAudio.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/audiotracks/gameAudio3.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/audiotracks/menuAudio.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/audiotracks/menuAudio2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/fonts/VCR_OSD_MONO_1.001.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/fonts/varela_regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/New Piskel-20201231-132734.piskel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/New Piskel-20210109-144445.piskel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/New Piskel-20210109-235158.piskel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/New Piskel-20210109-235211.piskel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/damage_wall.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/endbutton.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/mode_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/mute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/plain_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/sprite-inprogress(2).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/sprite-inprogress-20201225-022226.piskel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/sprite-inprogress-20201231-125156.piskel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/sprite-inprogress.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/sprites(2).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/sprites.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/game/GameBackend.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/audio/AudioStuff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/display/Display.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/entities/ArmouredTitan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/entities/ColossusTitan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/entities/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/entities/Wall.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/entities/Weapon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/game/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/game/Launcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/gfx/Asset.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/gfx/ImageLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/gfx/SpriteSheet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/input/MouseManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/state/GameState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/state/MenuState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/state/ModeState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/state/State.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/tiles/GroundTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/tiles/Tile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/tiles/WallTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/tiles/WeaponTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/world/Stats.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/attackontitan/frontend/world/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/game/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/game/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/game/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/game/Process.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/Wall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/titans/ArmouredTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/titans/ArmouredTitan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/titans/ColossusTitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/titans/ColossusTitan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/titans/Titan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/gameobjects/titans/Titan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/player/PlayerAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/player/PlayerAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/attackontitan/backend/world/Ground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/attackontitan/backend/world/Ground.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,12 +101,31 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/L8Q6/L8Q6" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/res/fonts" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="build.tools" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Autumn\Documents\Java\FOP-G10\AttackOnTitan\attackontitan\res\fonts" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Launcher">
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="attackontitan.frontend.game.Launcher" />
+      <module name="attackontitan" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="attackontitan.frontend.game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="attackontitan.backend.game.Main" />
       <module name="attackontitan" />
@@ -53,6 +141,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Launcher" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>

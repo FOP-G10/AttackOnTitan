@@ -31,11 +31,11 @@ public class ArmouredTitan extends Titan {
     @Override
     public Titan damage(int damagePoints) {
         this.hp -= damagePoints;
-        System.out.println("The Armoured Titan take damage: " + damagePoints + " points");
-        System.out.println("Current HP for Armoured Titan: " + this.hp + " points");
-        System.out.println();
+//        System.out.println("The Armoured Titan take damage: " + damagePoints + " points");
+//        System.out.println("Current HP for Armoured Titan: " + this.hp + " points");
+//        System.out.println();
         if (this.hp <= 0) {
-            System.out.println("Armoured Titan died.");
+//            System.out.println("Armoured Titan died.");
             return null;
         } else {
             return this;

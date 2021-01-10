@@ -25,17 +25,17 @@ public class Weapon {
     public boolean upgrade() {
         if (this.level < this.maxWeaponLevel) {
             this.level += 1;
-            System.out.println("Weapon upgraded to level " + this.level);
+//            System.out.println("Weapon upgraded to level " + this.level);
             return true;
         } else {
-            System.out.println("The weapon has reached maximum level, level " + this.maxWeaponLevel + ". Upgrade failed");
+//            System.out.println("The weapon has reached maximum level, level " + this.maxWeaponLevel + ". Upgrade failed");
             return false;
         }
     }
 
     public void downgrade() {
         this.level -= 1;
-    } 
+    }
     
     public final void setAttackDamage() {
         attackDamage.put(0, 0);

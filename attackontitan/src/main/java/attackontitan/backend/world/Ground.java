@@ -56,26 +56,6 @@ public class Ground {
         return sb.toString();
     }
 
-    public Titan[][] getElementOnGround(int x) {
-        return this.ground[x];
-    }
-
-    public Titan getElementOnGround(int x, int y, int z) {
-        return this.ground[x][y][z];
-    }
-
-    public void setElementOnGround(int x, int y, int z, Titan val) {
-        this.ground[x][y][z] = val;
-    }
-
-    public int getNumberOfRows() {
-        return this.ground.length;
-    }
-
-    public Titan[][][] getGround() {
-        return this.ground;
-    }
-
     private static boolean verifyObstacle(int row, int col) {
         for (int[] coordinate: obstacle) {
             if (coordinate[0] == row && coordinate[1] == col) {

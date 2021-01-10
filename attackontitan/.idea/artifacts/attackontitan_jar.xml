@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact name="attackontitan:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/attackontitan_jar</output-path>
+    <root id="root">
+      <element id="archive" name="attackontitan.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="attackontitan" />
+      </element>
+    </root>
+  </artifact>
+</component>
