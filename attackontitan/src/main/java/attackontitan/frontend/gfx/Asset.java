@@ -11,10 +11,10 @@ public class Asset {
     public static BufferedImage mode, easyButton, hardButton;
 
     public static void init() {
-        SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/sprite-inprogress(2).png"));
+        SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/sprite1.png"));
         SpriteSheet menuSheet = new SpriteSheet(ImageLoader.loadImage("/textures/menu.png"));
         SpriteSheet endButton = new SpriteSheet(ImageLoader.loadImage("/textures/endbutton.png"));
-        SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/sprites(2).png"));
+        SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/sprite2.png"));
         SpriteSheet modeSheet = new SpriteSheet(ImageLoader.loadImage("/textures/mode_menu.png"));
 
         ground = sheet.crop(0, 0, width, height);
