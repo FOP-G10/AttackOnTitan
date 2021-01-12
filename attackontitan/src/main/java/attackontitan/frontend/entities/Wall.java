@@ -78,10 +78,14 @@ public class Wall extends Entity {
         if(hovering) {
             String upgradeHp = JOptionPane.showInputDialog("How many HP do you want to add up to the wall?");
             if (upgradeHp != null && !upgradeHp.isEmpty()) {
-                int upgrade = Integer.parseInt(upgradeHp);
-                if(GameState.gameProcess.getCoin() >= upgrade) {
-                    this.wall.upgradeWall(upgrade);
-                    GameState.gameProcess.payCoin(upgrade);
+                try {
+                    int upgrade = Integer.parseInt(upgradeHp);
+                    if (GameState.gameProcess.getCoin() >= upgrade) {
+                        this.wall.upgradeWall(upgrade);
+                        GameState.gameProcess.payCoin(upgrade);
+                    }
+                } catch (NumberFormatException ignored) {
+                    JOptionPane.showMessageDialog(null, "Invalid input");
                 }
             }
         }
